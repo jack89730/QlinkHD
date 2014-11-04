@@ -67,14 +67,14 @@
 //键盘出现时候调用的事件
 -(void) keyboadWillShow:(NSNotification *)note{
     [UIView animateWithDuration:0.2 animations:^(void){
-        self.view.frame = CGRectMake(-120,0, 1024,768);
+        self.view.bounds = CGRectMake(0,120, self.view.bounds.size.width,self.view.bounds.size.height);
     }];
 }
 
 //键盘消失时候调用的事件
 -(void)keyboardWillHide:(NSNotification *)note{
     [UIView animateWithDuration:0.2 animations:^(void){
-        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height);
+        self.view.bounds = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height);
     }];
 }
 
