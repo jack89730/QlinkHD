@@ -7,7 +7,19 @@
 //
 
 #import "MainViewController.h"
+#import "BottomBoard.h"
 
 @implementation MainViewController
+
++(id)loadFromSB
+{
+    MainViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MainViewController"];
+    return vc;
+}
+
+- (void)viewDidLoad
+{
+    BottomBoard *board = [BottomBoard defaultBottomBoard];
+}
 
 @end

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SetupIpViewController.h"
 
-@interface LoginViewController : SetupIpViewController<UITextFieldDelegate>
+@interface LoginViewController : SetupIpViewController<UITextFieldDelegate,SBLoader>
 
 @end

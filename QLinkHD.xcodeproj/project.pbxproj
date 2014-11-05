@@ -21,6 +21,11 @@
 		8A2C31281A047A970017287B /* QLinkHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31271A047A970017287B /* QLinkHDTests.m */; };
 		8A2C31381A0486F00017287B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31371A0486F00017287B /* LoginViewController.m */; };
 		8A2C313B1A04873A0017287B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C313A1A04873A0017287B /* Login.storyboard */; };
+		8A50E79A1A0A6B3400E2AE99 /* BottomBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E7991A0A6B3400E2AE99 /* BottomBoard.m */; };
+		8A50E79D1A0A6B6700E2AE99 /* BottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E79C1A0A6B6700E2AE99 /* BottomView.m */; };
+		8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E7A51A0A731600E2AE99 /* UIView+xib.m */; };
+		8A50E7A81A0A753000E2AE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A50E7A71A0A753000E2AE99 /* Main.storyboard */; };
+		8A50E7AA1A0A792000E2AE99 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A50E7A91A0A792000E2AE99 /* BottomView.xib */; };
 		8A9B42AA1A051772005CCC9C /* SetupIpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42A91A051772005CCC9C /* SetupIpViewController.m */; };
 		8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42B91A051C3A005CCC9C /* MainViewController.m */; };
 		8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */; };
@@ -93,6 +98,14 @@
 		8A2C31371A0486F00017287B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8A2C313A1A04873A0017287B /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8A2C319D1A04D4750017287B /* StoryBoardLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardLoader.h; sourceTree = "<group>"; };
+		8A50E7981A0A6B3400E2AE99 /* BottomBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBoard.h; sourceTree = "<group>"; };
+		8A50E7991A0A6B3400E2AE99 /* BottomBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBoard.m; sourceTree = "<group>"; };
+		8A50E79B1A0A6B6700E2AE99 /* BottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomView.h; sourceTree = "<group>"; };
+		8A50E79C1A0A6B6700E2AE99 /* BottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomView.m; sourceTree = "<group>"; };
+		8A50E7A41A0A731600E2AE99 /* UIView+xib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+xib.h"; sourceTree = "<group>"; };
+		8A50E7A51A0A731600E2AE99 /* UIView+xib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+xib.m"; sourceTree = "<group>"; };
+		8A50E7A71A0A753000E2AE99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8A50E7A91A0A792000E2AE99 /* BottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomView.xib; sourceTree = "<group>"; };
 		8A9B42A81A051772005CCC9C /* SetupIpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupIpViewController.h; sourceTree = "<group>"; };
 		8A9B42A91A051772005CCC9C /* SetupIpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupIpViewController.m; sourceTree = "<group>"; };
 		8A9B42B81A051C3A005CCC9C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -284,6 +297,7 @@
 			children = (
 				8A2C319D1A04D4750017287B /* StoryBoardLoader.h */,
 				8A2C313A1A04873A0017287B /* Login.storyboard */,
+				8A50E7A71A0A753000E2AE99 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +305,7 @@
 		8A2C31351A0486D90017287B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8A50E7971A0A6B2100E2AE99 /* CustomBoards */,
 				8A2C31361A0486F00017287B /* LoginViewController.h */,
 				8A2C31371A0486F00017287B /* LoginViewController.m */,
 				8A9B42A81A051772005CCC9C /* SetupIpViewController.h */,
@@ -301,9 +316,32 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		8A50E7971A0A6B2100E2AE99 /* CustomBoards */ = {
+			isa = PBXGroup;
+			children = (
+				8A50E7981A0A6B3400E2AE99 /* BottomBoard.h */,
+				8A50E7991A0A6B3400E2AE99 /* BottomBoard.m */,
+				8A50E79B1A0A6B6700E2AE99 /* BottomView.h */,
+				8A50E79C1A0A6B6700E2AE99 /* BottomView.m */,
+				8A50E7A91A0A792000E2AE99 /* BottomView.xib */,
+			);
+			path = CustomBoards;
+			sourceTree = "<group>";
+		};
+		8A50E7A31A0A730500E2AE99 /* UI_extend */ = {
+			isa = PBXGroup;
+			children = (
+				8A50E7A41A0A731600E2AE99 /* UIView+xib.h */,
+				8A50E7A51A0A731600E2AE99 /* UIView+xib.m */,
+			);
+			name = UI_extend;
+			path = QLinkHD/UI_extend;
+			sourceTree = SOURCE_ROOT;
+		};
 		8A9B42BD1A05236D005CCC9C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8A50E7A31A0A730500E2AE99 /* UI_extend */,
 				8A9B42BE1A05236D005CCC9C /* ActionNullClass.h */,
 				8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */,
 				8A9B42C01A05236D005CCC9C /* DataUtil.h */,
@@ -496,11 +534,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A50E7A81A0A753000E2AE99 /* Main.storyboard in Resources */,
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A9B42D31A05236D005CCC9C /* QLink.sqlite in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
 				8A2C313B1A04873A0017287B /* Login.storyboard in Resources */,
 				8AAB938C1A04E05400B803FC /* SVProgressHUD.bundle in Resources */,
+				8A50E7AA1A0A792000E2AE99 /* BottomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +570,7 @@
 				8AAB937D1A04E05400B803FC /* AFNetworkReachabilityManager.m in Sources */,
 				8AAB93841A04E05400B803FC /* FMDatabaseAdditions.m in Sources */,
 				8AAB93811A04E05400B803FC /* AFURLResponseSerialization.m in Sources */,
+				8A50E79A1A0A6B3400E2AE99 /* BottomBoard.m in Sources */,
 				8AAB938E1A04E05400B803FC /* XMLDictionary.m in Sources */,
 				8A9B42CF1A05236D005CCC9C /* Model.m in Sources */,
 				8AAB938D1A04E05400B803FC /* SVProgressHUD.m in Sources */,
@@ -540,6 +581,7 @@
 				8A9B42CE1A05236D005CCC9C /* DataUtil.m in Sources */,
 				8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */,
 				8AAB93861A04E05400B803FC /* FMDatabaseQueue.m in Sources */,
+				8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */,
 				8A9B42D11A05236D005CCC9C /* NSData+NSDataBytesToHex.m in Sources */,
 				8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */,
 				8A9B42D41A05236D005CCC9C /* SQLiteUtil.m in Sources */,
@@ -549,6 +591,7 @@
 				8AAB93871A04E05400B803FC /* FMResultSet.m in Sources */,
 				8AAB938A1A04E05400B803FC /* GCDAsyncSocket.m in Sources */,
 				8AAB93821A04E05400B803FC /* AFURLSessionManager.m in Sources */,
+				8A50E79D1A0A6B6700E2AE99 /* BottomView.m in Sources */,
 				8A2C310F1A047A970017287B /* main.m in Sources */,
 				8A2C31381A0486F00017287B /* LoginViewController.m in Sources */,
 			);

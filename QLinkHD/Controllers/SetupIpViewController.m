@@ -69,9 +69,11 @@
     }else{//读取本地数据配置
         NSLog(@"读取本地");
         
+        [SVProgressHUD dismiss];
+        
         [SQLiteUtil setDefaultLayerIdAndRoomId];
         
-        MainViewController *mainVC = [[MainViewController alloc] init];
+        MainViewController *mainVC = [MainViewController loadFromSB];
         [self.navigationController pushViewController:mainVC animated:YES];
     }
 }
@@ -263,7 +265,7 @@
         //读取本地配置
         [SQLiteUtil setDefaultLayerIdAndRoomId];
         
-        MainViewController *mainVC = [[MainViewController alloc] init];
+        MainViewController *mainVC = [MainViewController loadFromSB];
         [self.navigationController pushViewController:mainVC animated:YES];
     }else{
         [SVProgressHUD showErrorWithStatus:@"第一次配置必须连接Intenet"];
@@ -280,7 +282,7 @@
     
     [SQLiteUtil setDefaultLayerIdAndRoomId];
     
-    MainViewController *mainVC = [[MainViewController alloc] init];
+    MainViewController *mainVC = [MainViewController loadFromSB];
     [self.navigationController pushViewController:mainVC animated:YES];
 }
 
