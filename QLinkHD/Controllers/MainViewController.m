@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "BottomBoard.h"
+#import "BottomView.h"
+#import "UIView+xib.h"
 
 @implementation MainViewController
 
@@ -19,7 +21,20 @@
 
 - (void)viewDidLoad
 {
-    BottomBoard *board = [BottomBoard defaultBottomBoard];
+    [self initNavigation];
+    
+    [self initCommonUI];
+}
+
+-(void)initCommonUI
+{
+    [BottomBoard defaultBottomBoard];
+}
+
+//设置导航
+-(void)initNavigation
+{
+    [self.navigationController.navigationBar setHidden:NO];
 }
 
 @end

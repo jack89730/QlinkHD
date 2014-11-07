@@ -16,13 +16,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    NSLog(@"w=%f,h=%f",self.window.frame.size.width,self.window.frame.size.height);
+    
     LoginViewController *loginVC = [LoginViewController loadFromSB];
     UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [controller.navigationBar setBackgroundImage:[UIImage imageNamed:@"Common_nav"] forBarMetrics:UIBarMetricsDefault];
+    controller.navigationBar.translucent = NO;
+    [controller.navigationBar setHidden:YES];
+    
     self.window.rootViewController = controller;
+    [self.window makeKeyAndVisible];
     
     [self resetData];
-    
-    [self.window makeKeyAndVisible];
     
     return YES;
 }

@@ -30,16 +30,23 @@ static BottomBoard *__board = nil;
 - (id)init{
     self = [super init];
     if (self) {
+        NSInteger height = [[UIScreen mainScreen] bounds].size.height;
+        NSInteger width = [[UIScreen mainScreen] bounds].size.width;
+        
         NSLog(@"w=%f,h=%f",[[UIScreen mainScreen] applicationFrame].size.width,[[UIScreen mainScreen] applicationFrame].size.height);
         
-        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0,[[UIScreen mainScreen] applicationFrame].size.height - 272,[[UIScreen mainScreen] applicationFrame].size.width, 272)];
-        _boardWindow.backgroundColor = [UIColor clearColor];
-        _boardWindow.windowLevel = 3000;
-        _boardWindow.clipsToBounds = NO;
-        [_boardWindow makeKeyAndVisible];
+//        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0,[[UIScreen mainScreen] applicationFrame].size.height - 272,[[UIScreen mainScreen] applicationFrame].size.width, 272)];
         
+//        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(height-272,0,272,width)];
+//        _boardWindow.backgroundColor = [UIColor greenColor];
+//        _boardWindow.windowLevel = 3000;
+//        _boardWindow.clipsToBounds = NO;
+//        [_boardWindow makeKeyAndVisible];
+        
+        _boardWindow = [UIApplication sharedApplication].keyWindow;
         _boardView = [BottomView viewFromDefaultXib];
-        _boardView.autoresizingMask = UIViewAutoresizingNone;
+        _boardView.frame = CGRectMake(0, height - 272, width, 272);
+//        _boardView.autoresizingMask = UIViewAutoresizingNone;
         _boardView.userInteractionEnabled = YES;
         [_boardWindow addSubview:_boardView];
     }
