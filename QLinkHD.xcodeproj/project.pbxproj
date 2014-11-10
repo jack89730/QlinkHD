@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
 		8A2C31071A047A970017287B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31061A047A970017287B /* UIKit.framework */; };
@@ -26,6 +27,9 @@
 		8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E7A51A0A731600E2AE99 /* UIView+xib.m */; };
 		8A50E7A81A0A753000E2AE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A50E7A71A0A753000E2AE99 /* Main.storyboard */; };
 		8A50E7AA1A0A792000E2AE99 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A50E7A91A0A792000E2AE99 /* BottomView.xib */; };
+		8A706BC91A1112060000C3FF /* LeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A706BC81A1112060000C3FF /* LeftView.m */; };
+		8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A706BCA1A1112150000C3FF /* LeftView.xib */; };
+		8A908ED51A0E2DAE00AF9FB9 /* UIButton+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A908ED41A0E2DAE00AF9FB9 /* UIButton+image.m */; };
 		8A9B42AA1A051772005CCC9C /* SetupIpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42A91A051772005CCC9C /* SetupIpViewController.m */; };
 		8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42B91A051C3A005CCC9C /* MainViewController.m */; };
 		8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */; };
@@ -78,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
+		8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBoard.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2C31021A047A970017287B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A2C31041A047A970017287B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,6 +112,11 @@
 		8A50E7A51A0A731600E2AE99 /* UIView+xib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+xib.m"; sourceTree = "<group>"; };
 		8A50E7A71A0A753000E2AE99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A50E7A91A0A792000E2AE99 /* BottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomView.xib; sourceTree = "<group>"; };
+		8A706BC71A1112060000C3FF /* LeftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftView.h; sourceTree = "<group>"; };
+		8A706BC81A1112060000C3FF /* LeftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftView.m; sourceTree = "<group>"; };
+		8A706BCA1A1112150000C3FF /* LeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftView.xib; sourceTree = "<group>"; };
+		8A908ED31A0E2DAE00AF9FB9 /* UIButton+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+image.h"; sourceTree = "<group>"; };
+		8A908ED41A0E2DAE00AF9FB9 /* UIButton+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+image.m"; sourceTree = "<group>"; };
 		8A9B42A81A051772005CCC9C /* SetupIpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupIpViewController.h; sourceTree = "<group>"; };
 		8A9B42A91A051772005CCC9C /* SetupIpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupIpViewController.m; sourceTree = "<group>"; };
 		8A9B42B81A051C3A005CCC9C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -324,6 +335,11 @@
 				8A50E79B1A0A6B6700E2AE99 /* BottomView.h */,
 				8A50E79C1A0A6B6700E2AE99 /* BottomView.m */,
 				8A50E7A91A0A792000E2AE99 /* BottomView.xib */,
+				8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */,
+				8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */,
+				8A706BC71A1112060000C3FF /* LeftView.h */,
+				8A706BC81A1112060000C3FF /* LeftView.m */,
+				8A706BCA1A1112150000C3FF /* LeftView.xib */,
 			);
 			path = CustomBoards;
 			sourceTree = "<group>";
@@ -333,6 +349,8 @@
 			children = (
 				8A50E7A41A0A731600E2AE99 /* UIView+xib.h */,
 				8A50E7A51A0A731600E2AE99 /* UIView+xib.m */,
+				8A908ED31A0E2DAE00AF9FB9 /* UIButton+image.h */,
+				8A908ED41A0E2DAE00AF9FB9 /* UIButton+image.m */,
 			);
 			name = UI_extend;
 			path = QLinkHD/UI_extend;
@@ -537,6 +555,7 @@
 				8A50E7A81A0A753000E2AE99 /* Main.storyboard in Resources */,
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A9B42D31A05236D005CCC9C /* QLink.sqlite in Resources */,
+				8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
 				8A2C313B1A04873A0017287B /* Login.storyboard in Resources */,
 				8AAB938C1A04E05400B803FC /* SVProgressHUD.bundle in Resources */,
@@ -577,15 +596,18 @@
 				8AAB93891A04E05400B803FC /* SimplePingHelper.m in Sources */,
 				8AAB93851A04E05400B803FC /* FMDatabasePool.m in Sources */,
 				8A9B42D01A05236D005CCC9C /* NetworkUtil.m in Sources */,
+				8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */,
 				8AAB937F1A04E05400B803FC /* AFURLConnectionOperation.m in Sources */,
 				8A9B42CE1A05236D005CCC9C /* DataUtil.m in Sources */,
 				8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */,
 				8AAB93861A04E05400B803FC /* FMDatabaseQueue.m in Sources */,
+				8A706BC91A1112060000C3FF /* LeftView.m in Sources */,
 				8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */,
 				8A9B42D11A05236D005CCC9C /* NSData+NSDataBytesToHex.m in Sources */,
 				8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */,
 				8A9B42D41A05236D005CCC9C /* SQLiteUtil.m in Sources */,
 				8AAB937E1A04E05400B803FC /* AFSecurityPolicy.m in Sources */,
+				8A908ED51A0E2DAE00AF9FB9 /* UIButton+image.m in Sources */,
 				8AAB937C1A04E05400B803FC /* AFHTTPSessionManager.m in Sources */,
 				8AAB93801A04E05400B803FC /* AFURLRequestSerialization.m in Sources */,
 				8AAB93871A04E05400B803FC /* FMResultSet.m in Sources */,

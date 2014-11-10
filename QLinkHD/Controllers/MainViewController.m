@@ -8,8 +8,12 @@
 
 #import "MainViewController.h"
 #import "BottomBoard.h"
+#import "LeftBoard.h"
 #import "BottomView.h"
 #import "UIView+xib.h"
+#import "UIButton+image.h"
+
+#import "LeftView.h"
 
 @implementation MainViewController
 
@@ -29,12 +33,27 @@
 -(void)initCommonUI
 {
     [BottomBoard defaultBottomBoard];
+    [LeftBoard defaultLeftBoard];
 }
 
 //设置导航
 -(void)initNavigation
 {
+    self.navigationItem.hidesBackButton = YES;
     [self.navigationController.navigationBar setHidden:NO];
+    
+//    UIImage * imgOn = [UIImage imageNamed:@"Common_返回键01"];
+//    UIImage * imgOff = [UIImage imageNamed:@"Common_返回键02"];
+//    UIBarButtonItem * btnBack =  [UIBarButtonItem barItemWithImage:imgOn
+//                                                      highlightImage:imgOff
+//                                                              target:self
+//                                                        withAction:@selector(actionBack)];
+//    self.navigationItem.rightBarButtonItem = btnBack;
 }
+
+//-(void)actionBack
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 @end

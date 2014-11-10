@@ -17,5 +17,9 @@
     // Drawing code
 }
 */
+- (IBAction)btnSettingPressed:(id)sender
+{
+    NSLog(@"oooo");
+}
 
 @end

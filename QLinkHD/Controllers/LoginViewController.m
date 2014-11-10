@@ -52,6 +52,15 @@
     [self.tfKey setValue:[NSNumber numberWithInt:10] forKey:PADDINGLEFT];
     [self.tfUserName setValue:[NSNumber numberWithInt:10] forKey:PADDINGLEFT];
     [self.tfUserPwd setValue:[NSNumber numberWithInt:10] forKey:PADDINGLEFT];
+    
+    //设置文本框值
+    Member *member = [Member getMember];
+    if (member && member.isRemeber) {
+        self.tfKey.text = member.uKey;
+        self.tfUserName.text = member.uName;
+        self.tfUserPwd.text = member.uPwd;
+        self.btnRemeber.selected = member.isRemeber;
+    }
 }
 
 //TODO:初始化
