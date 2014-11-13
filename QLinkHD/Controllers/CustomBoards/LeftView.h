@@ -10,8 +10,7 @@
 
 @interface LeftView : UIView
 
-@property(nonatomic,assign) BOOL isHidden;
-@property (copy, nonatomic) void (^actionRightPressed)(BOOL isHidden);
+@property (copy, nonatomic) void (^actionRightPressed)();
 @property (weak, nonatomic) IBOutlet UIButton *btnRight;
 
 @end

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
+		8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D59591A14F24F00AE66C9 /* Login.storyboard */; };
+		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
+		8A1D59611A14F2D300AE66C9 /* IconCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
 		8A2C31071A047A970017287B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31061A047A970017287B /* UIKit.framework */; };
@@ -21,11 +24,9 @@
 		8A2C31261A047A970017287B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C31241A047A970017287B /* InfoPlist.strings */; };
 		8A2C31281A047A970017287B /* QLinkHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31271A047A970017287B /* QLinkHDTests.m */; };
 		8A2C31381A0486F00017287B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31371A0486F00017287B /* LoginViewController.m */; };
-		8A2C313B1A04873A0017287B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C313A1A04873A0017287B /* Login.storyboard */; };
 		8A50E79A1A0A6B3400E2AE99 /* BottomBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E7991A0A6B3400E2AE99 /* BottomBoard.m */; };
 		8A50E79D1A0A6B6700E2AE99 /* BottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E79C1A0A6B6700E2AE99 /* BottomView.m */; };
 		8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50E7A51A0A731600E2AE99 /* UIView+xib.m */; };
-		8A50E7A81A0A753000E2AE99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A50E7A71A0A753000E2AE99 /* Main.storyboard */; };
 		8A50E7AA1A0A792000E2AE99 /* BottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A50E7A91A0A792000E2AE99 /* BottomView.xib */; };
 		8A706BC91A1112060000C3FF /* LeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A706BC81A1112060000C3FF /* LeftView.m */; };
 		8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A706BCA1A1112150000C3FF /* LeftView.xib */; };
@@ -84,6 +85,11 @@
 /* Begin PBXFileReference section */
 		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
 		8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBoard.m; sourceTree = "<group>"; };
+		8A1D59591A14F24F00AE66C9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8A1D595A1A14F24F00AE66C9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8A1D595B1A14F24F00AE66C9 /* StoryBoardLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardLoader.h; sourceTree = "<group>"; };
+		8A1D595F1A14F2D300AE66C9 /* IconCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconCollectionCell.h; sourceTree = "<group>"; };
+		8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconCollectionCell.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2C31021A047A970017287B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A2C31041A047A970017287B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -102,15 +108,12 @@
 		8A2C31271A047A970017287B /* QLinkHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLinkHDTests.m; sourceTree = "<group>"; };
 		8A2C31361A0486F00017287B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8A2C31371A0486F00017287B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		8A2C313A1A04873A0017287B /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		8A2C319D1A04D4750017287B /* StoryBoardLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardLoader.h; sourceTree = "<group>"; };
 		8A50E7981A0A6B3400E2AE99 /* BottomBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBoard.h; sourceTree = "<group>"; };
 		8A50E7991A0A6B3400E2AE99 /* BottomBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBoard.m; sourceTree = "<group>"; };
 		8A50E79B1A0A6B6700E2AE99 /* BottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomView.h; sourceTree = "<group>"; };
 		8A50E79C1A0A6B6700E2AE99 /* BottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomView.m; sourceTree = "<group>"; };
 		8A50E7A41A0A731600E2AE99 /* UIView+xib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+xib.h"; sourceTree = "<group>"; };
 		8A50E7A51A0A731600E2AE99 /* UIView+xib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+xib.m"; sourceTree = "<group>"; };
-		8A50E7A71A0A753000E2AE99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A50E7A91A0A792000E2AE99 /* BottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomView.xib; sourceTree = "<group>"; };
 		8A706BC71A1112060000C3FF /* LeftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftView.h; sourceTree = "<group>"; };
 		8A706BC81A1112060000C3FF /* LeftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftView.m; sourceTree = "<group>"; };
@@ -221,6 +224,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1D59581A14F24F00AE66C9 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D59591A14F24F00AE66C9 /* Login.storyboard */,
+				8A1D595A1A14F24F00AE66C9 /* Main.storyboard */,
+				8A1D595B1A14F24F00AE66C9 /* StoryBoardLoader.h */,
+				8A1D595C1A14F24F00AE66C9 /* Views */,
+			);
+			name = StoryBoards;
+			path = QLinkHD/StoryBoards;
+			sourceTree = SOURCE_ROOT;
+		};
+		8A1D595C1A14F24F00AE66C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D595F1A14F2D300AE66C9 /* IconCollectionCell.h */,
+				8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8A2C30F61A047A970017287B = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +289,6 @@
 				8A9B42BD1A05236D005CCC9C /* Common */,
 				8AAB93481A04E02D00B803FC /* Package */,
 				8A2C31351A0486D90017287B /* Controllers */,
-				8A2C31341A0486D20017287B /* Views */,
 				8A2C31111A047A970017287B /* AppDelegate.h */,
 				8A2C31121A047A970017287B /* AppDelegate.m */,
 				8A2C31141A047A970017287B /* Images.xcassets */,
@@ -303,19 +326,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8A2C31341A0486D20017287B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8A2C319D1A04D4750017287B /* StoryBoardLoader.h */,
-				8A2C313A1A04873A0017287B /* Login.storyboard */,
-				8A50E7A71A0A753000E2AE99 /* Main.storyboard */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8A2C31351A0486D90017287B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8A1D59581A14F24F00AE66C9 /* StoryBoards */,
 				8A50E7971A0A6B2100E2AE99 /* CustomBoards */,
 				8A2C31361A0486F00017287B /* LoginViewController.h */,
 				8A2C31371A0486F00017287B /* LoginViewController.m */,
@@ -552,12 +566,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A50E7A81A0A753000E2AE99 /* Main.storyboard in Resources */,
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A9B42D31A05236D005CCC9C /* QLink.sqlite in Resources */,
+				8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */,
+				8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */,
 				8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
-				8A2C313B1A04873A0017287B /* Login.storyboard in Resources */,
 				8AAB938C1A04E05400B803FC /* SVProgressHUD.bundle in Resources */,
 				8A50E7AA1A0A792000E2AE99 /* BottomView.xib in Resources */,
 			);
@@ -592,6 +606,7 @@
 				8A50E79A1A0A6B3400E2AE99 /* BottomBoard.m in Sources */,
 				8AAB938E1A04E05400B803FC /* XMLDictionary.m in Sources */,
 				8A9B42CF1A05236D005CCC9C /* Model.m in Sources */,
+				8A1D59611A14F2D300AE66C9 /* IconCollectionCell.m in Sources */,
 				8AAB938D1A04E05400B803FC /* SVProgressHUD.m in Sources */,
 				8AAB93891A04E05400B803FC /* SimplePingHelper.m in Sources */,
 				8AAB93851A04E05400B803FC /* FMDatabasePool.m in Sources */,

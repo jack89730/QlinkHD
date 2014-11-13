@@ -12,10 +12,15 @@
 
 static LeftBoard *__board = nil;
 
+@interface LeftBoard()
+
+@property (nonatomic,retain) LeftView *boardView;
+
+@end
+
 @implementation LeftBoard
 {
     UIWindow        *_boardWindow;
-    LeftView      *_boardView;
 }
 
 + (LeftBoard *)defaultLeftBoard{
@@ -31,39 +36,25 @@ static LeftBoard *__board = nil;
     self = [super init];
     if (self) {
         NSInteger height = [[UIScreen mainScreen] bounds].size.height;
-//        NSInteger width = [[UIScreen mainScreen] bounds].size.width;
-        
-        NSLog(@"w=%f,h=%f",[[UIScreen mainScreen] applicationFrame].size.width,[[UIScreen mainScreen] applicationFrame].size.height);
-        
-        //        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0,[[UIScreen mainScreen] applicationFrame].size.height - 272,[[UIScreen mainScreen] applicationFrame].size.width, 272)];
-        
-        //        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(height-272,0,272,width)];
-        //        _boardWindow.backgroundColor = [UIColor greenColor];
-        //        _boardWindow.windowLevel = 3000;
-        //        _boardWindow.clipsToBounds = NO;
-        //        [_boardWindow makeKeyAndVisible];
-        
+
         _boardWindow = [UIApplication sharedApplication].keyWindow;
-        _boardView = [LeftView viewFromDefaultXib];
-        _boardView.frame = CGRectMake(-139, (height - 456 - 272 + 66), 189, 456);
-        _boardView.userInteractionEnabled = YES;
-//        _boardView.isHidden = YES;
-        [_boardView setActionRightPressed:^(BOOL isHidden) {
-            if (isHidden) {//要隐藏
+        _boardWindow.backgroundColor = [UIColor redColor];
+        self.boardView = [LeftView viewFromDefaultXib];
+        self.boardView.frame = CGRectMake(-139, (height - 456 - 272 + 66), 189, 456);
+        define_weakself;
+        [self.boardView setActionRightPressed:^() {
+            float x = weakSelf.boardView.frame.origin.x;
+            if (x < 0) {
                 [UIView animateWithDuration:0.2 animations:^{
-                    _boardView.frame = CGRectMake(-139, (height - 456 - 272 + 66), 189, 456);
-                }completion:^(BOOL finished) {
-                    _boardView.frame = CGRectMake(0, (height - 456 - 272 + 66), 189, 456);
-                }];
+                    weakSelf.boardView.frame = CGRectMake(0, (height - 456 - 272 + 66), 189, 456);
+                }completion:nil];
             } else {
                 [UIView animateWithDuration:0.2 animations:^{
-                    _boardView.frame = CGRectMake(0, (height - 456 - 272 + 66), 189, 456);
-                }completion:^(BOOL finished) {
-                    _boardView.frame = CGRectMake(-139, (height - 456 - 272 + 66), 189, 456);
-                }];
+                    weakSelf.boardView.frame = CGRectMake(-139, (height - 456 - 272 + 66), 189, 456);
+                }completion:nil];
             }
         }];
-        [_boardWindow addSubview:_boardView];
+        [_boardWindow addSubview:self.boardView];
     }
     return self;
 }

@@ -19,11 +19,8 @@
 */
 - (IBAction)btnRightPressed:(id)sender
 {
-    NSLog(@"33333");
-    
     if (self.actionRightPressed) {
-        self.isHidden = !self.isHidden;
-        self.actionRightPressed(self.isHidden);
+        self.actionRightPressed();
     }
 }
 
