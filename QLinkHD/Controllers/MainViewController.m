@@ -13,8 +13,9 @@
 #import "UIView+xib.h"
 #import "UIButton+image.h"
 #import "IconCollectionCell.h"
-
-#import "LeftView.h"
+#import "UIAlertView+MKBlockAdditions.h"
+#import "DataUtil.h"
+#import "SQLiteUtil.h"
 
 @interface MainViewController()
 
@@ -86,19 +87,61 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell * cell = nil;
     Device *obj = deviceArr[indexPath.row];
     //功能cell
     IconCollectionCell * iconCell = nil;
     iconCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"IconCellIdentifier" forIndexPath:indexPath];
     [iconCell fillViewValue:obj];
-    cell = iconCell;
-    return cell;
+    [iconCell setSinglePressed:^(UIButton *btn){
+        
+        //to do some thing 跳转到设备控制页面
+        
+    }];
+    [iconCell setLongPressed:^(UIButton *btn){
+        if ([obj.Type isEqualToString:@"light"] || [obj.Type isEqualToString:@"sansan_add"])
+        {
+            [UIAlertView alertViewWithTitle:@"温馨提示" message:@"照明类设备请到设备详情进行操作" cancelButtonTitle:@"取消"];
+            return;
+        }
+        
+        //弹出操作框
+        [UIAlertView alertViewWithTitle:@"请选择操作"
+                                message:nil
+                      cancelButtonTitle:@"取消"
+                      otherButtonTitles:@[@"重命名",@"图标重置",@"删除"]
+                              onDismiss:^(int btnIdx){
+                                  switch (btnIdx) {
+                                      case 0://重命名
+                                      {
+                                          break;
+                                      }
+                                      case 1://图标重置
+                                      {
+                                          IconViewController *iconVC = [IconViewController loadFromSB];
+                                          iconVC.pIconType = IconTypeDevice;
+                                          iconVC.pObj = obj;
+                                          iconVC.delegate = self;
+                                          [self.navigationController pushViewController:iconVC animated:YES];
+                                          
+                                          break;
+                                      }
+                                      case 2://删除
+                                      {
+                                          break;
+                                      }
+                                      default:
+                                          break;
+                                  }
+        }onCancel:nil];
+    }];
+    return iconCell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - IconViewControllerDelegate
+
+-(void)refreshTable
 {
-    
+    [self initData];
 }
 
 @end

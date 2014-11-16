@@ -110,6 +110,70 @@
     [db close];
 }
 
+#pragma mark - 楼层
+
+//TODO:获取所有楼层
++(NSMutableArray *)getLayerList
+{
+    NSMutableArray *layerArr = [NSMutableArray array];
+    
+    FMDatabase *db = [self getDB];
+    
+    NSString *sql = @"SELECT LayerId,HouseId FROM ROOM GROUP BY LAYERID ORDER BY LAYERID ASC";
+    
+    if ([db open]) {
+        FMResultSet *rs = [db executeQuery:sql];
+        while ([rs next]){
+            Layer *obj = [[Layer alloc] init];
+            obj.LayerId = [rs stringForColumn:@"LayerId"];
+            obj.HouseId = [rs stringForColumn:@"HouseId"];
+            
+            [layerArr addObject:obj];
+            break;
+        }
+        
+        [rs close];
+    }
+    
+    [db close];
+    
+    return layerArr;
+}
+
+//获取房间列表
++(NSArray *)getRoomList:(NSString *)houseId
+             andLayerId:(NSString *)layerId
+{
+    NSMutableArray *roomArr = [NSMutableArray array];
+    
+    FMDatabase *db = [self getDB];
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM ROOM WHERE HOUSEID='%@' AND LAYERID='%@'",houseId,layerId];
+    
+    if ([db open]) {
+        FMResultSet *rs = [db executeQuery:sql];
+        while ([rs next]){
+            Room *obj = [Room setRoomId:[rs stringForColumn:@"RoomId"]
+                            andRoomName:[rs stringForColumn:@"RoomName"]
+                             andHouseId:[rs stringForColumn:@"HouseId"]
+                             andLayerId:[rs stringForColumn:@"LayerId"]];
+            [roomArr addObject:obj];
+        }
+        
+        [rs close];
+    }
+    
+    [db close];
+    
+    Room *obj = [Room setRoomId:@""
+                    andRoomName:@"返回楼层"
+                     andHouseId:@""
+                     andLayerId:@""];
+    [roomArr addObject:obj];
+    
+    return roomArr;
+}
+
 //清除数据
 +(void)clearData
 {
@@ -286,6 +350,8 @@
                andLayerId:(NSString *)layerId
                 andRoomId:(NSString *)roomId
 {
+    NSMutableArray *iconArr = [DataUtil getIconList:IconTypeAll];
+    
     NSMutableArray *deviceArr = [NSMutableArray array];
     
     FMDatabase *db = [self getDB];
@@ -298,13 +364,22 @@
         
         FMResultSet *rs = [db executeQuery:sql];
         while ([rs next]){
+            
+            NSString *type = [rs stringForColumn:@"NewType"];
+            if ([DataUtil checkNullOrEmpty:type]) {
+                type = [rs stringForColumn:@"Type"];
+            }
+            if (![iconArr containsObject:type]) {
+                type = @"other";
+            }
+            
             Device *obj = [Device setDeviceId:[rs stringForColumn:@"DeviceId"]
                                 andDeviceName:[rs stringForColumn:@"DeviceName"]
                                       andType:[rs stringForColumn:@"Type"]
                                    andHouseId:[rs stringForColumn:@"HouseId"]
                                    andLayerId:[rs stringForColumn:@"LayerId"]
                                     andRoomId:[rs stringForColumn:@"RoomId"]
-                                  andIconType:[rs stringForColumn:@"NewType"]];
+                                  andIconType:type];
             [deviceArr addObject:obj];
         }
         
@@ -323,7 +398,7 @@
                                        andHouseId:@""
                                        andLayerId:@""
                                         andRoomId:@""
-                                      andIconType:nil];
+                                      andIconType:@"light"];
                 [deviceArr addObject:obj];
             }
         }
@@ -335,6 +410,7 @@
     Device *deviceObj = [[Device alloc] init];
     deviceObj.Type = SANSANADDDEVICE;
     deviceObj.DeviceName = @"添加设备";
+    deviceObj.IconType = @"sansan_add";
     [deviceArr addObject:deviceObj];
     
     return deviceArr;
@@ -358,34 +434,6 @@
     [db close];
     
     return bResult;
-}
-
-//获取房间列表
-+(NSArray *)getRoomList:(NSString *)houseId
-             andLayerId:(NSString *)layerId
-{
-    NSMutableArray *roomArr = [NSMutableArray array];
-    
-    FMDatabase *db = [self getDB];
-    
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM ROOM WHERE HOUSEID='%@' AND LAYERID='%@'",houseId,layerId];
-    
-    if ([db open]) {
-        FMResultSet *rs = [db executeQuery:sql];
-        while ([rs next]){
-            Room *obj = [Room setRoomId:[rs stringForColumn:@"RoomId"]
-                            andRoomName:[rs stringForColumn:@"RoomName"]
-                             andHouseId:[rs stringForColumn:@"HouseId"]
-                             andLayerId:[rs stringForColumn:@"LayerId"]];
-            [roomArr addObject:obj];
-        }
-        
-        [rs close];
-    }
-    
-    [db close];
-    
-    return roomArr;
 }
 
 //重命名场景

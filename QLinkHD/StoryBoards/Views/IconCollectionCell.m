@@ -12,10 +12,46 @@
 
 -(void)fillViewValue:(Device *)deviceObj
 {
+    self.userInteractionEnabled = YES;
     self.curObj = deviceObj;
     
     self.lName.text = deviceObj.DeviceName;
-    [self.btnIcon setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    NSString *imgSel = [NSString stringWithFormat:@"%@02",deviceObj.IconType];
+    [self.btnIcon setBackgroundImage:QLImage(deviceObj.IconType) forState:UIControlStateNormal];
+    [self.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateHighlighted];
+    [self.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateSelected];
+    [self.btnIcon addTarget:self action:@selector(btnIconPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+        //button长按事件
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLongPressed:)];
+    longPress.minimumPressDuration = 0.8; //定义按的时间
+    [self.btnIcon addGestureRecognizer:longPress];
+}
+
+-(void)btnIconPressed:(UIButton *)sender
+{
+    if (self.singlePressed) {
+        self.singlePressed(sender);
+    }
+}
+
+-(void)btnLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer{
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
+        NSLog(@"长按事件");
+        if (self.longPressed) {
+            self.longPressed(self.btnIcon);
+        }
+    }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.btnIcon.selected = YES;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.btnIcon.selected = NO;
 }
 
 @end

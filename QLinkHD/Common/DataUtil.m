@@ -69,6 +69,37 @@
     return obj;
 }
 
+//TODO:获取图标
++(NSMutableArray *)getIconList:(IconType)iconType
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"iConPlist" ofType:@"plist"];
+    NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    NSMutableArray *iconArr = [NSMutableArray array];
+    switch (iconType) {
+        case IconTypeSence:
+        {
+            [iconArr addObjectsFromArray:[dataDic objectForKey:@"Sence"]];
+            break;
+        }
+        case IconTypeDevice:
+        {
+            [iconArr addObjectsFromArray:[dataDic objectForKey:@"Device"]];
+            break;
+        }
+        case IconTypeAll:
+        {
+            [iconArr addObjectsFromArray:[dataDic objectForKey:@"Device"]];
+            [iconArr addObjectsFromArray:[dataDic objectForKey:@"Sence"]];
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return iconArr;
+}
+
 //更新房间号
 +(void)setGlobalAttrRoom:(NSString *)roomId
 {

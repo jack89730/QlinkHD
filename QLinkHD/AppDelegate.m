@@ -20,8 +20,6 @@
     v.backgroundColor = [UIColor redColor];
     [self.window addSubview:v];
     
-    NSLog(@"w=%f,h=%f",self.window.frame.size.width,self.window.frame.size.height);
-    
     LoginViewController *loginVC = [LoginViewController loadFromSB];
     UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:loginVC];
     [controller.navigationBar setBackgroundImage:[UIImage imageNamed:@"Common_nav"] forBarMetrics:UIBarMetricsDefault];
@@ -47,6 +45,8 @@
         NSString *dbPath =[[NSBundle mainBundle] pathForResource:@"QLink" ofType:@"sqlite"];
         [filemgr copyItemAtPath:dbPath toPath:databasePath error:&error];
     }
+    
+    NSLog(@"====%@",databasePath);
     
     //处理为正常模式
     [DataUtil setGlobalIsAddSence:NO];//设置当前为非添加模式

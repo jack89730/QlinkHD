@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IconViewController.h"
 
-@interface MainViewController : UIViewController<SBLoader>
+@interface MainViewController : UIViewController<SBLoader,IconViewControllerDelegate>
 
 @end

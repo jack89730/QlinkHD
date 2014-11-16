@@ -10,4 +10,6 @@
 
 @interface RoomButton : UIButton
 
++(id)buttonWithType:(UIButtonType)buttonType;
+
 @end

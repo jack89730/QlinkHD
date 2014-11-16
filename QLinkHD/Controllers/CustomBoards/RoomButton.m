@@ -13,9 +13,10 @@
 +(id)buttonWithType:(UIButtonType)buttonType
 {
     UIButton *btn = [UIButton buttonWithType:buttonType];
+    btn.contentEdgeInsets = UIEdgeInsetsMake(0,20, 0, 0);
     [btn setBackgroundImage:QLImage(@"left_RoomBtn01") forState:UIControlStateNormal];
     [btn setBackgroundImage:QLImage(@"left_RoomBtn02") forState:UIControlStateHighlighted];
-    [btn setBackgroundImage:QLImage(@"left_RoomBtn02") forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:QLImage(@"left_RoomBtn02") forState:UIControlStateSelected];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     return btn;
 }

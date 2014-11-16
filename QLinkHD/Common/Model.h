@@ -97,6 +97,14 @@
 
 @end
 
+/*******************************TODO:Layer*************************************/
+
+@interface Layer : NSObject
+
+@property(nonatomic,strong) NSString *HouseId;
+@property(nonatomic,strong) NSString *LayerId;
+
+@end
 
 /*******************************TODO:Room*************************************/
 

@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Model.h"
 
+typedef enum {
+    IconTypeSence = 0 ,
+    IconTypeDevice = 1,
+    IconTypeAll = 2
+}IconType;
+
 @interface DataUtil : NSObject
 
 //获取沙盒地址
@@ -22,6 +28,9 @@
 
 //判断是否为nil,nil则返回空
 +(NSString *)getDefaultValue:(NSString *)value;
+
+//TODO:获取图标
++(NSMutableArray *)getIconList:(IconType)iconType;
 
 //全局变量
 +(GlobalAttr *)shareInstanceToRoom;

@@ -29,6 +29,10 @@
 
 //获取设置当前默认楼层和房间号码
 +(void)setDefaultLayerIdAndRoomId;
+//TODO:获取所有楼层(忽略多个房子)
++(NSMutableArray *)getLayerList;
+//TODO:获取楼层下所有的房间
++(NSMutableArray *)getRoomListByLayerId:(NSString *)layerId;
 
 //清除数据
 +(void)clearData;

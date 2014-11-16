@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
 
 @interface IconCollectionCell : UICollectionViewCell
 
+@property (copy, nonatomic) void (^singlePressed)(UIButton *btn);
+@property (copy, nonatomic) void (^longPressed)(UIButton *btn);
 @property (weak, nonatomic) IBOutlet UIButton *btnIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lName;
 @property (weak, nonatomic) Device *curObj;
