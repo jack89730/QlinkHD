@@ -16,6 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+    v.backgroundColor = [UIColor redColor];
+    [self.window addSubview:v];
+    
     NSLog(@"w=%f,h=%f",self.window.frame.size.width,self.window.frame.size.height);
     
     LoginViewController *loginVC = [LoginViewController loadFromSB];

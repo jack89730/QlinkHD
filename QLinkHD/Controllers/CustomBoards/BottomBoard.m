@@ -10,6 +10,8 @@
 #import "BottomView.h"
 #import "UIView+xib.h"
 
+#define degreesToRadian(x) (M_PI * (x) / 180.0)
+
 static BottomBoard *__board = nil;
 
 @implementation BottomBoard
@@ -33,20 +35,15 @@ static BottomBoard *__board = nil;
         NSInteger height = [[UIScreen mainScreen] bounds].size.height;
         NSInteger width = [[UIScreen mainScreen] bounds].size.width;
         
-        NSLog(@"w=%f,h=%f",[[UIScreen mainScreen] applicationFrame].size.width,[[UIScreen mainScreen] applicationFrame].size.height);
-        
-//        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0,[[UIScreen mainScreen] applicationFrame].size.height - 272,[[UIScreen mainScreen] applicationFrame].size.width, 272)];
-        
-//        _boardWindow = [[UIWindow alloc] initWithFrame:CGRectMake(height-272,0,272,width)];
-//        _boardWindow.backgroundColor = [UIColor greenColor];
-//        _boardWindow.windowLevel = 3000;
-//        _boardWindow.clipsToBounds = NO;
-//        [_boardWindow makeKeyAndVisible];
-        
         _boardWindow = [UIApplication sharedApplication].keyWindow;
         _boardView = [BottomView viewFromDefaultXib];
-        _boardView.frame = CGRectMake(0, height - 272, width, 272);
-//        _boardView.autoresizingMask = UIViewAutoresizingNone;
+        if (!IOS8_OR_LATER) {
+            _boardView.frame = CGRectMake(-376, 376, height, 272);
+            _boardView.transform = CGAffineTransformMakeRotation(degreesToRadian(90));
+            _boardView.backgroundColor = [UIColor clearColor];
+        } else {
+            _boardView.frame = CGRectMake(0, height - 272, width, 272);
+        }
         _boardView.userInteractionEnabled = YES;
         [_boardWindow addSubview:_boardView];
     }

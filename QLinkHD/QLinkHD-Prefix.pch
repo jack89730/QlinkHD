@@ -65,3 +65,5 @@
 
 //TODO:用于定义一个 局部 weakself
 #define define_weakself __weak __typeof(self)weakSelf = self
+
+#define IOS8_OR_LATER		( [[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending )

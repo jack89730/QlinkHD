@@ -11,6 +11,7 @@
 		8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D59591A14F24F00AE66C9 /* Login.storyboard */; };
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
 		8A1D59611A14F2D300AE66C9 /* IconCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */; };
+		8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
 		8A2C31071A047A970017287B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31061A047A970017287B /* UIKit.framework */; };
@@ -90,6 +91,8 @@
 		8A1D595B1A14F24F00AE66C9 /* StoryBoardLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardLoader.h; sourceTree = "<group>"; };
 		8A1D595F1A14F2D300AE66C9 /* IconCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconCollectionCell.h; sourceTree = "<group>"; };
 		8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconCollectionCell.m; sourceTree = "<group>"; };
+		8A206D4B1A16E5FC001A8CB5 /* RoomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomButton.h; sourceTree = "<group>"; };
+		8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomButton.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2C31021A047A970017287B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A2C31041A047A970017287B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -354,6 +357,8 @@
 				8A706BC71A1112060000C3FF /* LeftView.h */,
 				8A706BC81A1112060000C3FF /* LeftView.m */,
 				8A706BCA1A1112150000C3FF /* LeftView.xib */,
+				8A206D4B1A16E5FC001A8CB5 /* RoomButton.h */,
+				8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */,
 			);
 			path = CustomBoards;
 			sourceTree = "<group>";
@@ -600,6 +605,7 @@
 				8AAB93881A04E05400B803FC /* SimplePing.m in Sources */,
 				8AAB938B1A04E05400B803FC /* GCDAsyncUdpSocket.m in Sources */,
 				8AAB937B1A04E05400B803FC /* AFHTTPRequestOperationManager.m in Sources */,
+				8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */,
 				8AAB937D1A04E05400B803FC /* AFNetworkReachabilityManager.m in Sources */,
 				8AAB93841A04E05400B803FC /* FMDatabaseAdditions.m in Sources */,
 				8AAB93811A04E05400B803FC /* AFURLResponseSerialization.m in Sources */,

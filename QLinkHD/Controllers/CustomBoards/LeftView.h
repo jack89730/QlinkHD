@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeftView : UIView
+@interface LeftView : UIView<UITableViewDataSource,UITableViewDelegate>
 
 @property (copy, nonatomic) void (^actionRightPressed)();
 @property (weak, nonatomic) IBOutlet UIButton *btnRight;
+@property (weak, nonatomic) IBOutlet UITableView *tbRoom;
 
 @end
