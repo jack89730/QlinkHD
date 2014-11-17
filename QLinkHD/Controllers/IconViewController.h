@@ -20,7 +20,7 @@
 @interface IconViewController : UIViewController<SBLoader>
 
 @property(nonatomic,assign) id<IconViewControllerDelegate>delegate;
-@property(nonatomic,assign) IconType *pIconType;
+@property(nonatomic,assign) IconType pIconType;
 @property(nonatomic,retain) Device *pObj;
 
 @end

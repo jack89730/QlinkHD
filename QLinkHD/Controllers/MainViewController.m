@@ -16,11 +16,13 @@
 #import "UIAlertView+MKBlockAdditions.h"
 #import "DataUtil.h"
 #import "SQLiteUtil.h"
+#import "RenameView.h"
+#import "NetworkUtil.h"
 
-@interface MainViewController()
+@interface MainViewController()<IconViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *deviceCollectionView;
-
+@property (nonatomic, retain) RenameView *renameView;
 
 @end
 
@@ -113,6 +115,45 @@
                                   switch (btnIdx) {
                                       case 0://重命名
                                       {
+                                          self.renameView = [RenameView viewFromDefaultXib];
+                                          self.renameView.frame = CGRectMake(0, 0, 1024, 768);
+                                          self.renameView.backgroundColor = [UIColor clearColor];
+                                          self.renameView.tfContent.text = obj.DeviceName;
+                                          define_weakself;
+                                          [self.renameView setCanclePressed:^{
+                                              [weakSelf.renameView removeFromSuperview];
+                                          }];
+                                          [self.renameView setConfirmPressed:^(UILabel *lTitle,NSString *newName){
+                                              NSString *sUrl = [NetworkUtil getChangeDeviceName:newName andDeviceId:obj.DeviceId];
+                                              
+                                              NSURL *url = [NSURL URLWithString:sUrl];
+                                              NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+                                              NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                                              NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+                                              if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
+                                                  [SQLiteUtil renameDeviceName:obj.DeviceId andNewName:newName];
+                                                  
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                                                                  message:@"更新成功."
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"确定"
+                                                                                        otherButtonTitles:nil, nil];
+                                                  [alert show];
+                                                  
+                                                  [weakSelf.renameView removeFromSuperview];
+                                                  
+                                                  [weakSelf initData];
+                                              }else{
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                                                                  message:@"更新失败,请稍后再试."
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"关闭"
+                                                                                        otherButtonTitles:nil, nil];
+                                                  [alert show];
+                                              }
+                                          }];
+                                          [[UIApplication sharedApplication].keyWindow addSubview:self.renameView];
+                                          
                                           break;
                                       }
                                       case 1://图标重置
@@ -135,6 +176,14 @@
         }onCancel:nil];
     }];
     return iconCell;
+}
+
+#pragma mark - RenameViewDelegate
+
+//取消
+-(void)handleCanclePressed:(RenameView *)view
+{
+    [view removeFromSuperview];
 }
 
 #pragma mark - IconViewControllerDelegate

@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Model.h"
 
 @interface LoginViewController ()
 {

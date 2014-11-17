@@ -34,6 +34,8 @@
 		8A706BC91A1112060000C3FF /* LeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A706BC81A1112060000C3FF /* LeftView.m */; };
 		8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A706BCA1A1112150000C3FF /* LeftView.xib */; };
 		8A908ED51A0E2DAE00AF9FB9 /* UIButton+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A908ED41A0E2DAE00AF9FB9 /* UIButton+image.m */; };
+		8A9B3CCA1A1A347400FABB46 /* RenameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B3CC81A1A347400FABB46 /* RenameView.m */; };
+		8A9B3CCB1A1A347400FABB46 /* RenameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3CC91A1A347400FABB46 /* RenameView.xib */; };
 		8A9B42AA1A051772005CCC9C /* SetupIpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42A91A051772005CCC9C /* SetupIpViewController.m */; };
 		8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42B91A051C3A005CCC9C /* MainViewController.m */; };
 		8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */; };
@@ -134,6 +136,9 @@
 		8A706BCA1A1112150000C3FF /* LeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftView.xib; sourceTree = "<group>"; };
 		8A908ED31A0E2DAE00AF9FB9 /* UIButton+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+image.h"; sourceTree = "<group>"; };
 		8A908ED41A0E2DAE00AF9FB9 /* UIButton+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+image.m"; sourceTree = "<group>"; };
+		8A9B3CC71A1A347400FABB46 /* RenameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenameView.h; sourceTree = "<group>"; };
+		8A9B3CC81A1A347400FABB46 /* RenameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenameView.m; sourceTree = "<group>"; };
+		8A9B3CC91A1A347400FABB46 /* RenameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RenameView.xib; sourceTree = "<group>"; };
 		8A9B42A81A051772005CCC9C /* SetupIpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupIpViewController.h; sourceTree = "<group>"; };
 		8A9B42A91A051772005CCC9C /* SetupIpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupIpViewController.m; sourceTree = "<group>"; };
 		8A9B42B81A051C3A005CCC9C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -267,6 +272,9 @@
 		8A1D595C1A14F24F00AE66C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8A9B3CC71A1A347400FABB46 /* RenameView.h */,
+				8A9B3CC81A1A347400FABB46 /* RenameView.m */,
+				8A9B3CC91A1A347400FABB46 /* RenameView.xib */,
 				8A1D595F1A14F2D300AE66C9 /* IconCollectionCell.h */,
 				8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */,
 			);
@@ -621,6 +629,7 @@
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A9B42D31A05236D005CCC9C /* QLink.sqlite in Resources */,
 				8AA7FCB71A18E4C90017C703 /* BottomRightView.xib in Resources */,
+				8A9B3CCB1A1A347400FABB46 /* RenameView.xib in Resources */,
 				8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */,
 				8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */,
 				8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */,
@@ -686,6 +695,7 @@
 				8AA7FCB51A18E4B10017C703 /* BottomRightView.m in Sources */,
 				8AAB937C1A04E05400B803FC /* AFHTTPSessionManager.m in Sources */,
 				8AAB93801A04E05400B803FC /* AFURLRequestSerialization.m in Sources */,
+				8A9B3CCA1A1A347400FABB46 /* RenameView.m in Sources */,
 				8AAB93871A04E05400B803FC /* FMResultSet.m in Sources */,
 				8AB89B6A1A18C59900183AE5 /* UIActionSheet+MKBlockAdditions.m in Sources */,
 				8AAB938A1A04E05400B803FC /* GCDAsyncSocket.m in Sources */,

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "IconViewController.h"
 
-@interface MainViewController : UIViewController<SBLoader,IconViewControllerDelegate>
+@interface MainViewController : UIViewController<SBLoader>
 
 @end
