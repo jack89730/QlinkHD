@@ -18,6 +18,7 @@
 #import "SQLiteUtil.h"
 #import "RenameView.h"
 #import "NetworkUtil.h"
+#import "DeviceConfigViewController.h"
 
 @interface MainViewController()<IconViewControllerDelegate>
 
@@ -63,22 +64,10 @@
 //设置导航
 -(void)initNavigation
 {
+    self.title = @"桌面";
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController.navigationBar setHidden:NO];
-    
-//    UIImage * imgOn = [UIImage imageNamed:@"Common_返回键01"];
-//    UIImage * imgOff = [UIImage imageNamed:@"Common_返回键02"];
-//    UIBarButtonItem * btnBack =  [UIBarButtonItem barItemWithImage:imgOn
-//                                                      highlightImage:imgOff
-//                                                              target:self
-//                                                        withAction:@selector(actionBack)];
-//    self.navigationItem.rightBarButtonItem = btnBack;
 }
-
-//-(void)actionBack
-//{
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
 
 #pragma mark - UICollectionViewDataSouce
 
@@ -94,15 +83,13 @@
     IconCollectionCell * iconCell = nil;
     iconCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"IconCellIdentifier" forIndexPath:indexPath];
     [iconCell fillViewValue:obj];
-    [iconCell setSinglePressed:^(UIButton *btn){
-        
-        //to do some thing 跳转到设备控制页面
-        
-    }];
-    [iconCell setLongPressed:^(UIButton *btn){
-        if ([obj.Type isEqualToString:@"light"] || [obj.Type isEqualToString:@"sansan_add"])
+    [iconCell setLongPressed:^{
+        if ([obj.Type isEqualToString:@"light"])
         {
             [UIAlertView alertViewWithTitle:@"温馨提示" message:@"照明类设备请到设备详情进行操作" cancelButtonTitle:@"取消"];
+            return;
+        } else if ([obj.Type isEqualToString:add_oper]) {
+            [UIAlertView alertViewWithTitle:@"温馨提示" message:@"请单击进行操作" cancelButtonTitle:@"取消"];
             return;
         }
         
@@ -174,6 +161,19 @@
                                           break;
                                   }
         }onCancel:nil];
+    }];
+    
+    //单击事件
+    [iconCell setSinglePressed:^(UIButton *btn){
+        if ([obj.Type isEqualToString:@"light"])
+        {
+            
+        } else if ([obj.Type isEqualToString:add_oper]) {
+            DeviceConfigViewController *deviceConfigVC = [DeviceConfigViewController loadFromSB];
+            [self.navigationController pushViewController:deviceConfigVC animated:YES];
+        } else {
+            
+        }
     }];
     return iconCell;
 }

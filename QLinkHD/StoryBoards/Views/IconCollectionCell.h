@@ -12,11 +12,12 @@
 @interface IconCollectionCell : UICollectionViewCell
 
 @property (copy, nonatomic) void (^singlePressed)(UIButton *btn);
-@property (copy, nonatomic) void (^longPressed)(UIButton *btn);
+@property (copy, nonatomic) void (^longPressed)();
 @property (weak, nonatomic) IBOutlet UIButton *btnIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lName;
 @property (weak, nonatomic) Device *curObj;
 
 -(void)fillViewValue:(Device *)deviceObj;
+-(void)fillViewValue:(NSString *)img andImgSel:(NSString *)imgSel andTitle:(NSString *)title;
 
 @end

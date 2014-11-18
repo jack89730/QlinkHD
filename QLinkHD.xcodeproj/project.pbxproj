@@ -38,7 +38,6 @@
 		8A9B3CCB1A1A347400FABB46 /* RenameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B3CC91A1A347400FABB46 /* RenameView.xib */; };
 		8A9B42AA1A051772005CCC9C /* SetupIpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42A91A051772005CCC9C /* SetupIpViewController.m */; };
 		8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42B91A051C3A005CCC9C /* MainViewController.m */; };
-		8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */; };
 		8A9B42CE1A05236D005CCC9C /* DataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42C11A05236D005CCC9C /* DataUtil.m */; };
 		8A9B42CF1A05236D005CCC9C /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42C31A05236D005CCC9C /* Model.m */; };
 		8A9B42D01A05236D005CCC9C /* NetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42C51A05236D005CCC9C /* NetworkUtil.m */; };
@@ -46,6 +45,9 @@
 		8A9B42D21A05236D005CCC9C /* NSString+NSStringHexToBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42C91A05236D005CCC9C /* NSString+NSStringHexToBytes.m */; };
 		8A9B42D31A05236D005CCC9C /* QLink.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A9B42CA1A05236D005CCC9C /* QLink.sqlite */; };
 		8A9B42D41A05236D005CCC9C /* SQLiteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B42CC1A05236D005CCC9C /* SQLiteUtil.m */; };
+		8A9ED4E51A1B8C17009136C6 /* DeviceConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ED4E41A1B8C17009136C6 /* DeviceConfigViewController.m */; };
+		8A9ED4E81A1B9764009136C6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ED4E71A1B9764009136C6 /* BaseViewController.m */; };
+		8A9ED4EE1A1B985C009136C6 /* ActionNullClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ED4ED1A1B985C009136C6 /* ActionNullClass.m */; };
 		8AA7FCAD1A18DA350017C703 /* IconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7FCAC1A18DA350017C703 /* IconViewController.m */; };
 		8AA7FCB11A18DB150017C703 /* Icon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7FCB01A18DB150017C703 /* Icon.storyboard */; };
 		8AA7FCB51A18E4B10017C703 /* BottomRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7FCB41A18E4B10017C703 /* BottomRightView.m */; };
@@ -143,8 +145,6 @@
 		8A9B42A91A051772005CCC9C /* SetupIpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupIpViewController.m; sourceTree = "<group>"; };
 		8A9B42B81A051C3A005CCC9C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		8A9B42B91A051C3A005CCC9C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		8A9B42BE1A05236D005CCC9C /* ActionNullClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionNullClass.h; sourceTree = "<group>"; };
-		8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionNullClass.m; sourceTree = "<group>"; };
 		8A9B42C01A05236D005CCC9C /* DataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtil.h; sourceTree = "<group>"; };
 		8A9B42C11A05236D005CCC9C /* DataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUtil.m; sourceTree = "<group>"; };
 		8A9B42C21A05236D005CCC9C /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
@@ -158,6 +158,12 @@
 		8A9B42CA1A05236D005CCC9C /* QLink.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QLink.sqlite; sourceTree = "<group>"; };
 		8A9B42CB1A05236D005CCC9C /* SQLiteUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteUtil.h; sourceTree = "<group>"; };
 		8A9B42CC1A05236D005CCC9C /* SQLiteUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteUtil.m; sourceTree = "<group>"; };
+		8A9ED4E31A1B8C17009136C6 /* DeviceConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceConfigViewController.h; sourceTree = "<group>"; };
+		8A9ED4E41A1B8C17009136C6 /* DeviceConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceConfigViewController.m; sourceTree = "<group>"; };
+		8A9ED4E61A1B9764009136C6 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		8A9ED4E71A1B9764009136C6 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		8A9ED4EC1A1B985C009136C6 /* ActionNullClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionNullClass.h; sourceTree = "<group>"; };
+		8A9ED4ED1A1B985C009136C6 /* ActionNullClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionNullClass.m; sourceTree = "<group>"; };
 		8AA7FCAB1A18DA350017C703 /* IconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconViewController.h; sourceTree = "<group>"; };
 		8AA7FCAC1A18DA350017C703 /* IconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconViewController.m; sourceTree = "<group>"; };
 		8AA7FCB01A18DB150017C703 /* Icon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Icon.storyboard; sourceTree = "<group>"; };
@@ -371,10 +377,14 @@
 				8A2C31371A0486F00017287B /* LoginViewController.m */,
 				8A9B42A81A051772005CCC9C /* SetupIpViewController.h */,
 				8A9B42A91A051772005CCC9C /* SetupIpViewController.m */,
+				8A9ED4E61A1B9764009136C6 /* BaseViewController.h */,
+				8A9ED4E71A1B9764009136C6 /* BaseViewController.m */,
 				8A9B42B81A051C3A005CCC9C /* MainViewController.h */,
 				8A9B42B91A051C3A005CCC9C /* MainViewController.m */,
 				8AA7FCAB1A18DA350017C703 /* IconViewController.h */,
 				8AA7FCAC1A18DA350017C703 /* IconViewController.m */,
+				8A9ED4E31A1B8C17009136C6 /* DeviceConfigViewController.h */,
+				8A9ED4E41A1B8C17009136C6 /* DeviceConfigViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,8 +429,6 @@
 				8A0422C11A18955B00D50A39 /* DeviceConfigIconPlist.plist */,
 				8A0422C21A18955B00D50A39 /* iConPlist.plist */,
 				8A50E7A31A0A730500E2AE99 /* UI_extend */,
-				8A9B42BE1A05236D005CCC9C /* ActionNullClass.h */,
-				8A9B42BF1A05236D005CCC9C /* ActionNullClass.m */,
 				8A9B42C01A05236D005CCC9C /* DataUtil.h */,
 				8A9B42C11A05236D005CCC9C /* DataUtil.m */,
 				8A9B42C21A05236D005CCC9C /* Model.h */,
@@ -434,6 +442,8 @@
 				8A9B42CA1A05236D005CCC9C /* QLink.sqlite */,
 				8A9B42CB1A05236D005CCC9C /* SQLiteUtil.h */,
 				8A9B42CC1A05236D005CCC9C /* SQLiteUtil.m */,
+				8A9ED4EC1A1B985C009136C6 /* ActionNullClass.h */,
+				8A9ED4ED1A1B985C009136C6 /* ActionNullClass.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -660,6 +670,7 @@
 				8A9B42D21A05236D005CCC9C /* NSString+NSStringHexToBytes.m in Sources */,
 				8A9B42AA1A051772005CCC9C /* SetupIpViewController.m in Sources */,
 				8AAB937A1A04E05400B803FC /* AFHTTPRequestOperation.m in Sources */,
+				8A9ED4E51A1B8C17009136C6 /* DeviceConfigViewController.m in Sources */,
 				8A2C31131A047A970017287B /* AppDelegate.m in Sources */,
 				8AAB93831A04E05400B803FC /* FMDatabase.m in Sources */,
 				8AAB93881A04E05400B803FC /* SimplePing.m in Sources */,
@@ -681,6 +692,7 @@
 				8AAB937F1A04E05400B803FC /* AFURLConnectionOperation.m in Sources */,
 				8A9B42CE1A05236D005CCC9C /* DataUtil.m in Sources */,
 				8AA7FCAD1A18DA350017C703 /* IconViewController.m in Sources */,
+				8A9ED4E81A1B9764009136C6 /* BaseViewController.m in Sources */,
 				8A9B42BA1A051C3A005CCC9C /* MainViewController.m in Sources */,
 				8AAB93861A04E05400B803FC /* FMDatabaseQueue.m in Sources */,
 				8A706BC91A1112060000C3FF /* LeftView.m in Sources */,
@@ -688,7 +700,6 @@
 				8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */,
 				8AB89B691A18C59900183AE5 /* NSObject+MKBlockAdditions.m in Sources */,
 				8A9B42D11A05236D005CCC9C /* NSData+NSDataBytesToHex.m in Sources */,
-				8A9B42CD1A05236D005CCC9C /* ActionNullClass.m in Sources */,
 				8A9B42D41A05236D005CCC9C /* SQLiteUtil.m in Sources */,
 				8AAB937E1A04E05400B803FC /* AFSecurityPolicy.m in Sources */,
 				8A908ED51A0E2DAE00AF9FB9 /* UIButton+image.m in Sources */,
@@ -699,6 +710,7 @@
 				8AAB93871A04E05400B803FC /* FMResultSet.m in Sources */,
 				8AB89B6A1A18C59900183AE5 /* UIActionSheet+MKBlockAdditions.m in Sources */,
 				8AAB938A1A04E05400B803FC /* GCDAsyncSocket.m in Sources */,
+				8A9ED4EE1A1B985C009136C6 /* ActionNullClass.m in Sources */,
 				8AAB93821A04E05400B803FC /* AFURLSessionManager.m in Sources */,
 				8A50E79D1A0A6B6700E2AE99 /* BottomView.m in Sources */,
 				8A2C310F1A047A970017287B /* main.m in Sources */,

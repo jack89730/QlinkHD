@@ -28,6 +28,17 @@
     [self.btnIcon addGestureRecognizer:longPress];
 }
 
+-(void)fillViewValue:(NSString *)img andImgSel:(NSString *)imgSel andTitle:(NSString *)title
+{
+    self.userInteractionEnabled = YES;
+    
+    self.lName.text = title;
+    [self.btnIcon setBackgroundImage:QLImage(img) forState:UIControlStateNormal];
+    [self.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateHighlighted];
+    [self.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateSelected];
+    [self.btnIcon addTarget:self action:@selector(btnIconPressed:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 -(void)btnIconPressed:(UIButton *)sender
 {
     if (self.singlePressed) {
@@ -39,7 +50,7 @@
     if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
         NSLog(@"长按事件");
         if (self.longPressed) {
-            self.longPressed(self.btnIcon);
+            self.longPressed();
         }
     }
 }

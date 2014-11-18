@@ -32,6 +32,9 @@ typedef enum {
 //TODO:获取图标
 +(NSMutableArray *)getIconList:(IconType)iconType;
 
+//TODO:配置设备icon图标
++(NSMutableDictionary *)getDeviceConfigIconList;
+
 //全局变量
 +(GlobalAttr *)shareInstanceToRoom;
 

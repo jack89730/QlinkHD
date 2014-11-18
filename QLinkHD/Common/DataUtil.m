@@ -100,6 +100,14 @@
     return iconArr;
 }
 
+//TODO:配置设备icon图标
++(NSMutableDictionary *)getDeviceConfigIconList
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"DeviceConfigIconPlist" ofType:@"plist"];
+    NSMutableDictionary *iconDic = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    return iconDic;
+}
+
 //更新房间号
 +(void)setGlobalAttrRoom:(NSString *)roomId
 {

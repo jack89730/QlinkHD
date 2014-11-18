@@ -251,7 +251,7 @@
     
     //add图标
     Sence *senceObj = [[Sence alloc] init];
-    senceObj.Type = SANSANADDMACRO;
+    senceObj.Type = add_oper;
     senceObj.SenceName = @"添加场景";
     [senceArr addObject:senceObj];
     
@@ -408,9 +408,9 @@
     
     //add图标
     Device *deviceObj = [[Device alloc] init];
-    deviceObj.Type = SANSANADDDEVICE;
+    deviceObj.Type = add_oper;
     deviceObj.DeviceName = @"添加设备";
-    deviceObj.IconType = @"sansan_add";
+    deviceObj.IconType = add_oper;
     [deviceArr addObject:deviceObj];
     
     return deviceArr;

@@ -57,8 +57,9 @@
 #define DBNAME @"QLink.sqlite"
 
 //TODO:add 标识
-#define SANSANADDMACRO @"SANSAN_MACRO_ADD"
-#define SANSANADDDEVICE @"SANSAN_DEVICE_ADD"
+//#define SANSANADDMACRO @"SANSAN_MACRO_ADD"
+//#define SANSANADDDEVICE @"SANSAN_DEVICE_ADD"
+#define add_oper @"sansan_add"
 
 //TODO:场景类型
 #define MACRO @"macro"

@@ -39,6 +39,7 @@
 //设置导航
 -(void)initNavigation
 {
+    self.title = @"图标设置";
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController.navigationBar setHidden:NO];
     
