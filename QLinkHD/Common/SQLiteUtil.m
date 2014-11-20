@@ -224,6 +224,7 @@
                andRoomId:(NSString *)roomId
 {
     NSMutableArray *senceArr = [NSMutableArray array];
+    NSMutableArray *iconArr = [DataUtil getIconList:IconTypeAll];
     
     FMDatabase *db = [self getDB];
     
@@ -232,6 +233,14 @@
     if ([db open]) {
         FMResultSet *rs = [db executeQuery:sql];
         while ([rs next]){
+            NSString *type = [rs stringForColumn:@"NewType"];
+            if ([DataUtil checkNullOrEmpty:type]) {
+                type = [rs stringForColumn:@"Type"];
+            }
+            if (![iconArr containsObject:type]) {
+                type = @"other";
+            }
+            
             Sence *obj = [Sence setSenceId:[rs stringForColumn:@"SenceId"]
                               andSenceName:[rs stringForColumn:@"SenceName"]
                                andMacrocmd:[rs stringForColumn:@"Macrocmd"]
@@ -240,7 +249,7 @@
                                 andHouseId:[rs stringForColumn:@"HouseId"]
                                 andLayerId:[rs stringForColumn:@"LayerId"]
                                  andRoomId:[rs stringForColumn:@"RoomId"]
-                               andIconType:[rs stringForColumn:@"NewType"]];
+                               andIconType:type];
             [senceArr addObject:obj];
         }
         
@@ -252,7 +261,8 @@
     //add图标
     Sence *senceObj = [[Sence alloc] init];
     senceObj.Type = add_oper;
-    senceObj.SenceName = @"添加场景";
+    senceObj.SenceName = @"添加设备";
+    senceObj.IconType = add_oper;
     [senceArr addObject:senceObj];
     
     return senceArr;

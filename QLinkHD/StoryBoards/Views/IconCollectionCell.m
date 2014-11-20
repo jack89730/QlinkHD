@@ -10,10 +10,11 @@
 
 @implementation IconCollectionCell
 
--(void)fillViewValue:(Device *)deviceObj
+//设备主页面
+-(void)fillDeviceValue:(Device *)deviceObj
 {
     self.userInteractionEnabled = YES;
-    self.curObj = deviceObj;
+    self.curDeviceObj = deviceObj;
     
     self.lName.text = deviceObj.DeviceName;
     NSString *imgSel = [NSString stringWithFormat:@"%@02",deviceObj.IconType];
@@ -28,6 +29,26 @@
     [self.btnIcon addGestureRecognizer:longPress];
 }
 
+//场景主页面
+-(void)fillSenceValue:(Sence *)senceObj
+{
+    self.userInteractionEnabled = YES;
+    self.curSenceObj = senceObj;
+    
+    self.lName.text = senceObj.SenceName;
+    NSString *imgSel = [NSString stringWithFormat:@"%@02",senceObj.IconType];
+    [self.btnIcon setBackgroundImage:QLImage(senceObj.IconType) forState:UIControlStateNormal];
+    [self.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateHighlighted];
+    [self.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateSelected];
+    [self.btnIcon addTarget:self action:@selector(btnIconPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //button长按事件
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLongPressed:)];
+    longPress.minimumPressDuration = 0.8; //定义按的时间
+    [self.btnIcon addGestureRecognizer:longPress];
+}
+
+//添加设备
 -(void)fillViewValue:(NSString *)img andImgSel:(NSString *)imgSel andTitle:(NSString *)title
 {
     self.userInteractionEnabled = YES;

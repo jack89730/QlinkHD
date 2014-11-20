@@ -81,6 +81,8 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         btnIconSel.selected = NO;
+         
          NSString *sResult = [[NSString alloc] initWithData:responseObject encoding:[DataUtil getGB2312Code]];
          
          if (![DataUtil checkNullOrEmpty:sResult]) {
@@ -117,6 +119,8 @@
          }
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         btnIconSel.selected = NO;
+         
          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示"
                                                              message:@"连接失败\n请确认网络是否连接." delegate:nil
                                                    cancelButtonTitle:@"关闭"

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BottomView : UIView
+@interface BottomView : UIView<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *cvSence;
 
 @end

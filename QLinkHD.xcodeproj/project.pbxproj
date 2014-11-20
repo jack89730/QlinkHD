@@ -14,6 +14,7 @@
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
 		8A1D59611A14F2D300AE66C9 /* IconCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */; };
 		8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */; };
+		8A26D5E81A1E2E560013C9C0 /* SenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A26D5E71A1E2E560013C9C0 /* SenceCell.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
 		8A2C31071A047A970017287B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31061A047A970017287B /* UIKit.framework */; };
@@ -48,6 +49,7 @@
 		8A9ED4E51A1B8C17009136C6 /* DeviceConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ED4E41A1B8C17009136C6 /* DeviceConfigViewController.m */; };
 		8A9ED4E81A1B9764009136C6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ED4E71A1B9764009136C6 /* BaseViewController.m */; };
 		8A9ED4EE1A1B985C009136C6 /* ActionNullClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9ED4ED1A1B985C009136C6 /* ActionNullClass.m */; };
+		8AA18B981A1CE46C000C7D09 /* SenceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA18B971A1CE46C000C7D09 /* SenceCell.xib */; };
 		8AA7FCAD1A18DA350017C703 /* IconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7FCAC1A18DA350017C703 /* IconViewController.m */; };
 		8AA7FCB11A18DB150017C703 /* Icon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7FCB01A18DB150017C703 /* Icon.storyboard */; };
 		8AA7FCB51A18E4B10017C703 /* BottomRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7FCB41A18E4B10017C703 /* BottomRightView.m */; };
@@ -108,6 +110,8 @@
 		8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconCollectionCell.m; sourceTree = "<group>"; };
 		8A206D4B1A16E5FC001A8CB5 /* RoomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomButton.h; sourceTree = "<group>"; };
 		8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomButton.m; sourceTree = "<group>"; };
+		8A26D5E61A1E2E560013C9C0 /* SenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceCell.h; sourceTree = "<group>"; };
+		8A26D5E71A1E2E560013C9C0 /* SenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceCell.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2C31021A047A970017287B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A2C31041A047A970017287B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -164,6 +168,7 @@
 		8A9ED4E71A1B9764009136C6 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		8A9ED4EC1A1B985C009136C6 /* ActionNullClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionNullClass.h; sourceTree = "<group>"; };
 		8A9ED4ED1A1B985C009136C6 /* ActionNullClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionNullClass.m; sourceTree = "<group>"; };
+		8AA18B971A1CE46C000C7D09 /* SenceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SenceCell.xib; sourceTree = "<group>"; };
 		8AA7FCAB1A18DA350017C703 /* IconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconViewController.h; sourceTree = "<group>"; };
 		8AA7FCAC1A18DA350017C703 /* IconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconViewController.m; sourceTree = "<group>"; };
 		8AA7FCB01A18DB150017C703 /* Icon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Icon.storyboard; sourceTree = "<group>"; };
@@ -407,6 +412,9 @@
 				8AA7FCB31A18E4B10017C703 /* BottomRightView.h */,
 				8AA7FCB41A18E4B10017C703 /* BottomRightView.m */,
 				8AA7FCB61A18E4C90017C703 /* BottomRightView.xib */,
+				8A26D5E61A1E2E560013C9C0 /* SenceCell.h */,
+				8A26D5E71A1E2E560013C9C0 /* SenceCell.m */,
+				8AA18B971A1CE46C000C7D09 /* SenceCell.xib */,
 			);
 			path = CustomBoards;
 			sourceTree = "<group>";
@@ -642,6 +650,7 @@
 				8A9B3CCB1A1A347400FABB46 /* RenameView.xib in Resources */,
 				8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */,
 				8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */,
+				8AA18B981A1CE46C000C7D09 /* SenceCell.xib in Resources */,
 				8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */,
 				8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
@@ -678,6 +687,7 @@
 				8AAB937B1A04E05400B803FC /* AFHTTPRequestOperationManager.m in Sources */,
 				8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */,
 				8AAB937D1A04E05400B803FC /* AFNetworkReachabilityManager.m in Sources */,
+				8A26D5E81A1E2E560013C9C0 /* SenceCell.m in Sources */,
 				8AAB93841A04E05400B803FC /* FMDatabaseAdditions.m in Sources */,
 				8AAB93811A04E05400B803FC /* AFURLResponseSerialization.m in Sources */,
 				8A50E79A1A0A6B3400E2AE99 /* BottomBoard.m in Sources */,

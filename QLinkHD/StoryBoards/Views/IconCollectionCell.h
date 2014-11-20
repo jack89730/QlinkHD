@@ -15,9 +15,13 @@
 @property (copy, nonatomic) void (^longPressed)();
 @property (weak, nonatomic) IBOutlet UIButton *btnIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lName;
-@property (weak, nonatomic) Device *curObj;
+@property (weak, nonatomic) Device *curDeviceObj;
+@property (weak, nonatomic) Sence *curSenceObj;
 
--(void)fillViewValue:(Device *)deviceObj;
+//设备主页面
+-(void)fillDeviceValue:(Device *)deviceObj;
+//场景主页面
+-(void)fillSenceValue:(Sence *)senceObj;
 -(void)fillViewValue:(NSString *)img andImgSel:(NSString *)imgSel andTitle:(NSString *)title;
 
 @end

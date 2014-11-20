@@ -82,7 +82,7 @@
     //功能cell
     IconCollectionCell * iconCell = nil;
     iconCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"IconCellIdentifier" forIndexPath:indexPath];
-    [iconCell fillViewValue:obj];
+    [iconCell fillDeviceValue:obj];
     [iconCell setLongPressed:^{
         if ([obj.Type isEqualToString:@"light"])
         {
@@ -155,6 +155,32 @@
                                       }
                                       case 2://删除
                                       {
+                                          NSString *sUrl = [NetworkUtil getDelDevice:obj.DeviceId];;
+                                        
+                                          NSURL *url = [NSURL URLWithString:sUrl];
+                                          NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+                                          NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                                          NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+                                          if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
+                                              [SQLiteUtil removeDevice:obj.DeviceId];
+                                              [self initData];
+                                              
+                                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                                                              message:@"删除成功."
+                                                                                             delegate:nil
+                                                                                    cancelButtonTitle:@"确定"
+                                                                                    otherButtonTitles:nil, nil];
+                                              [alert show];
+                                              
+                                          }else{
+                                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                                                              message:@"删除失败.请稍后再试."
+                                                                                             delegate:nil
+                                                                                    cancelButtonTitle:@"关闭"
+                                                                                    otherButtonTitles:nil, nil];
+                                              [alert show];
+                                          }
+                                          
                                           break;
                                       }
                                       default:
