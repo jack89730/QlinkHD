@@ -12,7 +12,9 @@
 
 @implementation BottomView
 {
-    NSArray *dataArr;
+    NSMutableArray *dataArr;
+    NSInteger sumPage;
+    NSInteger pageIdx;
 }
 
 -(void)awakeFromNib
@@ -29,8 +31,19 @@
 -(void)initData
 {
     GlobalAttr *obj = [DataUtil shareInstanceToRoom];
-    dataArr = [SQLiteUtil getSenceList:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId];
+//    dataArr = [SQLiteUtil getSenceList:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId];
+    dataArr = [NSMutableArray arrayWithArray:[SQLiteUtil getSenceList:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId]];
+    
+    [dataArr addObjectsFromArray:dataArr];
+    [dataArr addObjectsFromArray:dataArr];
     [self.cvSence reloadData];
+    
+    NSLog(@"-----%f,%f",self.cvSence.collectionViewLayout.collectionViewContentSize.width,self.cvSence.frame.size.width);
+    
+    pageIdx = 1;
+    sumPage = self.cvSence.collectionViewLayout.collectionViewContentSize.width/self.cvSence.frame.size.width;
+    NSLog(@"--sumPage--%d",sumPage);
+    NSLog(@"%f",self.cvSence.contentSize.width);
 }
 
 #pragma mark - UICollectionViewDataSouce
@@ -45,8 +58,7 @@
     Sence *obj = dataArr[indexPath.row];
     //功能cell
     SenceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SenceCell" forIndexPath:indexPath];
-//    UIButton *ivIcon = (UIButton *)[cell viewWithTag:101];
-    
+
     NSString *imgSel = [NSString stringWithFormat:@"%@02",obj.IconType];
     [cell.btnIcon setBackgroundImage:QLImage(obj.IconType) forState:UIControlStateNormal];
     [cell.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateHighlighted];
@@ -58,11 +70,20 @@
     longPress.minimumPressDuration = 0.8; //定义按的时间
     [cell.btnIcon addGestureRecognizer:longPress];
     
-//    UILabel *lTitle = (UILabel *)[cell viewWithTag:102];
-//    lTitle.text = obj.SenceName;
     cell.lName.text = obj.SenceName;
     
     return cell;
+}
+
+#pragma mark -
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    // Snaps into the cell
+    CGFloat pageWidth = scrollView.frame.size.width;
+    float fractionalPage = scrollView.contentOffset.x / pageWidth;
+    NSInteger page = lround(fractionalPage);
+    NSLog(@"~~~%d",page);
+    pageIdx = page+1;
 }
 
 -(void)btnIconPressed:(UIButton *)sender
@@ -76,21 +97,27 @@
 
 - (IBAction)btnLeftPressed:(id)sender
 {
-    int page = self.cvSence.contentOffset.x / self.cvSence.frame.size.width;
-    NSLog(@"%f",self.cvSence.frame.size.width);
-    if (page <= 1) {
+    if (pageIdx <= 1) {
         return;
     }
     
-    page--;
+    pageIdx--;
     
-    CGRect rect = CGRectMake(0, 0,
-                             self.cvSence.frame.size.width*page, self.cvSence.frame.size.height);
-    [self.cvSence scrollRectToVisible:rect animated:YES];
+    [self.cvSence scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageIdx*5 inSection:0]
+                                atScrollPosition:UICollectionViewScrollPositionLeft
+                                        animated:YES];
 }
 - (IBAction)btnRightPressed:(id)sender
 {
-    int page = self.cvSence.contentOffset.x / self.cvSence.frame.size.width;
+    if (pageIdx >= sumPage) {
+        return;
+    }
+    
+    pageIdx++;
+    
+    [self.cvSence scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageIdx*5 inSection:0]
+                         atScrollPosition:UICollectionViewScrollPositionLeft
+                                 animated:YES];
 }
 
 - (IBAction)btnSettingPressed:(id)sender

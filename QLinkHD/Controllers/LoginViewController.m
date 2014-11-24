@@ -129,9 +129,8 @@
     NSString *sUrl = [NetworkUtil getActionLogin:self.tfUserName.text andUPwd:self.tfUserPwd.text andUKey:self.tfKey.text];
     NSURL *url = [NSURL URLWithString:sUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    define_weakself;
-    __block Config *configTempObj;//存储action=login返回的结果
     
+    define_weakself;
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
@@ -146,7 +145,7 @@
 //         [SVProgressHUD dismiss];
          
          //处理返回结果的配置信息
-         configTempObj = [Config getTempConfig:configArr];
+         Config *configTempObj = [Config getTempConfig:configArr];
          weakSelf.pConfigTemp = configTempObj;
          
          
@@ -158,7 +157,7 @@
          }
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
-         weakSelf.pConfigTemp = configTempObj;
+         weakSelf.pConfigTemp = [Config getConfig];
          
          [weakSelf loadActionNULL];
      }];
