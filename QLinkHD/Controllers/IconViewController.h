@@ -21,6 +21,7 @@
 
 @property(nonatomic,assign) id<IconViewControllerDelegate>delegate;
 @property(nonatomic,assign) IconType pIconType;
-@property(nonatomic,retain) Device *pObj;
+@property(nonatomic,retain) Device *pDeviceObj;
+@property(nonatomic,retain) Sence *pSenceObj;
 
 @end

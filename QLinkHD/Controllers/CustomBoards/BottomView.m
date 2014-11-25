@@ -9,10 +9,20 @@
 #import "BottomView.h"
 #import "IconCollectionCell.h"
 #import "SenceCell.h"
+#import "IconViewController.h"
+#import "UIAlertView+MKBlockAdditions.h"
+#import "RenameView.h"
+#import "UIView+xib.h"
+
+@interface BottomView()<IconViewControllerDelegate>
+
+@property (nonatomic, retain) RenameView *renameView;
+
+@end
 
 @implementation BottomView
 {
-    NSMutableArray *dataArr;
+    NSArray *dataArr;
     NSInteger sumPage;
     NSInteger pageIdx;
 }
@@ -31,19 +41,12 @@
 -(void)initData
 {
     GlobalAttr *obj = [DataUtil shareInstanceToRoom];
-//    dataArr = [SQLiteUtil getSenceList:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId];
-    dataArr = [NSMutableArray arrayWithArray:[SQLiteUtil getSenceList:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId]];
+    dataArr = [SQLiteUtil getSenceList:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId];
     
-    [dataArr addObjectsFromArray:dataArr];
-    [dataArr addObjectsFromArray:dataArr];
     [self.cvSence reloadData];
-    
-    NSLog(@"-----%f,%f",self.cvSence.collectionViewLayout.collectionViewContentSize.width,self.cvSence.frame.size.width);
     
     pageIdx = 1;
     sumPage = self.cvSence.collectionViewLayout.collectionViewContentSize.width/self.cvSence.frame.size.width;
-    NSLog(@"--sumPage--%d",sumPage);
-    NSLog(@"%f",self.cvSence.contentSize.width);
 }
 
 #pragma mark - UICollectionViewDataSouce
@@ -63,14 +66,100 @@
     [cell.btnIcon setBackgroundImage:QLImage(obj.IconType) forState:UIControlStateNormal];
     [cell.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateHighlighted];
     [cell.btnIcon setBackgroundImage:QLImage(imgSel) forState:UIControlStateSelected];
-    [cell.btnIcon addTarget:self action:@selector(btnIconPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //button长按事件
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLongPressed:)];
-    longPress.minimumPressDuration = 0.8; //定义按的时间
-    [cell.btnIcon addGestureRecognizer:longPress];
-    
     cell.lName.text = obj.SenceName;
+    
+    [cell setLongPressed:^{
+        //弹出操作框
+        [UIAlertView alertViewWithTitle:@"请选择操作"
+                                message:nil
+                      cancelButtonTitle:@"取消"
+                      otherButtonTitles:@[@"重命名",@"图标重置",@"删除",@"编辑"]
+                              onDismiss:^(int btnIdx){
+                                  switch (btnIdx) {
+                                      case 0://重命名
+                                      {
+                                          self.renameView = [RenameView viewFromDefaultXib];
+                                          self.renameView.frame = CGRectMake(0, 0, 1024, 768);
+                                          self.renameView.backgroundColor = [UIColor clearColor];
+                                          self.renameView.tfContent.text = obj.SenceName;
+                                          define_weakself;
+                                          [self.renameView setCanclePressed:^{
+                                              [weakSelf.renameView removeFromSuperview];
+                                          }];
+                                          [self.renameView setConfirmPressed:^(UILabel *lTitle,NSString *newName){
+                                              NSString *sUrl = [NetworkUtil getChangeSenceName:newName andSenceId:obj.SenceId];
+                                              
+                                              NSURL *url = [NSURL URLWithString:sUrl];
+                                              NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+                                              NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                                              NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+                                              if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
+                                                  [SQLiteUtil renameSenceName:obj.SenceId andNewName:newName];
+                                                  
+                                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                          message:@"更新成功"
+                                                                cancelButtonTitle:@"确定"];
+                                                  
+                                                  [weakSelf.renameView removeFromSuperview];
+                                                  
+                                                  [weakSelf initData];
+                                              }else{
+                                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                          message:@"更新失败,请稍后再试."
+                                                                cancelButtonTitle:@"关闭"];
+                                              }
+                                          }];
+                                          [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.renameView];
+                                          
+                                          break;
+                                      }
+                                      case 1://图标重置
+                                      {
+                                          IconViewController *iconVC = [IconViewController loadFromSB];
+                                          iconVC.pIconType = IconTypeSence;
+                                          iconVC.pSenceObj = obj;
+                                          iconVC.delegate = self;
+                                          NSDictionary * notiInfo = @{@"iconVC": iconVC};
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMacroIconUpdate object:nil userInfo:notiInfo];
+//                                          [self.navigationController pushViewController:iconVC animated:YES];
+                                          break;
+                                      }
+                                      case 2://删除
+                                      {
+                                          NSString *sUrl = [NetworkUtil getDelSence:obj.SenceId];
+                                          
+                                          NSURL *url = [NSURL URLWithString:sUrl];
+                                          NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+                                          NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                                          NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+                                          if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
+                                              [SQLiteUtil removeSence:obj.SenceId];
+                                              [self initData];
+                                              
+                                              [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                      message:@"删除成功"
+                                                            cancelButtonTitle:@"确定"];
+                                              
+                                          }else{
+                                              [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                      message:@"删除失败.请稍后再试."
+                                                            cancelButtonTitle:@"关闭"];
+                                          }
+                                          
+                                          break;
+                                      }
+                                      case 3://编辑
+                                      {
+                                          
+                                          
+                                          break;
+                                      }
+                                      default:
+                                          break;
+                                  }
+                              }onCancel:nil];
+    }];
+    
     
     return cell;
 }
@@ -82,18 +171,20 @@
     CGFloat pageWidth = scrollView.frame.size.width;
     float fractionalPage = scrollView.contentOffset.x / pageWidth;
     NSInteger page = lround(fractionalPage);
-    NSLog(@"~~~%d",page);
     pageIdx = page+1;
 }
 
--(void)btnIconPressed:(UIButton *)sender
+#pragma mark - IconViewControllerDelegate
+
+-(void)refreshTable
 {
-    
+    [self initData];
 }
 
--(void)btnLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer{
-    
-}
+//-(void)btnIconPressed:(UIButton *)sender
+//{
+//    
+//}
 
 - (IBAction)btnLeftPressed:(id)sender
 {

@@ -69,7 +69,6 @@
 
 -(void)btnLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer{
     if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
-        NSLog(@"长按事件");
         if (self.longPressed) {
             self.longPressed();
         }

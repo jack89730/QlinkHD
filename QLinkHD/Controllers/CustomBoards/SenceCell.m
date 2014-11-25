@@ -10,4 +10,23 @@
 
 @implementation SenceCell
 
+-(void)awakeFromNib
+{
+    //button长按事件
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLongPressed:)];
+    longPress.minimumPressDuration = 0.8; //定义按的时间
+    [self addGestureRecognizer:longPress];
+}
+
+-(void)btnLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
+        if(self.longPressed){
+            self.longPressed();
+        }
+    }
+}
+
+
+
 @end

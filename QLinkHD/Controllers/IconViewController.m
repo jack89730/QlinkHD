@@ -107,7 +107,12 @@
         return;
     }
     
-    BOOL bResult = [SQLiteUtil changeIcon:self.pObj.DeviceId andType:self.pObj.Type andNewType:[dataArr objectAtIndex:btnSel.tag]];
+    BOOL bResult = NO;
+    if (self.pIconType == IconTypeDevice) {
+        bResult = [SQLiteUtil changeIcon:self.pDeviceObj.DeviceId andType:self.pDeviceObj.Type andNewType:[dataArr objectAtIndex:btnSel.tag]];
+    } else if(self.pIconType == IconTypeSence) {
+        bResult = [SQLiteUtil changeIcon:self.pSenceObj.SenceId andType:self.pSenceObj.Type andNewType:[dataArr objectAtIndex:btnSel.tag]];
+    }
     if (bResult) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
                                                         message:@"图标设置成功"

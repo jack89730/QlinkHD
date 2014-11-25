@@ -51,6 +51,17 @@
 {
     [BottomBoard defaultBottomBoard];
     [LeftBoard defaultLeftBoard];
+    
+    [self observeCourseDownloadedNotfi];
+}
+
+-(void)observeCourseDownloadedNotfi
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMacroIconUpdate object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSDictionary * userInfo = note.userInfo;
+        IconViewController *iconVC = [userInfo objectForKey:@"iconVC"];
+        [self.navigationController pushViewController:iconVC animated:YES];
+    }];
 }
 
 -(void)initData
@@ -120,26 +131,20 @@
                                               if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
                                                   [SQLiteUtil renameDeviceName:obj.DeviceId andNewName:newName];
                                                   
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                                                  message:@"更新成功."
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"确定"
-                                                                                        otherButtonTitles:nil, nil];
-                                                  [alert show];
+                                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                          message:@"更新成功"
+                                                                cancelButtonTitle:@"确定"];
                                                   
                                                   [weakSelf.renameView removeFromSuperview];
                                                   
                                                   [weakSelf initData];
                                               }else{
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                                                  message:@"更新失败,请稍后再试."
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"关闭"
-                                                                                        otherButtonTitles:nil, nil];
-                                                  [alert show];
+                                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                          message:@"更新失败,请稍后再试."
+                                                                cancelButtonTitle:@"关闭"];
                                               }
                                           }];
-                                          [[UIApplication sharedApplication].keyWindow addSubview:self.renameView];
+                                          [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.renameView];
                                           
                                           break;
                                       }
@@ -147,7 +152,7 @@
                                       {
                                           IconViewController *iconVC = [IconViewController loadFromSB];
                                           iconVC.pIconType = IconTypeDevice;
-                                          iconVC.pObj = obj;
+                                          iconVC.pDeviceObj = obj;
                                           iconVC.delegate = self;
                                           [self.navigationController pushViewController:iconVC animated:YES];
                                           
@@ -165,20 +170,14 @@
                                               [SQLiteUtil removeDevice:obj.DeviceId];
                                               [self initData];
                                               
-                                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                                              message:@"删除成功."
-                                                                                             delegate:nil
-                                                                                    cancelButtonTitle:@"确定"
-                                                                                    otherButtonTitles:nil, nil];
-                                              [alert show];
+                                              [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                      message:@"删除成功"
+                                                            cancelButtonTitle:@"确定"];
                                               
                                           }else{
-                                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                                              message:@"删除失败.请稍后再试."
-                                                                                             delegate:nil
-                                                                                    cancelButtonTitle:@"关闭"
-                                                                                    otherButtonTitles:nil, nil];
-                                              [alert show];
+                                              [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                      message:@"删除失败.请稍后再试."
+                                                            cancelButtonTitle:@"关闭"];
                                           }
                                           
                                           break;

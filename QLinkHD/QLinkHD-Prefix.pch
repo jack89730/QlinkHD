@@ -24,6 +24,7 @@
 #import "Model.h"
 #import "XMLDictionary.h"
 #import "SQLiteUtil.h"
+#import "OrderButton.h"
 
 //TODO:请求执行的操作
 #define LOGIN @"login"
@@ -38,7 +39,6 @@
 #define NumberOfTimeout 3
 
 //TODO:处理文本框内容 padding
-#define IOS7_OR_LATER  ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)
 #define PADDINGLEFT IOS7_OR_LATER ? @"paddingLeft" : @"_paddingLeft"
 
 //TODO:全局image
@@ -67,4 +67,15 @@
 //TODO:用于定义一个 局部 weakself
 #define define_weakself __weak __typeof(self)weakSelf = self
 
-#define IOS8_OR_LATER		( [[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending )
+//TODO:系统判断
+#define IOS7_OR_LATER  ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending)
+#define IOS8_OR_LATER  ([[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending)
+
+//TODO:通知名称
+#define NDNotiMacroIconUpdate @"NDNotiMacroIconUpdate"
+
+
+
+
+
+
