@@ -31,7 +31,7 @@
 -(void)awakeFromNib
 {
     _sliderLight.frame = CGRectMake(100, 44, 206, 5);
-    [_sliderLight setThumbImage:[UIImage imageNamed:@"light_roundButton.png"] forState:UIControlStateNormal];
+    [_sliderLight setThumbImage:[UIImage imageNamed:@"light_roundButton"] forState:UIControlStateNormal];
     [_sliderLight setMaximumTrackTintColor:[UIColor clearColor]];
 }
 

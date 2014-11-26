@@ -21,8 +21,8 @@
 
 -(void)awakeFromNib
 {
-    [_btnBr setThumbImage:[UIImage imageNamed:@"light_roundButton.png"] forState:UIControlStateNormal];
-    [_btnCo setThumbImage:[UIImage imageNamed:@"light_roundButton.png"] forState:UIControlStateNormal];
+    [_btnBr setThumbImage:[UIImage imageNamed:@"light_roundButton"] forState:UIControlStateNormal];
+    [_btnCo setThumbImage:[UIImage imageNamed:@"light_roundButton"] forState:UIControlStateNormal];
     [_btnCo setMaximumTrackTintColor:[UIColor clearColor]];
     [_btnBr setMaximumTrackTintColor:[UIColor clearColor]];
 }
