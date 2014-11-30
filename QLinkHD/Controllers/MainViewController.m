@@ -20,6 +20,7 @@
 #import "NetworkUtil.h"
 #import "DeviceConfigViewController.h"
 #import "SenceConfigViewController.h"
+#import "RemoteViewController.h"
 
 @interface MainViewController()<IconViewControllerDelegate>
 
@@ -50,7 +51,11 @@
 
 -(void)initCommonUI
 {
-    [BottomBoard defaultBottomBoard];
+    BottomBoard *bottomBoard = [BottomBoard defaultBottomBoard];
+    [bottomBoard setSendSenceOrderPressed:^(Order *orderObj){
+        self.isSence = YES;
+        [self load_typeSocket:999 andOrderObj:orderObj];
+    }];
     [LeftBoard defaultLeftBoard];
     
     [self observeUiJumpNotfi];
@@ -198,7 +203,10 @@
             DeviceConfigViewController *deviceConfigVC = [DeviceConfigViewController loadFromSB];
             [self.navigationController pushViewController:deviceConfigVC animated:YES];
         } else {
-            
+            RemoteViewController *remoteVC = [[RemoteViewController alloc] init];
+            remoteVC.deviceId = obj.DeviceId;
+            remoteVC.deviceName = obj.DeviceName;
+            [self.navigationController pushViewController:remoteVC animated:YES];
         }
     }];
     return iconCell;

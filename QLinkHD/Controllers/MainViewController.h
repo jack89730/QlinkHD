@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "IconViewController.h"
+#import "BaseViewController.h"
 
-@interface MainViewController : UIViewController<SBLoader>
+@interface MainViewController : BaseViewController<SBLoader>
 
 @end

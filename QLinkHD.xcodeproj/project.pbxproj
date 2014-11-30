@@ -28,6 +28,7 @@
 		8A2C31261A047A970017287B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C31241A047A970017287B /* InfoPlist.strings */; };
 		8A2C31281A047A970017287B /* QLinkHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31271A047A970017287B /* QLinkHDTests.m */; };
 		8A2C31381A0486F00017287B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31371A0486F00017287B /* LoginViewController.m */; };
+		8A3B548B1A2B1FED00840614 /* RemoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B548A1A2B1FED00840614 /* RemoteViewController.m */; };
 		8A49A0531A24CC7800697596 /* SenceConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A49A0521A24CC7800697596 /* SenceConfigViewController.m */; };
 		8A49A0831A24CF3200697596 /* BsTcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A49A0551A24CF3200697596 /* BsTcView.m */; };
 		8A49A0841A24CF3200697596 /* BsTcView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A49A0561A24CF3200697596 /* BsTcView.xib */; };
@@ -165,6 +166,8 @@
 		8A2C31271A047A970017287B /* QLinkHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLinkHDTests.m; sourceTree = "<group>"; };
 		8A2C31361A0486F00017287B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8A2C31371A0486F00017287B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8A3B54891A2B1FED00840614 /* RemoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteViewController.h; sourceTree = "<group>"; };
+		8A3B548A1A2B1FED00840614 /* RemoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteViewController.m; sourceTree = "<group>"; };
 		8A49A0511A24CC7800697596 /* SenceConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceConfigViewController.h; sourceTree = "<group>"; };
 		8A49A0521A24CC7800697596 /* SenceConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceConfigViewController.m; sourceTree = "<group>"; };
 		8A49A0541A24CF3200697596 /* BsTcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BsTcView.h; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				8A9ED4E41A1B8C17009136C6 /* DeviceConfigViewController.m */,
 				8A49A0511A24CC7800697596 /* SenceConfigViewController.h */,
 				8A49A0521A24CC7800697596 /* SenceConfigViewController.m */,
+				8A3B54891A2B1FED00840614 /* RemoteViewController.h */,
+				8A3B548A1A2B1FED00840614 /* RemoteViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -879,6 +884,7 @@
 				8A49A08A1A24CF3200697596 /* LightBbView.m in Sources */,
 				8AB89B6B1A18C59900183AE5 /* UIAlertView+MKBlockAdditions.m in Sources */,
 				8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */,
+				8A3B548B1A2B1FED00840614 /* RemoteViewController.m in Sources */,
 				8A49A0831A24CF3200697596 /* BsTcView.m in Sources */,
 				8AB89B691A18C59900183AE5 /* NSObject+MKBlockAdditions.m in Sources */,
 				8A9B42D11A05236D005CCC9C /* NSData+NSDataBytesToHex.m in Sources */,

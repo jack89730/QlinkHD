@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="r82-fI-bij" customClass="SdView">
-            <rect key="frame" x="0.0" y="5" width="489" height="134"/>
+            <rect key="frame" x="5" y="0.0" width="450" height="134"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="5Kq-kl-7qf" customClass="OrderButton">
-                    <rect key="frame" x="19" y="0.0" width="150" height="67"/>
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="sd_top_left">
@@ -24,7 +24,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zzw-GC-6Iz" customClass="OrderButton">
-                    <rect key="frame" x="19" y="67" width="225" height="67"/>
+                    <rect key="frame" x="0.0" y="67" width="225" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="sd_bottom_left">
@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="tr8-ZH-pmc" customClass="OrderButton">
-                    <rect key="frame" x="244" y="67" width="225" height="67"/>
+                    <rect key="frame" x="225" y="67" width="225" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="sd_bottom_right">
@@ -48,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="DAb-Xp-PAF" customClass="OrderButton">
-                    <rect key="frame" x="319" y="0.0" width="150" height="67"/>
+                    <rect key="frame" x="300" y="0.0" width="150" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="sd_top_right">
@@ -60,7 +60,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="9Jq-qm-Hvd" customClass="OrderButton">
-                    <rect key="frame" x="169" y="0.0" width="150" height="67"/>
+                    <rect key="frame" x="150" y="0.0" width="150" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="sd_middle">
@@ -82,7 +82,7 @@
                 <outlet property="btnTopMiddle" destination="9Jq-qm-Hvd" id="cYA-bY-89T"/>
                 <outlet property="btnTopRight" destination="DAb-Xp-PAF" id="4OB-pw-s4f"/>
             </connections>
-            <point key="canvasLocation" x="232.5" y="321"/>
+            <point key="canvasLocation" x="232" y="321"/>
         </view>
     </objects>
     <resources>

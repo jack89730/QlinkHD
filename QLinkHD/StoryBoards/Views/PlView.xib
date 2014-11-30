@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="eyc-Kn-aUc" customClass="PlView">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="163"/>
+            <rect key="frame" x="0.0" y="0.0" width="343" height="163"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Rsn-Rs-Y3k" customClass="OrderButton">
-                    <rect key="frame" x="151" y="38" width="87" height="87"/>
+                    <rect key="frame" x="128" y="38" width="87" height="87"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_middle">
@@ -24,7 +24,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="J1g-8l-hbM" customClass="OrderButton">
-                    <rect key="frame" x="23" y="0.0" width="128" height="53"/>
+                    <rect key="frame" x="0.0" y="0.0" width="128" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_lefttop">
@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Uoc-Ag-N85" customClass="OrderButton">
-                    <rect key="frame" x="23" y="110" width="128" height="53"/>
+                    <rect key="frame" x="0.0" y="110" width="128" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_leftbottom">
@@ -48,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="c7m-Q1-9GG" customClass="OrderButton">
-                    <rect key="frame" x="23" y="53" width="128" height="57"/>
+                    <rect key="frame" x="0.0" y="53" width="128" height="57"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_leftmiddle">
@@ -60,7 +60,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="EXl-jY-b4k" customClass="OrderButton">
-                    <rect key="frame" x="237" y="53" width="128" height="57"/>
+                    <rect key="frame" x="214" y="53" width="128" height="57"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_rightmiddle">
@@ -72,7 +72,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gU9-ew-sgB" customClass="OrderButton">
-                    <rect key="frame" x="238" y="0.0" width="128" height="53"/>
+                    <rect key="frame" x="215" y="0.0" width="128" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_righttop">
@@ -84,7 +84,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="3Wl-EQ-oah" customClass="OrderButton">
-                    <rect key="frame" x="238" y="110" width="128" height="53"/>
+                    <rect key="frame" x="215" y="110" width="128" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" backgroundImage="pl_rightbottom">
@@ -96,11 +96,11 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pl_middletop" id="GiB-hG-Y9A">
-                    <rect key="frame" x="151" y="0.0" width="87" height="38"/>
+                    <rect key="frame" x="128" y="0.0" width="87" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pl_middlebottom" id="UaG-uU-QdW">
-                    <rect key="frame" x="151" y="125" width="87" height="38"/>
+                    <rect key="frame" x="128" y="125" width="87" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -116,7 +116,7 @@
                 <outlet property="btnRightMiddle" destination="EXl-jY-b4k" id="AKh-QG-0m9"/>
                 <outlet property="btnRightTop" destination="gU9-ew-sgB" id="5c2-kQ-EzN"/>
             </connections>
-            <point key="canvasLocation" x="246" y="309.5"/>
+            <point key="canvasLocation" x="245.5" y="309.5"/>
         </view>
     </objects>
     <resources>

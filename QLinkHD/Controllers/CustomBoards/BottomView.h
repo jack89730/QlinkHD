@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BottomViewDelegate <NSObject>
+
+-(void)sendSenceOrder:(Order *)order;
+
+@end
+
 @interface BottomView : UIView<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *cvSence;
+@property (nonatomic,assign) id<BottomViewDelegate>delegate;
 
 @end

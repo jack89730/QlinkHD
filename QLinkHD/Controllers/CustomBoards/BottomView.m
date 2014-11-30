@@ -176,8 +176,15 @@
                                                                 object:nil
                                                               userInfo:notiInfo];
         }];
-    } else {
-        
+    } else {//执行命令
+        [cell setSinglePressed:^{
+            Order *orderObj = [[Order alloc] init];
+            orderObj.OrderCmd = obj.Macrocmd;
+            orderObj.senceId = obj.SenceId;
+            if (self.delegate) {
+                [self.delegate sendSenceOrder:orderObj];
+            }
+        }];
     }
     
     return cell;

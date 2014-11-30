@@ -15,6 +15,10 @@
 
 static BottomBoard *__board = nil;
 
+@interface BottomBoard()<BottomViewDelegate>
+
+@end
+
 @implementation BottomBoard
 {
     UIWindow        *_boardWindow;
@@ -50,10 +54,21 @@ static BottomBoard *__board = nil;
             _boardRightView.frame = CGRectMake(728, height - 272, 296, 272);
         }
         _boardLeftView.userInteractionEnabled = YES;
+        _boardLeftView.delegate = self;
         [_boardWindow addSubview:_boardLeftView];
         [_boardWindow addSubview:_boardRightView];
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark BottomViewDelegate
+
+-(void)sendSenceOrder:(Order *)order
+{
+    if (self.sendSenceOrderPressed) {
+        self.sendSenceOrderPressed(order);
+    }
 }
 
 @end
