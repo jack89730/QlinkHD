@@ -16,6 +16,8 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLongPressed:)];
     longPress.minimumPressDuration = 0.8; //定义按的时间
     [self addGestureRecognizer:longPress];
+    
+    [self.btnIcon addTarget:self action:@selector(btnSingleTapPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)btnLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer
@@ -24,6 +26,13 @@
         if(self.longPressed){
             self.longPressed();
         }
+    }
+}
+
+-(void)btnSingleTapPressed
+{
+    if (self.singlePressed) {
+        self.singlePressed();
     }
 }
 

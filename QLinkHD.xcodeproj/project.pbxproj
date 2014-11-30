@@ -116,6 +116,8 @@
 		8AAB93A11A050CCC00B803FC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB93A01A050CCC00B803FC /* CFNetwork.framework */; };
 		8AAB93A41A050CD900B803FC /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB93A21A050CD900B803FC /* libsqlite3.0.dylib */; };
 		8AAB93A51A050CD900B803FC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAB93A31A050CD900B803FC /* libsqlite3.dylib */; };
+		8AB6FBE71A275F27003EA0C6 /* SenceConfig.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB6FBE61A275F27003EA0C6 /* SenceConfig.storyboard */; };
+		8AB6FBEA1A276F25003EA0C6 /* SenceConfigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6FBE91A276F25003EA0C6 /* SenceConfigCell.m */; };
 		8AB89B691A18C59900183AE5 /* NSObject+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB89B641A18C59900183AE5 /* NSObject+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8AB89B6A1A18C59900183AE5 /* UIActionSheet+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB89B661A18C59900183AE5 /* UIActionSheet+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8AB89B6B1A18C59900183AE5 /* UIAlertView+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB89B681A18C59900183AE5 /* UIAlertView+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -310,6 +312,9 @@
 		8AAB93A01A050CCC00B803FC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8AAB93A21A050CD900B803FC /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8AAB93A31A050CD900B803FC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8AB6FBE61A275F27003EA0C6 /* SenceConfig.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SenceConfig.storyboard; sourceTree = "<group>"; };
+		8AB6FBE81A276F25003EA0C6 /* SenceConfigCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceConfigCell.h; sourceTree = "<group>"; };
+		8AB6FBE91A276F25003EA0C6 /* SenceConfigCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceConfigCell.m; sourceTree = "<group>"; };
 		8AB89B621A18C59900183AE5 /* MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBlockAdditions.h; sourceTree = "<group>"; };
 		8AB89B631A18C59900183AE5 /* NSObject+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKBlockAdditions.h"; sourceTree = "<group>"; };
 		8AB89B641A18C59900183AE5 /* NSObject+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKBlockAdditions.m"; sourceTree = "<group>"; };
@@ -359,6 +364,7 @@
 				8A1D59591A14F24F00AE66C9 /* Login.storyboard */,
 				8A1D595A1A14F24F00AE66C9 /* Main.storyboard */,
 				8AA7FCB01A18DB150017C703 /* Icon.storyboard */,
+				8AB6FBE61A275F27003EA0C6 /* SenceConfig.storyboard */,
 			);
 			name = StoryBoards;
 			path = QLinkHD/StoryBoards;
@@ -546,6 +552,8 @@
 				8A26D5E61A1E2E560013C9C0 /* SenceCell.h */,
 				8A26D5E71A1E2E560013C9C0 /* SenceCell.m */,
 				8AA18B971A1CE46C000C7D09 /* SenceCell.xib */,
+				8AB6FBE81A276F25003EA0C6 /* SenceConfigCell.h */,
+				8AB6FBE91A276F25003EA0C6 /* SenceConfigCell.m */,
 			);
 			path = CustomBoards;
 			sourceTree = "<group>";
@@ -786,6 +794,7 @@
 				8AA7FCB71A18E4C90017C703 /* BottomRightView.xib in Resources */,
 				8A9B3CCB1A1A347400FABB46 /* RenameView.xib in Resources */,
 				8A49A08D1A24CF3200697596 /* LightBcView.xib in Resources */,
+				8AB6FBE71A275F27003EA0C6 /* SenceConfig.storyboard in Resources */,
 				8A49A0911A24CF3200697596 /* McView.xib in Resources */,
 				8A49A09B1A24CF3200697596 /* StudyTimerView.xib in Resources */,
 				8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */,
@@ -882,6 +891,7 @@
 				8AAB937C1A04E05400B803FC /* AFHTTPSessionManager.m in Sources */,
 				8A49A0871A24CF3200697596 /* HsView.m in Sources */,
 				8AAB93801A04E05400B803FC /* AFURLRequestSerialization.m in Sources */,
+				8AB6FBEA1A276F25003EA0C6 /* SenceConfigCell.m in Sources */,
 				8A49A0A71A24D85300697596 /* OrderButton.m in Sources */,
 				8A49A09E1A24CF3200697596 /* SwView1.m in Sources */,
 				8A9B3CCA1A1A347400FABB46 /* RenameView.m in Sources */,

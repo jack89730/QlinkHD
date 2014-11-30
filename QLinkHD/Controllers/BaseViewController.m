@@ -129,7 +129,7 @@
             return;
         }
         
-        NSString *strInfo = [NSString stringWithFormat:@"写入中控[0/%d]",[cmdReadArr_ count]];
+        NSString *strInfo = [NSString stringWithFormat:@"写入中控[0/%ld]",[cmdReadArr_ count]];
         
         [SVProgressHUD showProgress:0 status:strInfo maskType:SVProgressHUDMaskTypeClear];
         

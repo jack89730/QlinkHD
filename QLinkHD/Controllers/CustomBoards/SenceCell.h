@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lName;
 @property (copy, nonatomic) void (^longPressed)();
+@property (copy, nonatomic) void (^singlePressed)();
 
 @end

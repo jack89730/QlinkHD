@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoryBoardLoader.h"
+#import "BaseViewController.h"
 
-@interface SenceConfigViewController : UIViewController
+@interface SenceConfigViewController : BaseViewController<SBLoader>
 
 @end

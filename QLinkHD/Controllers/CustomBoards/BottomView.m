@@ -13,6 +13,7 @@
 #import "UIAlertView+MKBlockAdditions.h"
 #import "RenameView.h"
 #import "UIView+xib.h"
+#import "SenceConfigViewController.h"
 
 @interface BottomView()<IconViewControllerDelegate>
 
@@ -119,9 +120,10 @@
                                           iconVC.pIconType = IconTypeSence;
                                           iconVC.pSenceObj = obj;
                                           iconVC.delegate = self;
-                                          NSDictionary * notiInfo = @{@"iconVC": iconVC};
-                                          [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMacroIconUpdate object:nil userInfo:notiInfo];
-//                                          [self.navigationController pushViewController:iconVC animated:YES];
+                                          NSDictionary * notiInfo = @{@"VC": iconVC};
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiJump
+                                                                                              object:nil
+                                                                                            userInfo:notiInfo];
                                           break;
                                       }
                                       case 2://删除
@@ -150,7 +152,13 @@
                                       }
                                       case 3://编辑
                                       {
+                                          [DataUtil setUpdateInsertSenceInfo:obj.SenceId andSenceName:obj.SenceName];
                                           
+                                          SenceConfigViewController *configVC = [SenceConfigViewController loadFromSB];
+                                          NSDictionary * notiInfo = @{@"VC": configVC};
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiJump
+                                                                                              object:nil
+                                                                                            userInfo:notiInfo];
                                           
                                           break;
                                       }
@@ -160,6 +168,17 @@
                               }onCancel:nil];
     }];
     
+    if ([obj.Type isEqualToString:add_oper]) {//添加场景
+        [cell setSinglePressed:^{
+            SenceConfigViewController *configVC = [SenceConfigViewController loadFromSB];
+            NSDictionary * notiInfo = @{@"VC": configVC};
+            [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiJump
+                                                                object:nil
+                                                              userInfo:notiInfo];
+        }];
+    } else {
+        
+    }
     
     return cell;
 }
@@ -181,10 +200,7 @@
     [self initData];
 }
 
-//-(void)btnIconPressed:(UIButton *)sender
-//{
-//    
-//}
+#pragma mark -
 
 - (IBAction)btnLeftPressed:(id)sender
 {

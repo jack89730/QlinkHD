@@ -19,6 +19,7 @@
 #import "RenameView.h"
 #import "NetworkUtil.h"
 #import "DeviceConfigViewController.h"
+#import "SenceConfigViewController.h"
 
 @interface MainViewController()<IconViewControllerDelegate>
 
@@ -52,15 +53,15 @@
     [BottomBoard defaultBottomBoard];
     [LeftBoard defaultLeftBoard];
     
-    [self observeCourseDownloadedNotfi];
+    [self observeUiJumpNotfi];
 }
 
--(void)observeCourseDownloadedNotfi
+-(void)observeUiJumpNotfi
 {
-    [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMacroIconUpdate object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMainUiJump object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         NSDictionary * userInfo = note.userInfo;
-        IconViewController *iconVC = [userInfo objectForKey:@"iconVC"];
-        [self.navigationController pushViewController:iconVC animated:YES];
+        UIViewController *vc = [userInfo objectForKey:@"VC"];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 

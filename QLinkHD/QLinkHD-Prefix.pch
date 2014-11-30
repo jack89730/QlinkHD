@@ -72,7 +72,7 @@
 #define IOS8_OR_LATER  ([[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending)
 
 //TODO:通知名称
-#define NDNotiMacroIconUpdate @"NDNotiMacroIconUpdate"
+#define NDNotiMainUiJump @"NDNotiMainUiJump"
 
 
 
