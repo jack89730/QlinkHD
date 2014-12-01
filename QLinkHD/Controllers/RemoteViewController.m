@@ -49,7 +49,7 @@
 //设置导航
 -(void)initNavigation
 {
-    self.title = @"图标设置";
+    self.title = self.deviceName;
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController.navigationBar setHidden:NO];
     
@@ -74,6 +74,7 @@
     UIScrollView *svBg = [[UIScrollView alloc] init];
     svBg.frame = CGRectMake(80, 0, 864, svHeight);
     svBg.backgroundColor = [UIColor clearColor];
+    svBg.showsVerticalScrollIndicator = false;
     [self.view addSubview:svBg];
     
     int heightLeft = 0;

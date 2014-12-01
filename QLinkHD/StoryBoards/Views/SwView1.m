@@ -31,7 +31,6 @@
 }
 
 - (IBAction)btnPressed:(OrderButton *)sender {
-    NSLog(@"=====%@",sender.orderObj.OrderName);
     if (self.delegate) {
         [self.delegate orderDelegatePressed:sender];
     }

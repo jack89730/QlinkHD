@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A0422C31A18955B00D50A39 /* DeviceConfigIconPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0422C11A18955B00D50A39 /* DeviceConfigIconPlist.plist */; };
 		8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0422C21A18955B00D50A39 /* iConPlist.plist */; };
+		8A121FFB1A2CABAB00B37EA5 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */; };
 		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
 		8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D59591A14F24F00AE66C9 /* Login.storyboard */; };
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
@@ -137,6 +138,8 @@
 /* Begin PBXFileReference section */
 		8A0422C11A18955B00D50A39 /* DeviceConfigIconPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceConfigIconPlist.plist; sourceTree = "<group>"; };
 		8A0422C21A18955B00D50A39 /* iConPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iConPlist.plist; sourceTree = "<group>"; };
+		8A121FF91A2CABAB00B37EA5 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
+		8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
 		8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBoard.m; sourceTree = "<group>"; };
 		8A1D59591A14F24F00AE66C9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				8A49A0521A24CC7800697596 /* SenceConfigViewController.m */,
 				8A3B54891A2B1FED00840614 /* RemoteViewController.h */,
 				8A3B548A1A2B1FED00840614 /* RemoteViewController.m */,
+				8A121FF91A2CABAB00B37EA5 /* LightViewController.h */,
+				8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -891,6 +896,7 @@
 				8A9B42D41A05236D005CCC9C /* SQLiteUtil.m in Sources */,
 				8AAB937E1A04E05400B803FC /* AFSecurityPolicy.m in Sources */,
 				8A49A08C1A24CF3200697596 /* LightBcView.m in Sources */,
+				8A121FFB1A2CABAB00B37EA5 /* LightViewController.m in Sources */,
 				8A908ED51A0E2DAE00AF9FB9 /* UIButton+image.m in Sources */,
 				8AA7FCB51A18E4B10017C703 /* BottomRightView.m in Sources */,
 				8A49A0901A24CF3200697596 /* McView.m in Sources */,

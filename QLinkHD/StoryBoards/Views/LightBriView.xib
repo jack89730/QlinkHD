@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="ntE-RP-wK3" customClass="LightBriView">
-            <rect key="frame" x="0.0" y="0.0" width="428" height="173"/>
+            <rect key="frame" x="0.0" y="0.0" width="412" height="173"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Snn-xs-UYA">
-                    <rect key="frame" x="20" y="0.0" width="90" height="173"/>
+                    <rect key="frame" x="1" y="0.0" width="90" height="173"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sw1_nav" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-Lh-cAm">
                             <rect key="frame" x="0.0" y="0.0" width="90" height="33"/>
@@ -49,10 +49,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="light_br" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-07-AQ0">
-                    <rect key="frame" x="118" y="62" width="295" height="50"/>
+                    <rect key="frame" x="117" y="62" width="295" height="50"/>
                 </imageView>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcm-K7-iC6" customClass="MySlider">
-                    <rect key="frame" x="126" y="68" width="274" height="31"/>
+                    <rect key="frame" x="115" y="73" width="299" height="31"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="minimumTrackTintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,7 +72,7 @@
                 <outlet property="sliderLight" destination="Bcm-K7-iC6" id="wDI-02-ZrZ"/>
                 <outlet property="vSw" destination="Snn-xs-UYA" id="r1o-MF-22Z"/>
             </connections>
-            <point key="canvasLocation" x="193" y="184.5"/>
+            <point key="canvasLocation" x="217" y="184.5"/>
         </view>
     </objects>
     <resources>

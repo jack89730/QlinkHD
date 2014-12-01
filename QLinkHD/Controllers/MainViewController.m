@@ -21,6 +21,7 @@
 #import "DeviceConfigViewController.h"
 #import "SenceConfigViewController.h"
 #import "RemoteViewController.h"
+#import "LightViewController.h"
 
 @interface MainViewController()<IconViewControllerDelegate>
 
@@ -198,7 +199,8 @@
     [iconCell setSinglePressed:^(UIButton *btn){
         if ([obj.Type isEqualToString:@"light"])
         {
-            
+            LightViewController *lightVC = [[LightViewController alloc] init];
+            [self.navigationController pushViewController:lightVC animated:YES];
         } else if ([obj.Type isEqualToString:add_oper]) {
             DeviceConfigViewController *deviceConfigVC = [DeviceConfigViewController loadFromSB];
             [self.navigationController pushViewController:deviceConfigVC animated:YES];
