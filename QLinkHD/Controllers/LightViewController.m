@@ -270,81 +270,7 @@
     int height = heightLeft > heightRight ? heightLeft : heightRight;
     
     [svBg setContentSize:CGSizeMake(884, height + 10)];
-    
-    //将重命名浮层放置到最顶层
-//    [self.view bringSubviewToFront:renameView];
 }
-
-#pragma mark -
-#pragma mark UIAlertViewDelegate
-
-//- (void)alertView:(MyAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if (alertView.tag == 101) {//长按
-//        switch (buttonIndex) {
-//            case 1://重命名
-//            {
-//                renameView.hidden = NO;
-//                renameView_.tfContent.text = alertView.pDeviceName;
-//                renameView_.pDeviceId = alertView.pDeviceId;
-//                renameView_.lTitle = alertView.plTitle;
-//                //    renameView_.pType = deviceType;//light也属于设备的一种，直接更新设备表即可
-//                break;
-//            }
-//            case 2://删除
-//            {
-//                MyAlertView *alert = [[MyAlertView alloc] initWithTitle:@"温馨提示"
-//                                                                message:@"确定要删除吗?"
-//                                                               delegate:self
-//                                                      cancelButtonTitle:@"取消"
-//                                                      otherButtonTitles:@"确定", nil];
-//                alert.tag = 102;
-//                alert.pDeviceId = alertView.pDeviceId;
-//                [alert show];
-//                
-//                break;
-//            }
-//            default:
-//                break;
-//        }
-//    } else if(alertView.tag == 102){//删除
-//        if (buttonIndex == 0) {
-//            return;
-//        }
-//        
-//        NSString *sUrl = [NetworkUtil getDelDevice:alertView.pDeviceId];
-//        
-//        NSURL *url = [NSURL URLWithString:sUrl];
-//        NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//        NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//        NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-//        if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
-//            
-//            [SQLiteUtil removeDevice:alertView.pDeviceId];
-//            
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-//                                                            message:@"删除成功."
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"确定"
-//                                                  otherButtonTitles:nil, nil];
-//            [alert show];
-//            
-//            [self initData];//刷新页面
-//            
-//        }else{
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-//                                                            message:@"删除失败.请稍后再试."
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"关闭"
-//                                                  otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//    } else if ((alertView.tag == 103 && buttonIndex == 0) || (alertView.tag == 104 && buttonIndex == 1))
-//    {
-//        SenceConfigViewController *senceConfigVC = [[SenceConfigViewController alloc] init];
-//        [self.navigationController pushViewController:senceConfigVC animated:YES];
-//    }
-//}
 
 #pragma mark -
 #pragma mark Sw1Delegate,LightBcViewDelegate,LightBriViewDelegate,LightBbViewDelegate
@@ -419,17 +345,13 @@
         return;
     }
     
-    NSLog(@"====%@",sender.orderObj.OrderName);
-    
     if ([DataUtil getGlobalIsAddSence]) {//添加场景模式
         if ([SQLiteUtil getShoppingCarCount] >= 40) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                            message:@"最多添加40个命令,请删除后再添加."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil, nil];
-            alert.tag = 103;
-            [alert show];
+            [UIAlertView alertViewWithTitle:@"温馨提示" message:@"最多添加40个命令,请删除后再添加." cancelButtonTitle:@"确定" otherButtonTitles:nil onDismiss:nil onCancel:^{
+                SenceConfigViewController *senceConfigVC = [[SenceConfigViewController alloc] init];
+                [self.navigationController pushViewController:senceConfigVC animated:YES];
+            }];
+            
             return;
         }
         BOOL bResult = [SQLiteUtil addOrderToShoppingCar:sender.orderObj.OrderId andDeviceId:sender.orderObj.DeviceId];
@@ -448,60 +370,12 @@
 }
 
 #pragma mark -
-#pragma mark RenameViewDelegate
-
-//取消
-//-(void)handleCanclePressed
-//{
-//    [self hiddenRenameView];
-//}
-
-//确定
--(void)handleConfirmPressed:(NSString *)deviceId
-                 andNewName:(NSString *)newName
-                   andLabel:(UILabel *)lTitle
-{
-    NSString *sUrl = [NetworkUtil getChangeDeviceName:newName andDeviceId:deviceId];
-    NSURL *url = [NSURL URLWithString:sUrl];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
-        [SQLiteUtil renameDeviceName:deviceId andNewName:newName];
-        lTitle.text = newName;
-//        [self hiddenRenameView];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                        message:@"修改成功"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"确定"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-    } else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                        message:@"更新失败,请稍后再试."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"关闭"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    
-}
-
-#pragma mark -
 #pragma mark Custom Methods
 
 -(void)actionBack
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-////隐藏重命名浮层
-//-(void)hiddenRenameView
-//{
-//    renameView_.hidden = YES;
-//    [renameView_.tfContent resignFirstResponder];
-//}
 
 - (void)didReceiveMemoryWarning
 {

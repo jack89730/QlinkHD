@@ -9,6 +9,7 @@
 #import "RemoteViewController.h"
 #import "UIButton+image.h"
 #import "SenceConfigViewController.h"
+#import "UIAlertView+MKBlockAdditions.h"
 
 #define JG 15
 
@@ -53,13 +54,30 @@
     self.navigationItem.hidesBackButton = YES;
     [self.navigationController.navigationBar setHidden:NO];
     
+ 
+    NSMutableArray *arrItem = [NSMutableArray array];
+    
+    if (![DataUtil getGlobalIsAddSence]) {
+        if ([SQLiteUtil isStudyModel:_deviceId]) {
+            UIImage * imgOn = [UIImage imageNamed:@"Bottom_set01"];
+            UIImage * imgOff = [UIImage imageNamed:@"Bottom_set02"];
+            UIBarButtonItem * btnStudy =  [UIBarButtonItem barItemWithImage:imgOn
+                                                             highlightImage:imgOff
+                                                                     target:self
+                                                                 withAction:@selector(actionStudy)];
+            [arrItem addObject:btnStudy];
+        }
+    }
+    
     UIImage * imgOn = [UIImage imageNamed:@"Common_返回键01"];
     UIImage * imgOff = [UIImage imageNamed:@"Common_返回键02"];
     UIBarButtonItem * btnBack =  [UIBarButtonItem barItemWithImage:imgOn
                                                     highlightImage:imgOff
                                                             target:self
                                                         withAction:@selector(actionBack)];
-    self.navigationItem.rightBarButtonItem = btnBack;
+    [arrItem addObject:btnBack];
+ 
+    self.navigationItem.rightBarButtonItems = arrItem;
 }
 
 -(void)initControl
@@ -567,6 +585,19 @@
 //        [DataUtil setGlobalModel:strCurModel_];
 //    }
 //}
+
+-(void)actionStudy
+{
+    [UIAlertView alertViewWithTitle:@"操作"
+                            message:nil
+                  cancelButtonTitle:@"关闭"
+                  otherButtonTitles:@[@"学习模式"]
+                          onDismiss:^(int buttonIndex){
+                              [SVProgressHUD showSuccessWithStatus:@"您已经处于学习状态."];
+                              
+                              [DataUtil setGlobalModel:Model_Study];
+    }onCancel:nil];
+}
 
 -(void)actionBack
 {

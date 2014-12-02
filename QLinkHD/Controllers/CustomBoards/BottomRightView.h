@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BottomRightViewDelegate <NSObject>
+
+-(void)writeToZk;
+
+@end
+
 @interface BottomRightView : UIView
+
+@property(nonatomic,assign) id<BottomRightViewDelegate>delegate;
 
 @end

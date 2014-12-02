@@ -57,6 +57,10 @@
         self.isSence = YES;
         [self load_typeSocket:999 andOrderObj:orderObj];
     }];
+    [bottomBoard setWriteZkPressed:^{
+        self.zkOperType = ZkOperNormal;
+        [self load_typeSocket:SocketTypeWriteZk andOrderObj:nil];
+    }];
     [LeftBoard defaultLeftBoard];
     
     [self observeUiJumpNotfi];

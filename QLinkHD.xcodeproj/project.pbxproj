@@ -10,6 +10,7 @@
 		8A0422C31A18955B00D50A39 /* DeviceConfigIconPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0422C11A18955B00D50A39 /* DeviceConfigIconPlist.plist */; };
 		8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0422C21A18955B00D50A39 /* iConPlist.plist */; };
 		8A121FFB1A2CABAB00B37EA5 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */; };
+		8A133F601A2E046500675266 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A133F5F1A2E046500675266 /* AboutViewController.m */; };
 		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
 		8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D59591A14F24F00AE66C9 /* Login.storyboard */; };
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
@@ -140,6 +141,8 @@
 		8A0422C21A18955B00D50A39 /* iConPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iConPlist.plist; sourceTree = "<group>"; };
 		8A121FF91A2CABAB00B37EA5 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
+		8A133F5E1A2E046500675266 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		8A133F5F1A2E046500675266 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
 		8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBoard.m; sourceTree = "<group>"; };
 		8A1D59591A14F24F00AE66C9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -537,6 +540,8 @@
 				8A3B548A1A2B1FED00840614 /* RemoteViewController.m */,
 				8A121FF91A2CABAB00B37EA5 /* LightViewController.h */,
 				8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */,
+				8A133F5E1A2E046500675266 /* AboutViewController.h */,
+				8A133F5F1A2E046500675266 /* AboutViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -878,6 +883,7 @@
 				8A49A0921A24CF3200697596 /* NmView.m in Sources */,
 				8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */,
 				8AAB937F1A04E05400B803FC /* AFURLConnectionOperation.m in Sources */,
+				8A133F601A2E046500675266 /* AboutViewController.m in Sources */,
 				8A9B42CE1A05236D005CCC9C /* DataUtil.m in Sources */,
 				8A49A0941A24CF3200697596 /* OtView.m in Sources */,
 				8AA7FCAD1A18DA350017C703 /* IconViewController.m in Sources */,

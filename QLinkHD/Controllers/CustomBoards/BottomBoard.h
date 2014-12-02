@@ -11,6 +11,7 @@
 @interface BottomBoard : NSObject
 
 @property(nonatomic,copy) void(^sendSenceOrderPressed)(Order *obj);
+@property(nonatomic,copy) void(^writeZkPressed)();
 
 //使用单例类，方便在全局控制
 + (BottomBoard *)defaultBottomBoard;

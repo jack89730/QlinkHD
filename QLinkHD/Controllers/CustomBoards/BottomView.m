@@ -47,7 +47,13 @@
     [self.cvSence reloadData];
     
     pageIdx = 1;
+    NSString *sWidth = [NSString stringWithFormat:@"%f",self.cvSence.collectionViewLayout.collectionViewContentSize.width];
+    NSString *sFrameWidth = [NSString stringWithFormat:@"%f",self.cvSence.frame.size.width];
+    NSInteger yu = [sWidth integerValue] % [sFrameWidth integerValue];
     sumPage = self.cvSence.collectionViewLayout.collectionViewContentSize.width/self.cvSence.frame.size.width;
+    if (yu > 0) {
+        sumPage += 1;
+    }
 }
 
 #pragma mark - UICollectionViewDataSouce
@@ -217,7 +223,7 @@
     
     pageIdx--;
     
-    [self.cvSence scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageIdx*5 inSection:0]
+    [self.cvSence scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageIdx*1 inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionLeft
                                         animated:YES];
 }
@@ -229,14 +235,9 @@
     
     pageIdx++;
     
-    [self.cvSence scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageIdx*5 inSection:0]
+    [self.cvSence scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageIdx*1 inSection:0]
                          atScrollPosition:UICollectionViewScrollPositionLeft
                                  animated:YES];
-}
-
-- (IBAction)btnSettingPressed:(id)sender
-{
-    NSLog(@"oooo");
 }
 
 @end

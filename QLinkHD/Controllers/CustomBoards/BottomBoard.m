@@ -15,7 +15,7 @@
 
 static BottomBoard *__board = nil;
 
-@interface BottomBoard()<BottomViewDelegate>
+@interface BottomBoard()<BottomViewDelegate,BottomRightViewDelegate>
 
 @end
 
@@ -53,8 +53,8 @@ static BottomBoard *__board = nil;
             _boardLeftView.frame = CGRectMake(0, height - 169, 728, 169);
             _boardRightView.frame = CGRectMake(728, height - 272, 296, 272);
         }
-        _boardLeftView.userInteractionEnabled = YES;
         _boardLeftView.delegate = self;
+        _boardRightView.delegate = self;
         [_boardWindow addSubview:_boardLeftView];
         [_boardWindow addSubview:_boardRightView];
     }
@@ -68,6 +68,16 @@ static BottomBoard *__board = nil;
 {
     if (self.sendSenceOrderPressed) {
         self.sendSenceOrderPressed(order);
+    }
+}
+
+#pragma mark -
+#pragma mark BottomRightViewDelegate
+
+-(void)writeToZk
+{
+    if (self.writeZkPressed) {
+        self.writeZkPressed();
     }
 }
 

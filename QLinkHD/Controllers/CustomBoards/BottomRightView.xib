@@ -19,6 +19,9 @@
                     <state key="normal" image="Bottom_set01">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnSysConfigPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="rQ7-26-BcR"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
