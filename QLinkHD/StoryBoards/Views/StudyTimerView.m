@@ -42,9 +42,9 @@
 
 -(IBAction)btnDone
 {
-    if (self.delegate) {
+    if (self.doneBlock) {
         [timer_ invalidate];
-        [self.delegate done];
+        self.doneBlock();
     }
 }
 

@@ -70,7 +70,7 @@ static char CANCEL_IDENTIFER;
     }
     return [UIAlertView alertViewWithTitle:title 
                                    message:message 
-                         cancelButtonTitle:NSLocalizedString(@"Dismiss", @"")];
+                         cancelButtonTitle:NSLocalizedString(@"关闭", @"")];
 }
 
 + (UIAlertView*) alertViewWithTitle:(NSString*) title 

@@ -73,6 +73,19 @@
         UIViewController *vc = [userInfo objectForKey:@"VC"];
         [self.navigationController pushViewController:vc animated:YES];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMainUiPop object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        //页面跳转
+        NSArray * viewcontrollers = self.navigationController.viewControllers;
+        int idxInStack = 0;
+        for (int i=0; i<[viewcontrollers count]; i++) {
+            if ([[viewcontrollers objectAtIndex:i] isMemberOfClass:[MainViewController class]]) {
+                idxInStack = i;
+                break;
+            }
+        }
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:idxInStack]animated:YES];
+    }];
 }
 
 -(void)initData

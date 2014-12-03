@@ -176,11 +176,13 @@
     
     if ([obj.Type isEqualToString:add_oper]) {//添加场景
         [cell setSinglePressed:^{
-            SenceConfigViewController *configVC = [SenceConfigViewController loadFromSB];
-            NSDictionary * notiInfo = @{@"VC": configVC};
-            [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiJump
+            [DataUtil setUpdateInsertSenceInfo:@"" andSenceName:@""];
+            [DataUtil setGlobalIsAddSence:YES];
+            [UIAlertView alertViewWithTitle:@"温馨提示" message:@"您已进入选择模式,所有按键失效,请选择您要构成场景的动作." ];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiPop
                                                                 object:nil
-                                                              userInfo:notiInfo];
+                                                              userInfo:nil];
+            
         }];
     } else {//执行命令
         [cell setSinglePressed:^{

@@ -261,7 +261,7 @@
     //add图标
     Sence *senceObj = [[Sence alloc] init];
     senceObj.Type = add_oper;
-    senceObj.SenceName = @"添加设备";
+    senceObj.SenceName = @"添加场景";
     senceObj.IconType = add_oper;
     [senceArr addObject:senceObj];
     

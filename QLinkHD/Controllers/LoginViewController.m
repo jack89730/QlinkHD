@@ -196,7 +196,7 @@
          [weakSelf requestSetUpIp];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         [SVProgressHUD dismiss];
+//         [SVProgressHUD dismiss];
      }];
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];

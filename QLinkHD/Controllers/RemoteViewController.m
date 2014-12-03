@@ -10,14 +10,15 @@
 #import "UIButton+image.h"
 #import "SenceConfigViewController.h"
 #import "UIAlertView+MKBlockAdditions.h"
+#import "UIView+xib.h"
 
 #define JG 15
 
 @interface RemoteViewController ()
-{
-    StudyTimerView *studyTimerView_;
-    NSString *strCurModel_;//记录当前的发送socket模式
-}
+
+@property(nonatomic,strong) StudyTimerView *studyView;
+@property(nonatomic,strong) NSString *strCurModel;
+
 @end
 
 @implementation RemoteViewController
@@ -44,7 +45,7 @@
 
 -(void)initData
 {
-    strCurModel_ = [DataUtil getGlobalModel];
+    self.strCurModel = [DataUtil getGlobalModel];
 }
 
 //设置导航
@@ -460,13 +461,13 @@
     
     [svBg setContentSize:CGSizeMake(864, height + 10)];
     
-    //设置学习框
-    NSArray *array1 = [[NSBundle mainBundle] loadNibNamed:@"StudyTimerView" owner:self options:nil];
-    studyTimerView_ = [array1 objectAtIndex:0];
-    studyTimerView_.frame = CGRectMake(0, 90, 320, 190);
-    studyTimerView_.hidden = YES;
-    studyTimerView_.delegate = self;
-    [self.view addSubview:studyTimerView_];
+//    //设置学习框
+//    NSArray *array1 = [[NSBundle mainBundle] loadNibNamed:@"StudyTimerView" owner:self options:nil];
+//    studyTimerView_ = [array1 objectAtIndex:0];
+//    studyTimerView_.frame = CGRectMake(0, 90, 320, 190);
+//    studyTimerView_.hidden = YES;
+//    studyTimerView_.delegate = self;
+//    [self.view addSubview:studyTimerView_];
 }
 
 #pragma mark -
@@ -480,122 +481,55 @@
     
     if ([DataUtil getGlobalIsAddSence]) {//添加场景模式
         if ([SQLiteUtil getShoppingCarCount] >= 40) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                            message:@"最多添加40个命令,请删除后再添加."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil, nil];
-            alert.tag = 101;
-            [alert show];
+            [UIAlertView alertViewWithTitle:@"温馨提示"
+                                    message:@"最多添加40个命令,请删除后再添加."
+                          cancelButtonTitle:@"确定"
+                          otherButtonTitles:nil
+                                  onDismiss:nil
+                                   onCancel:^{
+                SenceConfigViewController *senceConfigVC = [SenceConfigViewController loadFromSB];
+                [self.navigationController pushViewController:senceConfigVC animated:YES];
+            }];
+            
             return;
         }
         BOOL bResult = [SQLiteUtil addOrderToShoppingCar:sender.orderObj.OrderId andDeviceId:sender.orderObj.DeviceId];
         if (bResult) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                            message:@"已成功添加命令,是否继续?"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"继续"
-                                                  otherButtonTitles:@"完成", nil];
-            alert.tag = 102;
-            [alert show];
+            [UIAlertView alertViewWithTitle:@"温馨提示"
+                                    message:@"已成功添加命令,是否继续?"
+                          cancelButtonTitle:@"继续"
+                          otherButtonTitles:@[@"完成"]
+                                  onDismiss:^(int buttonIndex){
+                                      SenceConfigViewController *senceConfigVC = [SenceConfigViewController loadFromSB];
+                                      [self.navigationController pushViewController:senceConfigVC animated:YES];
+            }onCancel:nil];
         }
     } else {
         if ([[DataUtil getGlobalModel] isEqualToString:Model_Study]) {
-            studyTimerView_.hidden = NO;
-            [studyTimerView_ startTimer];
+            self.studyView = [StudyTimerView viewFromDefaultXib];
+            self.studyView.frame = CGRectMake(0, 0, 1024, 768);
+            self.studyView.backgroundColor = [UIColor clearColor];
+            [self.studyView startTimer];
+            define_weakself;
+            [self.studyView setDoneBlock:^{
+                [weakSelf.studyView removeFromSuperview];
+                [DataUtil setGlobalModel:weakSelf.strCurModel];
+            }];
+            [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.studyView];
         }
         [self load_typeSocket:999 andOrderObj:sender.orderObj];
     }
 }
 
-#pragma mark -
-#pragma mark UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if ((alertView.tag == 101 && buttonIndex == 0) || (alertView.tag == 102 && buttonIndex == 1)) {//完成
-        SenceConfigViewController *senceConfigVC = [[SenceConfigViewController alloc] init];
-        [self.navigationController pushViewController:senceConfigVC animated:YES];
-    }
-}
-
-#pragma mark -
-#pragma mark StudyTimerViewDelegate
-
--(void)done
-{
-    [DataUtil setGlobalModel:strCurModel_];
-    studyTimerView_.hidden = YES;
-}
-
-//#pragma mark -
-//#pragma mark Custom Methods
-//
-////配置菜单
-//-(void)showRightMenu
-//{
-//    [_menu close];
-//    
-//    if ([KxMenu isOpen]) {
-//        return [KxMenu dismissMenu];
-//    }
-//    
-//    NSArray *menuItems =
-//    @[
-//      
-//      [KxMenuItem menuItem:@"正常模式"
-//                     image:nil
-//                    target:self
-//                    action:@selector(pushMenuItem:)],
-//      
-//      [KxMenuItem menuItem:@"学习模式"
-//                     image:nil
-//                    target:self
-//                    action:@selector(pushMenuItem:)]
-//      ];
-//    
-//    KxMenuItem *first = menuItems[0];
-//    first.foreColor = [UIColor colorWithRed:47/255.0f green:112/255.0f blue:225/255.0f alpha:1.0];
-//    first.alignment = NSTextAlignmentCenter;
-//    
-//    CGRect rect = CGRectMake(215, -50, 100, 50);
-//    
-//    [KxMenu showMenuInView:self.view
-//                  fromRect:rect
-//                 menuItems:menuItems];
-//}
-//
-////点击下拉事件
-//- (void)pushMenuItem:(KxMenuItem *)sender
-//{
-//    if ([sender.title isEqualToString:@"学习模式"])
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-//                                                        message:@"您已处于学习模式状态."
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"确定"
-//                                              otherButtonTitles:nil, nil];
-//        alert.tag = 102;
-//        [alert show];
-//        
-//        [DataUtil setGlobalModel:Model_Study];
-//        
-//    } else if ([sender.title isEqualToString:@"正常模式"])
-//    {
-//        [DataUtil setGlobalModel:strCurModel_];
-//    }
-//}
-
 -(void)actionStudy
 {
     [UIAlertView alertViewWithTitle:@"操作"
-                            message:nil
+                            message:@"是否要启用学习模式?"
                   cancelButtonTitle:@"关闭"
                   otherButtonTitles:@[@"学习模式"]
                           onDismiss:^(int buttonIndex){
-                              [SVProgressHUD showSuccessWithStatus:@"您已经处于学习状态."];
-                              
                               [DataUtil setGlobalModel:Model_Study];
+                              [SVProgressHUD showSuccessWithStatus:@"您已处于学习模式状态"];
     }onCancel:nil];
 }
 

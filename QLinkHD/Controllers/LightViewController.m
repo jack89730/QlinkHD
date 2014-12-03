@@ -348,7 +348,7 @@
     if ([DataUtil getGlobalIsAddSence]) {//添加场景模式
         if ([SQLiteUtil getShoppingCarCount] >= 40) {
             [UIAlertView alertViewWithTitle:@"温馨提示" message:@"最多添加40个命令,请删除后再添加." cancelButtonTitle:@"确定" otherButtonTitles:nil onDismiss:nil onCancel:^{
-                SenceConfigViewController *senceConfigVC = [[SenceConfigViewController alloc] init];
+                SenceConfigViewController *senceConfigVC = [SenceConfigViewController loadFromSB];
                 [self.navigationController pushViewController:senceConfigVC animated:YES];
             }];
             

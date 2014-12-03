@@ -73,6 +73,7 @@
 
 //TODO:通知名称
 #define NDNotiMainUiJump @"NDNotiMainUiJump"
+#define NDNotiMainUiPop @"NDNotiMainUiPop"
 
 
 

@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol StudyTimerDelegate <NSObject>
-
--(void)done;
-
-@end
+//@protocol StudyTimerDelegate <NSObject>
+//
+//-(void)done;
+//
+//@end
 
 @interface StudyTimerView : UIView
 
+@property(nonatomic,copy) void(^doneBlock)();
 @property(nonatomic,weak) IBOutlet UILabel *lTimer;
 @property(nonatomic,assign) int pTime;
-@property(nonatomic,assign) id<StudyTimerDelegate>delegate;
+//@property(nonatomic,assign) id<StudyTimerDelegate>delegate;
 
 -(IBAction)btnDone;
 -(void)startTimer;
