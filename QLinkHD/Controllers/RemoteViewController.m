@@ -57,25 +57,35 @@
     
  
     NSMutableArray *arrItem = [NSMutableArray array];
-    
+    BOOL isStudy = NO;
     if (![DataUtil getGlobalIsAddSence]) {
         if ([SQLiteUtil isStudyModel:_deviceId]) {
             UIImage * imgOn = [UIImage imageNamed:@"Bottom_set01"];
             UIImage * imgOff = [UIImage imageNamed:@"Bottom_set02"];
-            UIBarButtonItem * btnStudy =  [UIBarButtonItem barItemWithImage:imgOn
-                                                             highlightImage:imgOff
-                                                                     target:self
-                                                                 withAction:@selector(actionStudy)];
+            UIBarButtonItem * btnStudy =  [UIBarButtonItem barItemWithImage1:imgOn
+                                                             highlightImage1:imgOff
+                                                                     target1:self
+                                                                 withAction1:@selector(actionStudy)];
             [arrItem addObject:btnStudy];
+            
+            isStudy = YES;
         }
     }
     
     UIImage * imgOn = [UIImage imageNamed:@"Common_返回键01"];
     UIImage * imgOff = [UIImage imageNamed:@"Common_返回键02"];
-    UIBarButtonItem * btnBack =  [UIBarButtonItem barItemWithImage:imgOn
-                                                    highlightImage:imgOff
-                                                            target:self
-                                                        withAction:@selector(actionBack)];
+    UIBarButtonItem * btnBack = nil;
+    if (isStudy) {
+        btnBack = [UIBarButtonItem barItemWithImage1:imgOn
+                                     highlightImage1:imgOff
+                                             target1:self
+                                         withAction1:@selector(actionBack)];
+    } else {
+        btnBack = [UIBarButtonItem barItemWithImage:imgOn
+                                     highlightImage:imgOff
+                                             target:self
+                                         withAction:@selector(actionBack)];
+    }
     [arrItem addObject:btnBack];
  
     self.navigationItem.rightBarButtonItems = arrItem;
@@ -88,10 +98,10 @@
     ivBg.image = QLImage(@"Common_MainBg");
     [self.view addSubview:ivBg];
 
-    int svHeight = [UIScreen mainScreen ].applicationFrame.size.height - 44 - 169;
+    int svHeight = [UIScreen mainScreen ].applicationFrame.size.height - 44 - 110 - 60;
     
     UIScrollView *svBg = [[UIScrollView alloc] init];
-    svBg.frame = CGRectMake(80, 0, 864, svHeight);
+    svBg.frame = CGRectMake(80, 60, 864, svHeight);
     svBg.backgroundColor = [UIColor clearColor];
     svBg.showsVerticalScrollIndicator = false;
     [self.view addSubview:svBg];
@@ -459,15 +469,7 @@
     
     int height = heightLeft > heightMiddle ? heightLeft : heightMiddle;
     
-    [svBg setContentSize:CGSizeMake(864, height + 10)];
-    
-//    //设置学习框
-//    NSArray *array1 = [[NSBundle mainBundle] loadNibNamed:@"StudyTimerView" owner:self options:nil];
-//    studyTimerView_ = [array1 objectAtIndex:0];
-//    studyTimerView_.frame = CGRectMake(0, 90, 320, 190);
-//    studyTimerView_.hidden = YES;
-//    studyTimerView_.delegate = self;
-//    [self.view addSubview:studyTimerView_];
+    [svBg setContentSize:CGSizeMake(864, height + 80)];
 }
 
 #pragma mark -

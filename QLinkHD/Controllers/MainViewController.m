@@ -128,6 +128,7 @@
             return;
         }
         
+        define_weakself;
         //弹出操作框
         [UIAlertView alertViewWithTitle:@"请选择操作"
                                 message:nil
@@ -141,7 +142,6 @@
                                           self.renameView.frame = CGRectMake(0, 0, 1024, 768);
                                           self.renameView.backgroundColor = [UIColor clearColor];
                                           self.renameView.tfContent.text = obj.DeviceName;
-                                          define_weakself;
                                           [self.renameView setCanclePressed:^{
                                               [weakSelf.renameView removeFromSuperview];
                                           }];
@@ -228,6 +228,7 @@
             [self.navigationController pushViewController:remoteVC animated:YES];
         }
     }];
+    
     return iconCell;
 }
 

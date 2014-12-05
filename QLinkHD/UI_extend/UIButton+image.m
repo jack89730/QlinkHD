@@ -36,6 +36,19 @@
                      withAction:(SEL)action
 {
     UIButton * btn = [UIButton buttonWithImage:img1 withHighLightImage:img2];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(-15,-35,0,0);
+    [btn addTarget:target action:action];
+    UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    return barItem;
+}
+
++(instancetype)barItemWithImage1:(UIImage *)img1
+                 highlightImage1:(UIImage *)img2
+                         target1:(id)target
+                     withAction1:(SEL)action
+{
+    UIButton * btn = [UIButton buttonWithImage:img1 withHighLightImage:img2];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(-15,0,0,0);
     [btn addTarget:target action:action];
     UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     return barItem;

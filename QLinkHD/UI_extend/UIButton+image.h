@@ -30,4 +30,9 @@
                  highlightImage:(UIImage *)img2
                          target:(id)target
                      withAction:(SEL)action;
+
++(instancetype)barItemWithImage1:(UIImage *)img1
+                 highlightImage1:(UIImage *)img2
+                         target1:(id)target
+                     withAction1:(SEL)action;
 @end

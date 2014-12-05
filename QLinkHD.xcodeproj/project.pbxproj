@@ -16,6 +16,7 @@
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
 		8A1D59611A14F2D300AE66C9 /* IconCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */; };
 		8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */; };
+		8A2086631A320C52002EFD7D /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */; };
 		8A26D5E81A1E2E560013C9C0 /* SenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A26D5E71A1E2E560013C9C0 /* SenceCell.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 		8A2C31281A047A970017287B /* QLinkHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31271A047A970017287B /* QLinkHDTests.m */; };
 		8A2C31381A0486F00017287B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C31371A0486F00017287B /* LoginViewController.m */; };
 		8A3B548B1A2B1FED00840614 /* RemoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3B548A1A2B1FED00840614 /* RemoteViewController.m */; };
+		8A3C928F1A309F2400D84A47 /* QuickOperDeviceChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3C928E1A309F2400D84A47 /* QuickOperDeviceChooseView.m */; };
+		8A3C92911A309F3B00D84A47 /* QuickOperDeviceChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A3C92901A309F3B00D84A47 /* QuickOperDeviceChooseView.xib */; };
 		8A49A0531A24CC7800697596 /* SenceConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A49A0521A24CC7800697596 /* SenceConfigViewController.m */; };
 		8A49A0831A24CF3200697596 /* BsTcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A49A0551A24CF3200697596 /* BsTcView.m */; };
 		8A49A0841A24CF3200697596 /* BsTcView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A49A0561A24CF3200697596 /* BsTcView.xib */; };
@@ -152,6 +155,8 @@
 		8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconCollectionCell.m; sourceTree = "<group>"; };
 		8A206D4B1A16E5FC001A8CB5 /* RoomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomButton.h; sourceTree = "<group>"; };
 		8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomButton.m; sourceTree = "<group>"; };
+		8A2086611A320C52002EFD7D /* CustomCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionLayout.h; sourceTree = "<group>"; };
+		8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionLayout.m; sourceTree = "<group>"; };
 		8A26D5E61A1E2E560013C9C0 /* SenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceCell.h; sourceTree = "<group>"; };
 		8A26D5E71A1E2E560013C9C0 /* SenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceCell.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +179,9 @@
 		8A2C31371A0486F00017287B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8A3B54891A2B1FED00840614 /* RemoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteViewController.h; sourceTree = "<group>"; };
 		8A3B548A1A2B1FED00840614 /* RemoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteViewController.m; sourceTree = "<group>"; };
+		8A3C928D1A309F2400D84A47 /* QuickOperDeviceChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickOperDeviceChooseView.h; sourceTree = "<group>"; };
+		8A3C928E1A309F2400D84A47 /* QuickOperDeviceChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickOperDeviceChooseView.m; sourceTree = "<group>"; };
+		8A3C92901A309F3B00D84A47 /* QuickOperDeviceChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickOperDeviceChooseView.xib; sourceTree = "<group>"; };
 		8A49A0511A24CC7800697596 /* SenceConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceConfigViewController.h; sourceTree = "<group>"; };
 		8A49A0521A24CC7800697596 /* SenceConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceConfigViewController.m; sourceTree = "<group>"; };
 		8A49A0541A24CF3200697596 /* BsTcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BsTcView.h; sourceTree = "<group>"; };
@@ -432,6 +440,11 @@
 				8A9B3CC91A1A347400FABB46 /* RenameView.xib */,
 				8A1D595F1A14F2D300AE66C9 /* IconCollectionCell.h */,
 				8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */,
+				8A3C928D1A309F2400D84A47 /* QuickOperDeviceChooseView.h */,
+				8A3C928E1A309F2400D84A47 /* QuickOperDeviceChooseView.m */,
+				8A3C92901A309F3B00D84A47 /* QuickOperDeviceChooseView.xib */,
+				8A2086611A320C52002EFD7D /* CustomCollectionLayout.h */,
+				8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -825,6 +838,7 @@
 				8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */,
 				8A49A0A11A24CF3200697596 /* TrView.xib in Resources */,
 				8A49A0881A24CF3200697596 /* HsView.xib in Resources */,
+				8A3C92911A309F3B00D84A47 /* QuickOperDeviceChooseView.xib in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
 				8A0422C31A18955B00D50A39 /* DeviceConfigIconPlist.plist in Resources */,
 				8AAB938C1A04E05400B803FC /* SVProgressHUD.bundle in Resources */,
@@ -862,6 +876,7 @@
 				8A49A08E1A24CF3200697596 /* LightBriView.m in Sources */,
 				8AAB938B1A04E05400B803FC /* GCDAsyncUdpSocket.m in Sources */,
 				8AAB937B1A04E05400B803FC /* AFHTTPRequestOperationManager.m in Sources */,
+				8A2086631A320C52002EFD7D /* CustomCollectionLayout.m in Sources */,
 				8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */,
 				8AAB937D1A04E05400B803FC /* AFNetworkReachabilityManager.m in Sources */,
 				8A49A09A1A24CF3200697596 /* StudyTimerView.m in Sources */,
@@ -903,6 +918,7 @@
 				8AAB937E1A04E05400B803FC /* AFSecurityPolicy.m in Sources */,
 				8A49A08C1A24CF3200697596 /* LightBcView.m in Sources */,
 				8A121FFB1A2CABAB00B37EA5 /* LightViewController.m in Sources */,
+				8A3C928F1A309F2400D84A47 /* QuickOperDeviceChooseView.m in Sources */,
 				8A908ED51A0E2DAE00AF9FB9 /* UIButton+image.m in Sources */,
 				8AA7FCB51A18E4B10017C703 /* BottomRightView.m in Sources */,
 				8A49A0901A24CF3200697596 /* McView.m in Sources */,

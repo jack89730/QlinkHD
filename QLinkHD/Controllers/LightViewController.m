@@ -69,9 +69,9 @@
     [self.view addSubview:ivBg];
     
     //UIScrollView
-    int svHeight = [UIScreen mainScreen ].applicationFrame.size.height - 44 - 169;
+    int svHeight = [UIScreen mainScreen ].applicationFrame.size.height - 44 - 110 - 60;
     svBg = [[UIScrollView alloc] init];
-    svBg.frame = CGRectMake(70, 0, 884, svHeight);
+    svBg.frame = CGRectMake(70, 60, 884, svHeight);
     svBg.backgroundColor = [UIColor clearColor];
     svBg.showsVerticalScrollIndicator = false;
     [self.view addSubview:svBg];
@@ -269,7 +269,7 @@
     
     int height = heightLeft > heightRight ? heightLeft : heightRight;
     
-    [svBg setContentSize:CGSizeMake(884, height + 10)];
+    [svBg setContentSize:CGSizeMake(884, height + 80)];
 }
 
 #pragma mark -
