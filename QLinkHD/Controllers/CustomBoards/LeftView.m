@@ -109,7 +109,12 @@
         Room *roomObj = (Room *)obj;
         if ([roomObj.RoomId isEqualToString:@""]) {//返回楼层
             [self loadLayerData];
+            return;
         }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiPop
+                                                            object:nil
+                                                          userInfo:nil];
     } else if ([obj isKindOfClass:[Layer class]]){//楼层
         Layer *layerObj = (Layer *)obj;
         [self loadRoomDataByHouseId:layerObj.HouseId andLayerId:layerObj.LayerId];

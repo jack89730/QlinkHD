@@ -356,13 +356,14 @@
         }
         BOOL bResult = [SQLiteUtil addOrderToShoppingCar:sender.orderObj.OrderId andDeviceId:sender.orderObj.DeviceId];
         if (bResult) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                            message:@"已成功添加命令,是否继续?"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"继续"
-                                                  otherButtonTitles:@"完成", nil];
-            alert.tag = 104;
-            [alert show];
+            [UIAlertView alertViewWithTitle:@"温馨是"
+                                    message:@"已成功添加命令,是否继续?"
+                          cancelButtonTitle:@"继续"
+                          otherButtonTitles:@[@"完成"]
+                                  onDismiss:^(int buttonIdex){
+                                      SenceConfigViewController *senceConfigVC = [[SenceConfigViewController alloc] init];
+                                      [self.navigationController pushViewController:senceConfigVC animated:YES];
+            }onCancel:nil];
         }
     } else {
         [self load_typeSocket:999 andOrderObj:sender.orderObj];

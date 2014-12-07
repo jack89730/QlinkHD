@@ -101,6 +101,7 @@
     [percentLabel setBackgroundColor:[UIColor clearColor]];
     percentLabel.adjustsFontSizeToFitWidth = YES;
     percentLabel.minimumFontSize = 10;
+    percentLabel.hidden = YES;
     
     [self addSubview:percentLabel];
     

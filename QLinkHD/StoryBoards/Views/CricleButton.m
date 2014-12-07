@@ -14,6 +14,9 @@
 -(void)awakeFromNib
 {
     [self setLongPressEvent];
+//    self.ivIcon = [[UIImageView alloc] init];
+//    self.ivIcon.image = [UIImage imageNamed:@"other_small"];
+//    [self addSubview:self.ivIcon];
 }
 
 //设置长按事件
@@ -31,31 +34,36 @@
 {
     self.deviceId = obj.DeviceId;
     self.iconType = obj.IconType;
-    self.ivIcon = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.origin.x-0)/2-7, (self.frame.origin.y-0)/2+7, 21, 21)];
+    
+    UIImageView *iv = (UIImageView *)[self viewWithTag:999];
+    [iv removeFromSuperview];
+    
+    self.ivIcon = [[UIImageView alloc] init];
+    self.ivIcon.tag = 999;
     switch (idx) {
         case 0:
-            self.ivIcon.frame = CGRectMake(10, 40, 21, 21);
+            self.ivIcon.frame = CGRectMake(17, 38, 21, 21);
             break;
         case 1:
-            self.ivIcon.frame = CGRectMake(24, 49, 21, 21);
+            self.ivIcon.frame = CGRectMake(36, 17, 21, 21);
             break;
         case 2:
-            self.ivIcon.frame = CGRectMake(10, 10, 21, 21);
+            self.ivIcon.frame = CGRectMake(28, 19, 21, 21);
             break;
         case 3:
-            self.ivIcon.frame = CGRectMake(10, 10, 21, 21);
+            self.ivIcon.frame = CGRectMake(22, 38, 21, 21);
             break;
         case 4:
-            self.ivIcon.frame = CGRectMake(24, 49, 21, 21);
+            self.ivIcon.frame = CGRectMake(23, 30, 21, 21);
             break;
         case 5:
-            self.ivIcon.frame = CGRectMake(24, 49, 21, 21);
+            self.ivIcon.frame = CGRectMake(27, 23, 21, 21);
             break;
         case 6:
-            self.ivIcon.frame = CGRectMake(24, 49, 21, 21);
+            self.ivIcon.frame = CGRectMake(34, 24, 21, 21);
             break;
         case 7:
-            self.ivIcon.frame = CGRectMake(24, 49, 21, 21);
+            self.ivIcon.frame = CGRectMake(18, 28, 21, 21);
             break;
         default:
             break;

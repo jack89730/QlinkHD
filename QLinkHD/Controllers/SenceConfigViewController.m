@@ -65,6 +65,7 @@
 -(void)setUI
 {
     [self.tbConfig setEditing:YES animated:YES];
+    self.tbConfig.showsVerticalScrollIndicator = NO;
 }
 
 -(void)initData
