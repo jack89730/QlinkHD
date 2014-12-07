@@ -28,7 +28,7 @@
 
 - (CGRect)trackRectForBounds:(CGRect)bounds
 {
-    return CGRectMake(10, 10, 185, 3);
+    return CGRectMake(10, 10, 280, 3);
 }
 
 /*

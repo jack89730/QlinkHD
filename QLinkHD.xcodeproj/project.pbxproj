@@ -11,6 +11,8 @@
 		8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0422C21A18955B00D50A39 /* iConPlist.plist */; };
 		8A121FFB1A2CABAB00B37EA5 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */; };
 		8A133F601A2E046500675266 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A133F5F1A2E046500675266 /* AboutViewController.m */; };
+		8A146BC21A34642000755E94 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC01A34642000755E94 /* Icon@2x.png */; };
+		8A146BC31A34642000755E94 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC11A34642000755E94 /* Icon.png */; };
 		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
 		8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D59591A14F24F00AE66C9 /* Login.storyboard */; };
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
@@ -151,6 +153,8 @@
 		8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		8A133F5E1A2E046500675266 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		8A133F5F1A2E046500675266 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		8A146BC01A34642000755E94 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		8A146BC11A34642000755E94 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
 		8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBoard.m; sourceTree = "<group>"; };
 		8A1D59591A14F24F00AE66C9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -482,7 +486,6 @@
 			isa = PBXGroup;
 			children = (
 				8A2C31081A047A970017287B /* QLinkHD */,
-				8A2C31211A047A970017287B /* QLinkHDTests */,
 				8A2C31011A047A970017287B /* Frameworks */,
 				8A2C31001A047A970017287B /* Products */,
 			);
@@ -524,6 +527,7 @@
 				8A2C31351A0486D90017287B /* Controllers */,
 				8A2C31111A047A970017287B /* AppDelegate.h */,
 				8A2C31121A047A970017287B /* AppDelegate.m */,
+				8A2C31211A047A970017287B /* QLinkHDTests */,
 				8A2C31141A047A970017287B /* Images.xcassets */,
 				8A2C31091A047A970017287B /* Supporting Files */,
 			);
@@ -533,6 +537,8 @@
 		8A2C31091A047A970017287B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A146BC01A34642000755E94 /* Icon@2x.png */,
+				8A146BC11A34642000755E94 /* Icon.png */,
 				8A2C310A1A047A970017287B /* QLinkHD-Info.plist */,
 				8A2C310B1A047A970017287B /* InfoPlist.strings */,
 				8A2C310E1A047A970017287B /* main.m */,
@@ -548,7 +554,7 @@
 				8A2C31221A047A970017287B /* Supporting Files */,
 			);
 			path = QLinkHDTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		8A2C31221A047A970017287B /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -818,6 +824,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = SANSAN;
 				TargetAttributes = {
+					8A2C30FE1A047A970017287B = {
+						DevelopmentTeam = 55CQ84TYYM;
+					};
 					8A2C31191A047A970017287B = {
 						TestTargetID = 8A2C30FE1A047A970017287B;
 					};
@@ -846,6 +855,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A146BC31A34642000755E94 /* Icon.png in Resources */,
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A49A0971A24CF3200697596 /* PlView.xib in Resources */,
 				8A49A0841A24CF3200697596 /* BsTcView.xib in Resources */,
@@ -862,6 +872,7 @@
 				8A49A0951A24CF3200697596 /* OtView.xib in Resources */,
 				8A49A09D1A24CF3200697596 /* SwView.xib in Resources */,
 				8A49A09F1A24CF3200697596 /* SwView1.xib in Resources */,
+				8A146BC21A34642000755E94 /* Icon@2x.png in Resources */,
 				8A49A08F1A24CF3200697596 /* LightBriView.xib in Resources */,
 				8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */,
 				8A49A08B1A24CF3200697596 /* LightBbView.xib in Resources */,
@@ -1030,7 +1041,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1048,6 +1060,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "ce5481d9-9dbb-4bbe-860b-6ba3de45bdd3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1069,7 +1082,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1080,6 +1094,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "ce5481d9-9dbb-4bbe-860b-6ba3de45bdd3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1089,13 +1104,14 @@
 		8A2C312C1A047A970017287B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QLinkHD/QLinkHD-Prefix.pch";
 				INFOPLIST_FILE = "QLinkHD/QLinkHD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ce5481d9-9dbb-4bbe-860b-6ba3de45bdd3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1103,13 +1119,14 @@
 		8A2C312D1A047A970017287B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QLinkHD/QLinkHD-Prefix.pch";
 				INFOPLIST_FILE = "QLinkHD/QLinkHD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ce5481d9-9dbb-4bbe-860b-6ba3de45bdd3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="nc2-eM-VOj">
-                    <rect key="frame" x="161" y="40" width="500" height="100"/>
+                    <rect key="frame" x="123" y="40" width="575" height="100"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5eQ-qo-NPU">
@@ -54,6 +54,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="btnLeft" destination="xZR-6b-oY7" id="sfS-TI-3ld"/>
+                <outlet property="btnRight" destination="Tgc-lV-FDf" id="Ucf-jr-1cN"/>
                 <outlet property="cvSence" destination="nc2-eM-VOj" id="HZ9-lo-XlC"/>
             </connections>
         </view>

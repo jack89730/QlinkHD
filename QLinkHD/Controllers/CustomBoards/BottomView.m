@@ -18,6 +18,8 @@
 @interface BottomView()<IconViewControllerDelegate>
 
 @property (nonatomic, retain) RenameView *renameView;
+@property (weak, nonatomic) IBOutlet UIButton *btnLeft;
+@property (weak, nonatomic) IBOutlet UIButton *btnRight;
 
 @end
 
@@ -30,11 +32,14 @@
 
 -(void)awakeFromNib
 {
+    self.btnLeft.hidden = YES;
+    self.btnRight.hidden = YES;
+    
     UINib *cellNib = [UINib nibWithNibName:@"SenceCell" bundle:nil];
     [self.cvSence registerNib:cellNib forCellWithReuseIdentifier:@"SenceCell"];
     
     self.cvSence.delegate = self;
-    self.cvSence.dataSource = self;
+    self.cvSence.dataSource = self;//width:500 height = 100;
     
     [self initData];
 }

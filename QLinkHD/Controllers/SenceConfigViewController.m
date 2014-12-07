@@ -66,6 +66,7 @@
 {
     [self.tbConfig setEditing:YES animated:YES];
     self.tbConfig.showsVerticalScrollIndicator = NO;
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 -(void)initData

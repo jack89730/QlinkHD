@@ -39,6 +39,8 @@
 {
     [self initData];
     
+    [self normalModel];
+    
     [self.circleGoalBar setThumbEnabled:YES];
     [self.circleGoalBar setAllowSwitching:NO];
     [self.circleGoalBar setSoundDown:^{
@@ -122,6 +124,7 @@
                           switch (buttonIdx) {
                               case 0://正常模式
                               {
+                                  [SVProgressHUD showSuccessWithStatus:@"正常模式"];
                                   [weakSelf normalModel];
                                   break;
                               }
@@ -175,7 +178,6 @@
 
 -(void)normalModel
 {
-    [SVProgressHUD showSuccessWithStatus:@"正常模式"];
     //设置当前模式
     Config *configObj = [Config getConfig];
     if (configObj.isBuyCenterControl) {//购买中控

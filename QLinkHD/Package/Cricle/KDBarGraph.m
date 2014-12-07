@@ -9,7 +9,7 @@
 #import "KDBarGraph.h"
 
 #define yearMargin 13
-#define weekMargin 24
+#define weekMargin 30//24
 #define stdWidth 320
 #define stdHeight 170
 

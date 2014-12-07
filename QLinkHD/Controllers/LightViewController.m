@@ -361,7 +361,7 @@
                           cancelButtonTitle:@"继续"
                           otherButtonTitles:@[@"完成"]
                                   onDismiss:^(int buttonIdex){
-                                      SenceConfigViewController *senceConfigVC = [[SenceConfigViewController alloc] init];
+                                      SenceConfigViewController *senceConfigVC = [SenceConfigViewController loadFromSB];
                                       [self.navigationController pushViewController:senceConfigVC animated:YES];
             }onCancel:nil];
         }
