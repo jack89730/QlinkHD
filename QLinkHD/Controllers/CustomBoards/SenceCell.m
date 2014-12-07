@@ -33,6 +33,8 @@
 {
     if (self.singlePressed) {
         self.singlePressed();
+    } else if (self.singleDeviceArPressed) {
+        self.singleDeviceArPressed(self);
     }
 }
 

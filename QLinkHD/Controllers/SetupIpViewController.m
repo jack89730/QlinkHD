@@ -292,7 +292,7 @@
 
 - (void)pingResult:(NSNumber*)success {
     if (success.boolValue) {
-        [SVProgressHUD dismiss];
+//        [SVProgressHUD dismiss];
         [self pingSuccess];
     } else {
         [self pingFailure];

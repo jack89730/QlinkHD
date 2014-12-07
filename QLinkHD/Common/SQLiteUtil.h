@@ -59,6 +59,14 @@
                andLayerId:(NSString *)layerId
                 andRoomId:(NSString *)roomId;
 
+//获取本地配置控制音量快捷设备
++(NSArray *)getDeviceHasArLocal;
+
+//获取当前用户所有拥有控制音量的设备
++(NSArray *)getDeviceHasAr:(NSString *)houseId
+                andLayerId:(NSString *)layerId
+                 andRoomId:(NSString *)roomId;
+
 //更新图标
 +(BOOL)changeIcon:(NSString *)deviceId
           andType:(NSString *)type
@@ -84,6 +92,9 @@
 
 //获取该设备下所有命令类型
 +(NSArray *)getOrderTypeGroupOrder:(NSString *)deviceId;
+
+//获取指定音量设备下指定类型的命令集合
++(NSArray *)getArOrderListByDeviceId:(NSString *)deviceId;
 
 //获取指定设备下指定类型的命令集合,用于非照明设备命令查询
 +(NSArray *)getOrderListByDeviceId:(NSString *)deviceId andType:(NSString *)type;
@@ -121,5 +132,10 @@
 
 //当前设备是否有学习模式
 +(BOOL)isStudyModel:(NSString *)deviceId;
+
+//添加本地音量控制设备
++(BOOL)addDeviceHasArToLocal:(NSString *)deviceId;
+//删除本地音量控制设备
++(BOOL)deleteDeviceHasArToLocal:(NSString *)deviceId;
 
 @end

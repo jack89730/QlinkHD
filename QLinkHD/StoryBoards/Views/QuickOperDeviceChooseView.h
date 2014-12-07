@@ -10,4 +10,6 @@
 
 @interface QuickOperDeviceChooseView : UIView
 
+@property(nonatomic,copy) void(^confirmPressed)(NSString *deviceId);
+
 @end

@@ -11,16 +11,94 @@
 #import "AboutViewController.h"
 #import "DataUtil.h"
 #import "SimplePingHelper.h"
+#import "CricleButton.h"
+#import "SQLiteUtil.h"
+#import "QuickOperDeviceChooseView.h"
+#import "UIView+xib.h"
+#import "KDGoalBar.h"
+
+@interface BottomRightView()
+{
+    CricleButton *btnSel;
+    Order *soundUpOrder;
+    Order *soundDownOrder;
+}
+
+@property(nonatomic,strong) QuickOperDeviceChooseView *popView;
+@property (weak, nonatomic) IBOutlet KDGoalBar *circleGoalBar;
+
+@end
 
 @implementation BottomRightView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+{
+    NSArray *dataArr;
+    NSArray *orderArr;
 }
-*/
+
+-(void)awakeFromNib
+{
+    [self initData];
+    
+    [self.circleGoalBar setThumbEnabled:YES];
+    [self.circleGoalBar setAllowSwitching:NO];
+    [self.circleGoalBar setSoundDown:^{
+        if (!soundDownOrder) {
+            return;
+        }
+        NSDictionary * notiInfo = @{@"Order": soundDownOrder};
+        [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainSoundSendOrder
+                                                            object:nil
+                                                          userInfo:notiInfo];
+    }];
+    [self.circleGoalBar setSoundUp:^{
+        if (!soundUpOrder) {
+            return;
+        }
+        NSDictionary * notiInfo = @{@"Order": soundUpOrder};
+        [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainSoundSendOrder
+                                                            object:nil
+                                                          userInfo:notiInfo];
+    }];
+}
+
+-(void)initData
+{
+    for (int i=0; i<8; i++) {
+        CricleButton *btn = (CricleButton *)[self viewWithTag:(101 + i)];
+        btn.ivIcon = nil;
+    }
+    
+    dataArr = [NSArray array];
+    dataArr = [SQLiteUtil getDeviceHasArLocal];
+    define_weakself;
+    for (int i = 0;i < dataArr.count; i++) {
+        Device *device = dataArr[i];
+        
+        CricleButton *btn = (CricleButton *)[self viewWithTag:(101 + i)];
+        [btn setLongPressBlock:^{
+            [SQLiteUtil deleteDeviceHasArToLocal:device.DeviceId];
+            [weakSelf initData];
+        }];
+        [btn addSmallIcon:device andIndex:i];
+        if (i == 0) {
+            btnSel = btn;
+            btn.selected = YES;
+            [btn setImageSel];
+            
+            if (![device.IconType isEqualToString:add_oper_localAr]) {
+                orderArr = [SQLiteUtil getArOrderListByDeviceId:device.DeviceId];
+                for (Order *obj in orderArr) {
+                    if ([obj.SubType isEqualToString:@"ad"]) {
+                        soundUpOrder = obj;
+                    }else if ([obj.SubType isEqualToString:@"rd"]){
+                        soundDownOrder = obj;
+                    }
+                }
+            }
+        }
+    }
+}
+
 - (IBAction)btnSysConfigPressed:(id)sender
 {
     define_weakself;
@@ -87,8 +165,10 @@
 - (void)pingResult:(NSNumber*)success {
     if (success.boolValue) {
         [DataUtil setGlobalModel:Model_ZKIp];
+        [DataUtil setTempGlobalModel:Model_ZKIp];
     } else {
         [DataUtil setGlobalModel:Model_ZKDOMAIN];
+        [DataUtil setTempGlobalModel:Model_ZKDOMAIN];
     }
 }
 
@@ -104,6 +184,7 @@
                 case AFNetworkReachabilityStatusReachableViaWWAN:
                 {
                     [DataUtil setGlobalModel:Model_ZKDOMAIN];
+                    [DataUtil setTempGlobalModel:Model_ZKDOMAIN];
                     break;
                 }
                 case AFNetworkReachabilityStatusReachableViaWiFi:
@@ -125,6 +206,7 @@
         
     } else {
         [DataUtil setGlobalModel:Model_JJ];
+        [DataUtil setTempGlobalModel:Model_JJ];
     }
 }
 
@@ -132,6 +214,7 @@
 {
     [SVProgressHUD showSuccessWithStatus:@"紧急模式"];
     [DataUtil setGlobalModel:Model_JJ];
+    [DataUtil setTempGlobalModel:Model_JJ];
 }
 
 -(void)writeZk
@@ -148,6 +231,40 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainUiJump
                                                         object:nil
                                                       userInfo:notiInfo];
+}
+
+- (IBAction)btnDeviceArPressed:(CricleButton *)sender
+{
+    soundUpOrder = nil;
+    soundDownOrder = nil;
+    
+    if ([sender.iconType isEqual:add_oper_localAr]) {//新增
+        self.popView = [QuickOperDeviceChooseView viewFromDefaultXib];
+        self.popView.frame = CGRectMake(0, 0, 1024, 768);
+        self.popView.backgroundColor = [UIColor clearColor];
+        define_weakself;
+        [self.popView setConfirmPressed:^(NSString *deviceId){
+            [SQLiteUtil addDeviceHasArToLocal:deviceId];
+            [weakSelf initData];
+            [weakSelf.popView removeFromSuperview];
+        }];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.popView];
+    } else {//设备
+        orderArr = [SQLiteUtil getArOrderListByDeviceId:sender.deviceId];
+        for (Order *obj in orderArr) {
+            if ([obj.SubType isEqualToString:@"ad"]) {
+                soundUpOrder = obj;
+            }else if ([obj.SubType isEqualToString:@"rd"]){
+                soundDownOrder = obj;
+            }
+        }
+    }
+    
+    btnSel.selected = NO;
+    [btnSel setImageUnSel];
+    sender.selected = YES;
+    [sender setImageSel];
+    btnSel = sender;
 }
 
 @end

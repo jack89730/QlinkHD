@@ -218,6 +218,41 @@
     return bResult;
 }
 
++(NSArray *)getDeviceHasAr:(NSString *)houseId
+                andLayerId:(NSString *)layerId
+                 andRoomId:(NSString *)roomId
+{
+    NSMutableArray *deviceArr = [NSMutableArray array];
+    NSMutableArray *iconArr = [DataUtil getIconList:IconTypeAll];
+    
+    FMDatabase *db = [self getDB];
+    NSString *sql = [NSString stringWithFormat:@"SELECT distinct(d.deviceid),d.deviceName,d.Type,i.NewType FROM Device d LEFT JOIN Orders o ON d.DeviceId = o.DeviceId LEFT JOIN ICON i ON d.DeviceId=i.DeviceId  WHERE o.type = 'ar' and o.HouseId='%@' and o.LayerId='%@' and o.RoomId='%@'",houseId,layerId,roomId];
+    if ([db open]) {
+        FMResultSet *rs = [db executeQuery:sql];
+        while ([rs next]){
+            NSString *type = [rs stringForColumn:@"NewType"];
+            if ([DataUtil checkNullOrEmpty:type]) {
+                type = [rs stringForColumn:@"Type"];
+            }
+            if (![iconArr containsObject:type]) {
+                type = @"other";
+            }
+            
+            Device *device = [[Device alloc] init];
+            device.DeviceId = [rs stringForColumn:@"DeviceId"];
+            device.DeviceName = [rs stringForColumn:@"DeviceName"];
+            device.Type = [rs stringForColumn:@"Type"];
+            device.IconType =  type;
+            
+            [deviceArr addObject:device];
+        }
+        [rs close];
+    }
+    [db close];
+    
+    return deviceArr;
+}
+
 //获取场景列表
 +(NSArray *)getSenceList:(NSString *)houseId
               andLayerId:(NSString *)layerId
@@ -512,6 +547,73 @@
     return bResult;
 }
 
+//添加本地音量控制设备
++(BOOL)addDeviceHasArToLocal:(NSString *)deviceId
+{
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO DeviceArLocal (DEVICEID) VALUES ('%@')",deviceId];
+    
+    FMDatabase *db = [self getDB];
+    
+    [db open];
+    
+    BOOL bResult = [db executeUpdate:sql];
+    
+    [db close];
+    
+    return bResult;
+}
+
+//删除本地音量控制设备
++(BOOL)deleteDeviceHasArToLocal:(NSString *)deviceId
+{
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM DeviceArLocal WHERE DEVICEID='%@'",deviceId];
+    
+    FMDatabase *db = [self getDB];
+    
+    [db open];
+    
+    BOOL bResult = [db executeUpdate:sql];
+    
+    [db close];
+    
+    return bResult;
+}
+
++(NSArray *)getDeviceHasArLocal
+{
+    NSArray *iconArr = [DataUtil getDeviceArLocalIconList];
+    NSMutableArray *deviceArr = [NSMutableArray array];
+    NSString *sql = @"SELECT dl.DeviceId,d.Type FROM DeviceArLocal dl LEFT JOIN Device d ON dl.DeviceId = d.DeviceId";
+    
+    FMDatabase *db = [self getDB];
+    
+    if ([db open]) {
+        FMResultSet *rs = [db executeQuery:sql];
+        while ([rs next]){
+            Device *obj = [[Device alloc] init];
+            obj.DeviceId = [rs stringForColumn:@"DeviceId"];
+            obj.IconType = [rs stringForColumn:@"Type"];
+            if (![iconArr containsObject:obj.IconType]) {
+                obj.IconType = @"other";
+            }
+            [deviceArr addObject:obj];
+        }
+        
+        [rs close];
+    }
+    
+    [db close];
+    
+    if (deviceArr.count < 8) {
+        Device *obj = [[Device alloc] init];
+        obj.DeviceId = @"";
+        obj.IconType = add_oper_localAr;
+        [deviceArr addObject:obj];
+    }
+    
+    return deviceArr;
+}
+
 //获取该设备下所有命令类型
 +(NSArray *)getOrderTypeGroupOrder:(NSString *)deviceId
 {
@@ -536,6 +638,41 @@
     [db close];
     
     return typeArr;
+}
+
+//获取指定音量设备下指定类型的命令集合
++(NSArray *)getArOrderListByDeviceId:(NSString *)deviceId
+{
+    NSMutableArray *orderArr = [NSMutableArray array];
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM ORDERS WHERE DEVICEID='%@' AND SubType in ('ad','rd')",deviceId];
+    
+    FMDatabase *db = [self getDB];
+    
+    if ([db open]) {
+        FMResultSet *rs = [db executeQuery:sql];
+        while ([rs next]){
+            Order *obj = [Order setOrderId:[rs stringForColumn:@"OrderId"]
+                              andOrderName:[rs stringForColumn:@"OrderName"]
+                                   andType:[rs stringForColumn:@"Type"]
+                                andSubType:[rs stringForColumn:@"SubType"]
+                               andOrderCmd:[rs stringForColumn:@"OrderCmd"]
+                                andAddress:[rs stringForColumn:@"Address"]
+                               andStudyCmd:[rs stringForColumn:@"StudyCmd"]
+                                andOrderNo:[rs stringForColumn:@"OrderNo"]
+                                andHouseId:[rs stringForColumn:@"HouseId"]
+                                andLayerId:[rs stringForColumn:@"LayerId"]
+                                 andRoomId:[rs stringForColumn:@"RoomId"]
+                               andDeviceId:[rs stringForColumn:@"DeviceId"]];
+            [orderArr addObject:obj];
+        }
+        
+        [rs close];
+    }
+    
+    [db close];
+    
+    return orderArr;
 }
 
 //获取指定设备下指定类型的命令集合,用于非照明设备命令查询

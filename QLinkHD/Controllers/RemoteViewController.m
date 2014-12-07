@@ -17,7 +17,6 @@
 @interface RemoteViewController ()
 
 @property(nonatomic,strong) StudyTimerView *studyView;
-@property(nonatomic,strong) NSString *strCurModel;
 
 @end
 
@@ -39,13 +38,6 @@
     [self initNavigation];
     
     [self initControl];
-    
-    [self initData];
-}
-
--(void)initData
-{
-    self.strCurModel = [DataUtil getGlobalModel];
 }
 
 //设置导航
@@ -60,8 +52,8 @@
     BOOL isStudy = NO;
     if (![DataUtil getGlobalIsAddSence]) {
         if ([SQLiteUtil isStudyModel:_deviceId]) {
-            UIImage * imgOn = [UIImage imageNamed:@"Bottom_set01"];
-            UIImage * imgOff = [UIImage imageNamed:@"Bottom_set02"];
+            UIImage * imgOn = [UIImage imageNamed:@"Bottom_set101"];
+            UIImage * imgOff = [UIImage imageNamed:@"Bottom_set102"];
             UIBarButtonItem * btnStudy =  [UIBarButtonItem barItemWithImage1:imgOn
                                                              highlightImage1:imgOff
                                                                      target1:self
@@ -515,7 +507,7 @@
             define_weakself;
             [self.studyView setDoneBlock:^{
                 [weakSelf.studyView removeFromSuperview];
-                [DataUtil setGlobalModel:weakSelf.strCurModel];
+                [DataUtil setGlobalModel:[DataUtil getTempGlobalModel]];
             }];
             [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.studyView];
         }

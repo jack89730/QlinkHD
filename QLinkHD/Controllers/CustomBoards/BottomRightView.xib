@@ -14,6 +14,9 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottom_rightBg" translatesAutoresizingMaskIntoConstraints="NO" id="1Ca-SS-X6J">
                     <rect key="frame" x="0.0" y="0.0" width="296" height="272"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="音量调节按钮" translatesAutoresizingMaskIntoConstraints="NO" id="th7-VL-bZG">
+                    <rect key="frame" x="97" y="73" width="150" height="150"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGL-bG-r92">
                     <rect key="frame" x="8" y="198" width="54" height="54"/>
                     <state key="normal" image="Bottom_set01">
@@ -23,16 +26,129 @@
                         <action selector="btnSysConfigPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="rQ7-26-BcR"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcp-19-yFj" customClass="CricleButton">
+                    <rect key="frame" x="55" y="62" width="62" height="84"/>
+                    <state key="normal" image="外圈按钮01_01" backgroundImage="外圈按钮01_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮01_02" backgroundImage="外圈按钮01_02"/>
+                    <state key="highlighted" image="外圈按钮01_02" backgroundImage="外圈按钮01_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="p0s-ol-S17"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="108" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI6-eE-4O0" customClass="CricleButton">
+                    <rect key="frame" x="55" y="146" width="62" height="84"/>
+                    <state key="normal" image="外圈按钮05_01" backgroundImage="外圈按钮05_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮05_02" backgroundImage="外圈按钮05_02"/>
+                    <state key="highlighted" image="外圈按钮05_02" backgroundImage="外圈按钮05_01"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="EV3-Qv-3MX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="107" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg6-Zo-yPg" customClass="CricleButton">
+                    <rect key="frame" x="88" y="201" width="84" height="62"/>
+                    <state key="normal" image="外圈按钮06_01" backgroundImage="外圈按钮06_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮06_02" backgroundImage="外圈按钮06_02"/>
+                    <state key="highlighted" image="外圈按钮06_02" backgroundImage="外圈按钮06_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="zrc-cq-4uG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="106" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCt-h6-XEA" customClass="CricleButton">
+                    <rect key="frame" x="172" y="201" width="84" height="62"/>
+                    <state key="normal" image="外圈按钮07_01" backgroundImage="外圈按钮07_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮07_02" backgroundImage="外圈按钮07_02"/>
+                    <state key="highlighted" image="外圈按钮07_02" backgroundImage="外圈按钮07_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="prk-Sj-0eX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="105" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFY-3I-mPp" customClass="CricleButton">
+                    <rect key="frame" x="226" y="147" width="62" height="84"/>
+                    <state key="normal" image="外圈按钮08_01" backgroundImage="外圈按钮08_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮08_02" backgroundImage="外圈按钮08_02"/>
+                    <state key="highlighted" image="外圈按钮08_02" backgroundImage="外圈按钮08_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="FiP-cM-TJ5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hx3-vj-Zmm" customClass="CricleButton">
+                    <rect key="frame" x="226" y="63" width="62" height="84"/>
+                    <state key="normal" image="外圈按钮04_01" backgroundImage="外圈按钮04_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮04_02" backgroundImage="外圈按钮04_02"/>
+                    <state key="highlighted" image="外圈按钮04_02" backgroundImage="外圈按钮04_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="wd0-HI-rPr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnt-v1-9bB" customClass="CricleButton">
+                    <rect key="frame" x="87" y="30" width="84" height="62"/>
+                    <state key="normal" image="外圈按钮02_01" backgroundImage="外圈按钮02_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮02_02" backgroundImage="外圈按钮02_02"/>
+                    <state key="highlighted" image="外圈按钮02_02" backgroundImage="外圈按钮02_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="kP0-t8-gWc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nv5-3T-SeT" customClass="CricleButton">
+                    <rect key="frame" x="170" y="30" width="84" height="62"/>
+                    <state key="normal" image="外圈按钮03_01" backgroundImage="外圈按钮03_01">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="外圈按钮03_02" backgroundImage="外圈按钮03_02"/>
+                    <state key="highlighted" image="外圈按钮03_02" backgroundImage="外圈按钮03_02"/>
+                    <connections>
+                        <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="zNF-l6-Uji"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-nB-Quv" customClass="KDGoalBar">
+                    <rect key="frame" x="84" y="59" width="177" height="177"/>
+                    <color key="backgroundColor" red="0.34901961679999999" green="0.34901961679999999" blue="0.34901961679999999" alpha="1" colorSpace="deviceRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="circleGoalBar" destination="QHB-nB-Quv" id="tVA-24-5Fn"/>
+            </connections>
+            <point key="canvasLocation" x="-14" y="167"/>
         </view>
     </objects>
     <resources>
         <image name="Bottom_set01" width="54" height="54"/>
         <image name="bottom_rightBg" width="296" height="272"/>
+        <image name="外圈按钮01_01" width="62" height="84"/>
+        <image name="外圈按钮01_02" width="62" height="84"/>
+        <image name="外圈按钮02_01" width="84" height="62"/>
+        <image name="外圈按钮02_02" width="84" height="62"/>
+        <image name="外圈按钮03_01" width="84" height="62"/>
+        <image name="外圈按钮03_02" width="84" height="62"/>
+        <image name="外圈按钮04_01" width="62" height="84"/>
+        <image name="外圈按钮04_02" width="62" height="84"/>
+        <image name="外圈按钮05_01" width="62" height="84"/>
+        <image name="外圈按钮05_02" width="62" height="84"/>
+        <image name="外圈按钮06_01" width="84" height="62"/>
+        <image name="外圈按钮06_02" width="84" height="62"/>
+        <image name="外圈按钮07_01" width="84" height="62"/>
+        <image name="外圈按钮07_02" width="84" height="62"/>
+        <image name="外圈按钮08_01" width="62" height="84"/>
+        <image name="外圈按钮08_02" width="62" height="84"/>
+        <image name="音量调节按钮" width="150" height="150"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

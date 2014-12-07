@@ -29,6 +29,9 @@ typedef enum {
 //判断是否为nil,nil则返回空
 +(NSString *)getDefaultValue:(NSString *)value;
 
+//获取快捷设备控制图标
++(NSMutableArray *)getDeviceArLocalIconList;
+
 //TODO:获取图标
 +(NSMutableArray *)getIconList:(IconType)iconType;
 
@@ -46,6 +49,12 @@ typedef enum {
 
 //获取全局模式类型
 +(NSString *)getGlobalModel;
+
+//设置临时全局模式
++(void)setTempGlobalModel:(NSString *)global;
+
+//获取临时全局模式类型
++(NSString *)getTempGlobalModel;
 
 //设置是否添加场景
 +(void)setGlobalIsAddSence:(BOOL)isAdd;

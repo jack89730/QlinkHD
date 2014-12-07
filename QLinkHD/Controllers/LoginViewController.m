@@ -197,6 +197,7 @@
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //         [SVProgressHUD dismiss];
+         [weakSelf loadActionNULL];
      }];
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -218,7 +219,7 @@
          NSDictionary *dict = [NSDictionary dictionaryWithXMLData:newData];
          
          if (!dict) {
-             [SVProgressHUD showErrorWithStatus:@"配置ip出错,请重试."];
+//             [SVProgressHUD showErrorWithStatus:@"配置ip出错,请重试."];
              
              [weakSelf loadActionNULL];
              
@@ -229,7 +230,7 @@
          [weakSelf load_setIpSocket:dict];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         [SVProgressHUD showErrorWithStatus:@"配置ip出错,请重试."];
+//         [SVProgressHUD showErrorWithStatus:@"配置ip出错,请重试."];
          [weakSelf loadActionNULL];
      }];
     

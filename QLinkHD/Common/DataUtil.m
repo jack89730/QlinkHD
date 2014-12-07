@@ -69,6 +69,14 @@
     return obj;
 }
 
+//获取快捷设备控制图标
++(NSMutableArray *)getDeviceArLocalIconList
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"iConArPlist" ofType:@"plist"];
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+    return arr;
+}
+
 //TODO:获取图标
 +(NSMutableArray *)getIconList:(IconType)iconType
 {
@@ -132,6 +140,22 @@
 {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *model = [ud objectForKey:Global_Model_Attr];
+    return model;
+}
+
+//设置临时全局模式
++(void)setTempGlobalModel:(NSString *)global
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:global forKey:Global_Model_Attr_Temp];
+    [ud synchronize];
+}
+
+//获取临时全局模式类型
++(NSString *)getTempGlobalModel
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *model = [ud objectForKey:Global_Model_Attr_Temp];
     return model;
 }
 

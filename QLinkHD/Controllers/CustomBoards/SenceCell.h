@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lName;
 @property (copy, nonatomic) void (^longPressed)();
 @property (copy, nonatomic) void (^singlePressed)();
-
+@property (copy, nonatomic) void (^singleDeviceArPressed)(SenceCell *cell);
 @end
