@@ -35,9 +35,6 @@
     self.deviceId = obj.DeviceId;
     self.iconType = obj.IconType;
     
-    UIImageView *iv = (UIImageView *)[self viewWithTag:999];
-    [iv removeFromSuperview];
-    
     self.ivIcon = [[UIImageView alloc] init];
     self.ivIcon.tag = 999;
     switch (idx) {

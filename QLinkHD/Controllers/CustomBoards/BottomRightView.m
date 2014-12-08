@@ -67,8 +67,10 @@
 {
     for (int i=0; i<8; i++) {
         CricleButton *btn = (CricleButton *)[self viewWithTag:(101 + i)];
-        btn.ivIcon = nil;
         btn.selected = NO;
+        
+        UIImageView *iv = (UIImageView *)[btn viewWithTag:999];
+        [iv removeFromSuperview];
     }
     
     dataArr = [NSArray array];
