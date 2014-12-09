@@ -61,6 +61,9 @@
         self.zkOperType = ZkOperNormal;
         [self load_typeSocket:SocketTypeWriteZk andOrderObj:nil];
     }];
+    [bottomBoard setBottomSoundChangePressed:^(Order *orderObj){
+        [self load_typeSocket:999 andOrderObj:orderObj];
+    }];
     [LeftBoard defaultLeftBoard];
     
     [self observeUiJumpNotfi];
@@ -85,14 +88,6 @@
             }
         }
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:idxInStack]animated:YES];
-    }];
-    
-    //首页音量控制快捷命令入口
-    [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMainSoundSendOrder object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        NSDictionary * userInfo = note.userInfo;
-        Order *orderObj = [userInfo objectForKey:@"order"];
-        [self load_typeSocket:999 andOrderObj:orderObj];
-        NSLog(@"-----");
     }];
 }
 

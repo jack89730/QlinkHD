@@ -15,6 +15,7 @@
 #import "XMLDictionary.h"
 #import "MainViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "UIAlertView+MKBlockAdditions.h"
 
 #define READ_TIMEOUT 15.0
 
@@ -381,9 +382,7 @@
                 sleep(1);
                 [self sendEmergencySocketOrder];
             } else if ([self iTimeoutCount] >= NumberOfTimeout) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                message:@"紧急模式发送失败." delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil, nil];
-                [alert show];
+                [UIAlertView alertViewWithTitle:@"温馨提示" message:@"紧急模式发送失败"];
                 
                 [SVProgressHUD dismiss];
             }
@@ -441,10 +440,15 @@
                     sleep(1);
                     [self firstSendZkSocketOrder];
                 } else if ([self iTimeoutCount] >= NumberOfTimeout) {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                    message:@"写入中控失败,请重试." delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"重试", nil];
-                    alert.tag = 999;
-                    [alert show];
+                    [UIAlertView alertViewWithTitle:@"温馨提示"
+                                            message:@"写入中控失败,请重试."
+                                  cancelButtonTitle:@"关闭" otherButtonTitles:@[@"重试"]
+                                          onDismiss:^(int buttonIndex) {
+                                              [self sendZkTryAgain];
+                    }onCancel:^{
+                        [self sendZkLastOrder];
+                    }];
+                    
                     [SVProgressHUD dismiss];
                 }
                 
@@ -535,12 +539,14 @@
             {
                 [cmdOperArr_ removeObject:sendCmdDic_];
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    progressValue_ += avgValue_;
-                    NSString *strInfo = [NSString stringWithFormat:@"写入中控[%d/%d]",([cmdReadArr_ count]-[cmdOperArr_ count]),[cmdReadArr_ count]];
-                    
-                    [SVProgressHUD showProgress:progressValue_ status:strInfo maskType:SVProgressHUDMaskTypeClear];
-                });
+                if (!isSendZKFailAndSendLast_) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        progressValue_ += avgValue_;
+                        NSString *strInfo = [NSString stringWithFormat:@"写入中控[%d/%d]",([cmdReadArr_ count]-[cmdOperArr_ count]),[cmdReadArr_ count]];
+                        
+                        [SVProgressHUD showProgress:progressValue_ status:strInfo maskType:SVProgressHUDMaskTypeClear];
+                    });
+                }
                 
                 //发送完成，关闭连接
                 if ([cmdOperArr_ count] == 0) {
@@ -554,8 +560,7 @@
                              switch (self.zkOperType) {
                                  case ZkOperSence:
                                  {
-                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"设置场景成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                                     [alert show];
+                                     [UIAlertView alertViewWithTitle:@"温馨提示" message:@"设置场景成功" cancelButtonTitle:@"确定"];
                                      
                                      //页面跳转
                                      NSArray * viewcontrollers = self.navigationController.viewControllers;
@@ -571,8 +576,7 @@
                                  }
                                  case ZkOperDevice:
                                  {
-                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"设置设备成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                                     [alert show];
+                                     [UIAlertView alertViewWithTitle:@"温馨提示" message:@"设置设备成功"cancelButtonTitle:@"确定"];
                                      
                                      //页面跳转
                                      NSArray * viewcontrollers = self.navigationController.viewControllers;
@@ -588,12 +592,8 @@
                                  }
                                  case ZkOperNormal:
                                  {
-                                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                                         message:@"写入中控成功."
-                                                                                        delegate:nil
-                                                                               cancelButtonTitle:@"确定"
-                                                                               otherButtonTitles:nil, nil];
-                                     [alertView show];
+                                     [UIAlertView alertViewWithTitle:@"温馨提示" message:@"写入中控成功" cancelButtonTitle:@"确定"];
+                                     
                                      break;
                                  }
                                  default:
@@ -603,12 +603,7 @@
                              
                              
                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    
-                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                                 message:@"写入失败." delegate:nil
-                                                                       cancelButtonTitle:@"关闭"
-                                                                       otherButtonTitles:nil, nil];
-                             [alertView show];
+                             [UIAlertView alertViewWithTitle:@"温馨提示" message:@"写入失败"];
                          }];
                         
                         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -631,10 +626,14 @@
                     [self setITimeoutCount:[self iTimeoutCount] + 1];
                     [self sendZkSocketOrder];
                 } else if ([self iTimeoutCount] >= NumberOfTimeout) {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                    message:@"写入中控失败,请重试." delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:@"重试", nil];
-                    alert.tag = 999;
-                    [alert show];
+                    [UIAlertView alertViewWithTitle:@"温馨提示"
+                                            message:@"写入中控失败,请重试."
+                                  cancelButtonTitle:@"关闭" otherButtonTitles:@[@"重试"]
+                                          onDismiss:^(int buttonIndex) {
+                                              [self sendZkTryAgain];
+                                          }onCancel:^{
+                                              [self sendZkLastOrder];
+                                          }];
                     
                     [SVProgressHUD dismiss];
                 }
@@ -657,30 +656,26 @@
 }
 
 #pragma mark -
-#pragma mark UIAlertViewDelegate
+#pragma mark Custom Methods
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)sendZkLastOrder
 {
-    if (alertView.tag == 999) {
-        if (buttonIndex == 0) {//关闭
-            isSendZKFailAndSendLast_ = YES;
-            sendCmdDic_ = [cmdOperArr_ lastObject];
-            [cmdOperArr_ removeAllObjects];
-            [cmdOperArr_ addObject:sendCmdDic_];
-            [self sendZkSocketOrder];
-        } else if (buttonIndex == 1) {//重试
-            [SVProgressHUD showProgress:0 status:@"写入中控" maskType:SVProgressHUDMaskTypeClear];
-            
-            isSendZKFailAndSendLast_ = NO;
-            cmdOperArr_ = [NSMutableArray arrayWithArray:cmdReadArr_];
-            self.iTimeoutCount = 1;
-            [self firstSendZkSocketOrder];
-        }
-    }
+    isSendZKFailAndSendLast_ = YES;
+    sendCmdDic_ = [cmdOperArr_ lastObject];
+    [cmdOperArr_ removeAllObjects];
+    [cmdOperArr_ addObject:sendCmdDic_];
+    [self sendZkSocketOrder];
 }
 
-#pragma mark -
-#pragma mark Custom Methods
+-(void)sendZkTryAgain
+{
+    [SVProgressHUD showProgress:0 status:@"写入中控" maskType:SVProgressHUDMaskTypeClear];
+    
+    isSendZKFailAndSendLast_ = NO;
+    cmdOperArr_ = [NSMutableArray arrayWithArray:cmdReadArr_];
+    self.iTimeoutCount = 1;
+    [self firstSendZkSocketOrder];
+}
 
 //断开释放一个连接实例
 -(void)disConnectionTCP

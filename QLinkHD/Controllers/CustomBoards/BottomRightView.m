@@ -47,19 +47,17 @@
         if (!soundDownOrder) {
             return;
         }
-        NSDictionary * notiInfo = @{@"Order": soundDownOrder};
-        [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainSoundSendOrder
-                                                            object:nil
-                                                          userInfo:notiInfo];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(soundChange:)]) {
+            [self.delegate soundChange:soundDownOrder];
+        }
     }];
     [self.circleGoalBar setSoundUp:^{
         if (!soundUpOrder) {
             return;
         }
-        NSDictionary * notiInfo = @{@"Order": soundUpOrder};
-        [[NSNotificationCenter defaultCenter] postNotificationName:NDNotiMainSoundSendOrder
-                                                            object:nil
-                                                          userInfo:notiInfo];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(soundChange:)]) {
+            [self.delegate soundChange:soundUpOrder];
+        }
     }];
 }
 
@@ -240,6 +238,10 @@
 
 - (IBAction)btnDeviceArPressed:(CricleButton *)sender
 {
+    if ((sender.tag - 100) > dataArr.count) {
+        return;
+    }
+    
     soundUpOrder = nil;
     soundDownOrder = nil;
     

@@ -11,8 +11,7 @@
 @protocol BottomRightViewDelegate <NSObject>
 
 -(void)writeToZk;
--(void)soundUp;
--(void)soundDown;
+-(void)soundChange:(Order *)order;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface SenceConfigCell : UITableViewCell
 
-@property (weak, nonatomic) void(^deleteCellPressed)();
+@property (copy, nonatomic) void(^deleteCellPressed)();
 
 @property (weak, nonatomic) IBOutlet UIImageView *ivIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lDeviceName;

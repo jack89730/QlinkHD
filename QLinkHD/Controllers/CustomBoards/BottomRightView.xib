@@ -32,7 +32,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮01_02" backgroundImage="外圈按钮01_02"/>
-                    <state key="highlighted" image="外圈按钮01_02" backgroundImage="外圈按钮01_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="p0s-ol-S17"/>
                     </connections>
@@ -43,7 +42,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮05_02" backgroundImage="外圈按钮05_02"/>
-                    <state key="highlighted" image="外圈按钮05_02" backgroundImage="外圈按钮05_01"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="EV3-Qv-3MX"/>
                     </connections>
@@ -54,7 +52,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮06_02" backgroundImage="外圈按钮06_02"/>
-                    <state key="highlighted" image="外圈按钮06_02" backgroundImage="外圈按钮06_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="zrc-cq-4uG"/>
                     </connections>
@@ -65,7 +62,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮07_02" backgroundImage="外圈按钮07_02"/>
-                    <state key="highlighted" image="外圈按钮07_02" backgroundImage="外圈按钮07_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="prk-Sj-0eX"/>
                     </connections>
@@ -76,7 +72,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮08_02" backgroundImage="外圈按钮08_02"/>
-                    <state key="highlighted" image="外圈按钮08_02" backgroundImage="外圈按钮08_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="FiP-cM-TJ5"/>
                     </connections>
@@ -87,7 +82,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮04_02" backgroundImage="外圈按钮04_02"/>
-                    <state key="highlighted" image="外圈按钮04_02" backgroundImage="外圈按钮04_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="wd0-HI-rPr"/>
                     </connections>
@@ -98,7 +92,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮02_02" backgroundImage="外圈按钮02_02"/>
-                    <state key="highlighted" image="外圈按钮02_02" backgroundImage="外圈按钮02_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="kP0-t8-gWc"/>
                     </connections>
@@ -109,7 +102,6 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="外圈按钮03_02" backgroundImage="外圈按钮03_02"/>
-                    <state key="highlighted" image="外圈按钮03_02" backgroundImage="外圈按钮03_02"/>
                     <connections>
                         <action selector="btnDeviceArPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="zNF-l6-Uji"/>
                     </connections>

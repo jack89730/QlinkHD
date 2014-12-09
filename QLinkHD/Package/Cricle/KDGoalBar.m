@@ -12,7 +12,7 @@
 #define toRadians(x) ((x)*M_PI / 180.0)
 #define toDegrees(x) ((x)*180.0 / M_PI)
 
-#define divideNum 8//36
+#define divideNum 36
 
 @implementation KDGoalBar
 @synthesize allowTap, allowDragging, allowSwitching, allowDecimal, percentLabel, delegate, customText, currentGoal;
@@ -108,14 +108,16 @@
     thumbLayer = [CALayer layer];
     thumbLayer.contentsScale = [UIScreen mainScreen].scale;
     thumbLayer.contents = (id) thumb.CGImage;
-    thumbLayer.frame = CGRectMake(self.frame.size.width / 2 - thumb.size.width/2, 0, thumb.size.width, thumb.size.height);
+//    thumbLayer.frame = CGRectMake(self.frame.size.width / 2 - thumb.size.width/2, 0, thumb.size.width, thumb.size.height);
+        thumbLayer.frame = CGRectMake(50, 50, 30, 30);
     thumbLayer.hidden = YES;
 
     ridgeLayer = [CALayer layer];
     ridgeLayer.contentsScale = [UIScreen mainScreen].scale;
     ridgeLayer.contents = (id)ridge.CGImage;
-    ridgeLayer.frame = CGRectMake(0, 0, ridge.size.width, ridge.size.height);
-        
+//    ridgeLayer.frame = CGRectMake(0, 0, ridge.size.width, ridge.size.height);
+    ridgeLayer.frame = CGRectMake(0, 0, 30, 30);
+    
     [thumbLayer addSublayer:ridgeLayer];
     
     imageLayer = [CALayer layer];
@@ -219,7 +221,7 @@
     }
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {    
     dragging = NO;
     imageLayer.contents = (id)bg.CGImage;
     if (switchModes) {

@@ -81,4 +81,12 @@ static BottomBoard *__board = nil;
     }
 }
 
+-(void)soundChange:(Order *)order
+{
+    if(self.bottomSoundChangePressed){
+        self.bottomSoundChangePressed(order);
+    }
+}
+
+
 @end
