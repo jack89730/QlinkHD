@@ -23,7 +23,6 @@
     LoginViewController *loginVC = [LoginViewController loadFromSB];
     UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:loginVC];
     [controller.navigationBar setBackgroundImage:[UIImage imageNamed:@"Common_nav"] forBarMetrics:UIBarMetricsDefault];
-//    controller.navigationBar.translucent = NO;
     [controller.navigationBar setHidden:YES];
     
     self.window.rootViewController = controller;

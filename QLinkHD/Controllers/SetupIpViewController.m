@@ -186,7 +186,7 @@
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag
 {
-    [NSThread sleepForTimeInterval:0.5];
+    [NSThread sleepForTimeInterval:1];
     
     // 移除命令
     [infoTagArr_ removeObjectAtIndex:0];
@@ -201,7 +201,7 @@
             pingIp =[sendDic_ objectForKey:@"_testip"];
         }
         
-        [NSThread sleepForTimeInterval:1];
+        [NSThread sleepForTimeInterval:2];
         
         [SimplePingHelper ping:pingIp
                         target:self

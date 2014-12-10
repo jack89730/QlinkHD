@@ -71,10 +71,11 @@
 
 -(void)observeUiJumpNotfi
 {
+    define_weakself;
     [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMainUiJump object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         NSDictionary * userInfo = note.userInfo;
         UIViewController *vc = [userInfo objectForKey:@"VC"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NDNotiMainUiPop object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
@@ -87,7 +88,11 @@
                 break;
             }
         }
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:idxInStack]animated:YES];
+        [weakSelf.navigationController popToViewController:[weakSelf.navigationController.viewControllers objectAtIndex:idxInStack]animated:YES];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"refreshDeviceTab" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf initData];
     }];
 }
 

@@ -21,7 +21,6 @@
 
 -(void)awakeFromNib
 {
-//    _btnBr.frame = CGRectMake(115, 24, 500, 31);
     [_btnBr setThumbImage:[UIImage imageNamed:@"light_roundButton"] forState:UIControlStateNormal];
     [_btnCo setThumbImage:[UIImage imageNamed:@"light_roundButton"] forState:UIControlStateNormal];
     [_btnCo setMaximumTrackTintColor:[UIColor clearColor]];

@@ -129,6 +129,17 @@
         }
     }];
     
+    [cell setNumberPressed:^(NSString *value){
+//        for (Sence *objSource in senceConfigArr) {
+//            if ([objSource.OrderId isEqualToString:objSel_.OrderId]) {
+//                objSource.Timer = sNum;
+//            }
+//        }
+        
+        obj.Timer = value;
+
+    }];
+    
     return cell;
 }
 

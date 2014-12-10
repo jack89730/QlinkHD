@@ -42,6 +42,16 @@
     self.cvSence.dataSource = self;//width:500 height = 100;
     
     [self initData];
+    
+    [self registerNoti];
+}
+
+-(void)registerNoti
+{
+    define_weakself;
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"refreshSenceTab" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf initData];
+    }];
 }
 
 -(void)initData

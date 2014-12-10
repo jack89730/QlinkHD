@@ -142,19 +142,35 @@
              return;
          }
          
-//         [SVProgressHUD dismiss];
-         
          //处理返回结果的配置信息
          Config *configTempObj = [Config getTempConfig:configArr];
          weakSelf.pConfigTemp = configTempObj;
          
+         [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+         [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+             switch (status) {
+                 case AFNetworkReachabilityStatusReachableViaWiFi:
+                 {
+                     if (!configTempObj.isSetIp) {//需要配置ip
+                         [weakSelf fetchIp];
+                     } else {
+                         [weakSelf loadActionNULL];
+                     }
+                     break;
+                 }
+                 default: {
+                     [weakSelf loadActionNULL];
+                 }
+                     break;
+             };
+         }];
          
-         if (!configTempObj.isSetIp) {//需要配置ip
-             [weakSelf fetchIp];
-         } else
-         {
-             [weakSelf loadActionNULL];
-         }
+//         if (!configTempObj.isSetIp) {//需要配置ip
+//             [weakSelf fetchIp];
+//         } else
+//         {
+//             [weakSelf loadActionNULL];
+//         }
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          weakSelf.pConfigTemp = [Config getConfig];
