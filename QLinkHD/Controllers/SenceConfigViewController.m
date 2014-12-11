@@ -119,6 +119,7 @@
         type = @"other";
     }
     
+    cell.lblNo.text = [NSString stringWithFormat:@"NO.%d",indexPath.row + 1];
     [cell setIcon:type andDeviceName:obj.SenceName andOrderName:obj.OrderName andTime:obj.Timer];
     define_weakself;
     [cell setDeleteCellPressed:^{
@@ -130,12 +131,6 @@
     }];
     
     [cell setNumberPressed:^(NSString *value){
-//        for (Sence *objSource in senceConfigArr) {
-//            if ([objSource.OrderId isEqualToString:objSel_.OrderId]) {
-//                objSource.Timer = sNum;
-//            }
-//        }
-        
         obj.Timer = value;
 
     }];

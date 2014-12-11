@@ -23,7 +23,7 @@
 //中控信息sql
 +(NSString *)connectControlSql:(Control *)obj
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO CONTROL (\"Ip\", \"SendType\", \"Port\", \"Domain\", \"Url\", \"Updatever\") VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")",obj.Ip, obj.SendType, obj.Port, obj.Domain, obj.Url, obj.Updatever];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO CONTROL (\"Ip\", \"SendType\", \"Port\", \"Domain\", \"Url\", \"Updatever\",\"Jsname\",\"Jstel\",\"Jsuname\",\"Jsaddess\", \"Jslogo\", \"Jsqq\") VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")",obj.Ip, obj.SendType, obj.Port, obj.Domain, obj.Url, obj.Updatever,obj.Jsname,obj.Jstel,obj.Jsuname,obj.Jsaddess,obj.Jslogo,obj.Jsqq];
     
     return sql;
 }
@@ -645,7 +645,7 @@
 {
     NSMutableArray *orderArr = [NSMutableArray array];
     
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM ORDERS WHERE DEVICEID='%@' AND SubType in ('ad','rd')",deviceId];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM ORDERS WHERE DEVICEID='%@' AND TYPE='ar' and SubType in ('ad','rd')",deviceId];
     
     FMDatabase *db = [self getDB];
     
@@ -919,7 +919,13 @@
                          andPort:[rs stringForColumn:@"Port"]
                        andDomain:[rs stringForColumn:@"Domain"]
                           andUrl:[rs stringForColumn:@"Url"]
-                    andUpdatever:[rs stringForColumn:@"Updatever"]];
+                    andUpdatever:[rs stringForColumn:@"Updatever"]
+                   andJsname:[rs stringForColumn:@"Jsname"]
+                        andJstel:[rs stringForColumn:@"Jstel"]
+                      andJsuname:[rs stringForColumn:@"Jsuname"]
+                     andJsaddess:[rs stringForColumn:@"Jsaddess"]
+                       andJslogo:[rs stringForColumn:@"Jslogo"]
+                         andJsqq:[rs stringForColumn:@"Jsqq"]];
         }
     }
     

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lDeviceName;
 @property (weak, nonatomic) IBOutlet UILabel *lOrderName;
 @property (weak, nonatomic) IBOutlet UIButton *btnNumber;
+@property (weak, nonatomic) IBOutlet UILabel *lblNo;
 
 - (IBAction)btnJian;
 - (IBAction)btnJia;

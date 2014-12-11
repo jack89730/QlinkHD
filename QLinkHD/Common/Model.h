@@ -29,13 +29,25 @@
 @property(nonatomic,strong) NSString *Domain;
 @property(nonatomic,strong) NSString *Url;
 @property(nonatomic,strong) NSString *Updatever;
+@property(nonatomic,strong) NSString *Jsname;
+@property(nonatomic,strong) NSString *Jstel;
+@property(nonatomic,strong) NSString *Jsuname;
+@property(nonatomic,strong) NSString *Jsaddess;
+@property(nonatomic,strong) NSString *Jslogo;
+@property(nonatomic,strong) NSString *Jsqq;
 
 +(Control *)setIp:(NSString *)ip
       andSendType:(NSString *)sendType
           andPort:(NSString *)port
         andDomain:(NSString *)domain
            andUrl:(NSString *)url
-     andUpdatever:(NSString *)updatever;
+     andUpdatever:(NSString *)updatever
+        andJsname:(NSString *)jsname
+         andJstel:(NSString *)jstel
+       andJsuname:(NSString *)jsuname
+      andJsaddess:(NSString *)jsaddess
+        andJslogo:(NSString *)jslogo
+          andJsqq:(NSString *)jsqq;
 
 @end
 

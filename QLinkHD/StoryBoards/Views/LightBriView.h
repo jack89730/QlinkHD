@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MySlider.h"
 
 @protocol LightBriViewDelegate <NSObject>
 
@@ -24,7 +25,7 @@
 @property(nonatomic,strong) IBOutlet UILabel *lTitle;
 @property(nonatomic,strong) IBOutlet OrderButton *btnOn;
 @property(nonatomic,strong) IBOutlet OrderButton *btnOff;
-@property (strong, nonatomic) IBOutlet UISlider *sliderLight;
+@property (strong, nonatomic) IBOutlet MySlider *sliderLight;
 
 @property(nonatomic,strong) NSArray *brOrderArr;
 @property(nonatomic,strong) NSString *pDeviceId;

@@ -7,6 +7,7 @@
 //
 
 #import "LightBcView.h"
+#import "MySlider+touch.h"
 
 @implementation LightBcView
 
@@ -25,6 +26,18 @@
     [_btnCo setThumbImage:[UIImage imageNamed:@"light_roundButton"] forState:UIControlStateNormal];
     [_btnCo setMaximumTrackTintColor:[UIColor clearColor]];
     [_btnBr setMaximumTrackTintColor:[UIColor clearColor]];
+    [_btnCo addTapGestureWithTarget:self action:@selector(coValueChange)];
+    [_btnBr addTapGestureWithTarget:self action:@selector(brValueChange)];
+}
+
+-(void)coValueChange
+{
+    [self coSliderValueChanged:_btnCo];
+}
+
+-(void)brValueChange
+{
+    [self brSliderValueChanged:_btnBr];
 }
 
 -(IBAction)brSliderValueChanged:(UISlider *)slider

@@ -59,7 +59,13 @@
                                       andPort:[info objectForKey:@"_port"]
                                     andDomain:[info objectForKey:@"_domain"]
                                        andUrl:[info objectForKey:@"_url"]
-                                 andUpdatever:[info objectForKey:@"_updatever"]];
+                                 andUpdatever:[info objectForKey:@"_updatever"]
+                                andJsname:[info objectForKey:@"_jsname"]
+                                     andJstel:[info objectForKey:@"_jstel"]
+                                   andJsuname:[info objectForKey:@"_jsuname"]
+                                  andJsaddess:[info objectForKey:@"_jsaddess"]
+                                    andJslogo:[info objectForKey:@"_jslogo"]
+                                      andJsqq:[info objectForKey:@"_jsqq"]];
          [sqlArr addObject:[SQLiteUtil connectControlSql:controlObj]];
          
          NSArray *layerArr = [DataUtil changeDicToArray:[info objectForKey:@"layer"]];

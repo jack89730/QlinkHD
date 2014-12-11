@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MySlider.h"
 
 @protocol LightBcViewDelegate <NSObject>
 
@@ -24,8 +25,8 @@
 @property(nonatomic,strong) IBOutlet UILabel *lTitle;
 @property(nonatomic,strong) IBOutlet OrderButton *btnOn;
 @property(nonatomic,strong) IBOutlet OrderButton *btnOFF;
-@property(nonatomic,strong) IBOutlet UISlider *btnBr;//亮度
-@property(nonatomic,strong) IBOutlet UISlider *btnCo;//色调
+@property(nonatomic,strong) IBOutlet MySlider *btnBr;//亮度
+@property(nonatomic,strong) IBOutlet MySlider *btnCo;//色调
 
 @property(nonatomic,strong) NSArray *coOrderArr;
 @property(nonatomic,strong) NSArray *brOrderArr;

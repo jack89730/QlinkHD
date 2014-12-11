@@ -62,6 +62,7 @@
         [self load_typeSocket:SocketTypeWriteZk andOrderObj:nil];
     }];
     [bottomBoard setBottomSoundChangePressed:^(Order *orderObj){
+        self.isSence = NO;
         [self load_typeSocket:999 andOrderObj:orderObj];
     }];
     [LeftBoard defaultLeftBoard];

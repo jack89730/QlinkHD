@@ -31,18 +31,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ypD-te-7m1">
-                                                    <rect key="frame" x="10" y="10" width="90" height="90"/>
+                                                    <rect key="frame" x="79" y="10" width="90" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="照明" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FiR-tg-BDR">
-                                                    <rect key="frame" x="142" y="27" width="224" height="21"/>
+                                                    <rect key="frame" x="193" y="27" width="224" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="切换输入法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8PR-9K-ijd">
-                                                    <rect key="frame" x="142" y="61" width="224" height="21"/>
+                                                    <rect key="frame" x="193" y="67" width="224" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,6 +82,13 @@
                                                         <action selector="btnNumberPressed:" destination="MGt-Je-ArE" eventType="touchUpInside" id="iyl-fD-vNs"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO.11" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QUQ-Ex-bic">
+                                                    <rect key="frame" x="0.0" y="44" width="63" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -90,6 +97,7 @@
                                             <outlet property="ivIcon" destination="ypD-te-7m1" id="4KA-iw-VGv"/>
                                             <outlet property="lDeviceName" destination="FiR-tg-BDR" id="OsQ-mJ-8sT"/>
                                             <outlet property="lOrderName" destination="8PR-9K-ijd" id="gS8-Wi-f33"/>
+                                            <outlet property="lblNo" destination="QUQ-Ex-bic" id="QPC-49-JTb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

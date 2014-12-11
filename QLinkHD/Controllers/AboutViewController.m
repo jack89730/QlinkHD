@@ -10,6 +10,12 @@
 #import "UIButton+image.h"
 
 @interface AboutViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *lblAppVerson;
+@property (weak, nonatomic) IBOutlet UILabel *lblVersion;
+@property (weak, nonatomic) IBOutlet UILabel *lblCjName;
+@property (weak, nonatomic) IBOutlet UILabel *lblCjAddress;
+@property (weak, nonatomic) IBOutlet UILabel *lblCjTel;
+@property (weak, nonatomic) IBOutlet UILabel *lblPerson;
 
 @end
 
@@ -25,6 +31,20 @@
     [super viewDidLoad];
     
     [self initNavigation];
+    
+    [self initData];
+}
+
+-(void)initData
+{
+    Control *control = [SQLiteUtil getControlObj];
+    
+    self.lblAppVerson.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
+    self.lblVersion.text = control.Updatever;
+    self.lblCjName.text = control.Jsname;
+    self.lblCjAddress.text = control.Jsaddess;
+    self.lblCjTel.text = control.Jstel;
+    self.lblPerson.text = control.Jsuname;
 }
 
 //设置导航
