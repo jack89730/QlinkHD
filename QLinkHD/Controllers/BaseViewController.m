@@ -65,7 +65,9 @@
         }
         default:
         {
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+//            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+//            AudioServicesPlaySystemSound(1109);
+            
             NSString *so = [DataUtil getGlobalModel];
             if ([so isEqualToString:Model_ZKIp]) {
                 self.socketType = SocketTypeNormal;
@@ -105,6 +107,14 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSString *strXML = operation.responseString;
+        
+        if ([strXML containsString:@"error"]) {
+            NSArray *errorArr = [strXML componentsSeparatedByString:@":"];
+            if (errorArr.count > 1) {
+                [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                return;
+            }
+        }
         
         strXML = [strXML stringByReplacingOccurrencesOfString:@"\"GB2312\"" withString:@"\"utf-8\"" options:NSCaseInsensitiveSearch range:NSMakeRange(0,40)];
         NSData *newData = [strXML dataUsingEncoding:NSUTF8StringEncoding];
@@ -557,6 +567,15 @@
                         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
                         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
                          {
+                             NSString *strResult = operation.responseString;
+                             if ([strResult containsString:@"error"]) {
+                                 NSArray *errorArr = [strResult componentsSeparatedByString:@":"];
+                                 if (errorArr.count > 1) {
+                                     [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                                     return;
+                                 }
+                             }
+                             
                              switch (self.zkOperType) {
                                  case ZkOperSence:
                                  {
@@ -599,8 +618,6 @@
                                  default:
                                      break;
                              }
-                             
-                             
                              
                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                              [UIAlertView alertViewWithTitle:@"温馨提示" message:@"写入失败"];

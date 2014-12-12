@@ -67,7 +67,12 @@
     }
     
     iNum --;
-    [self.btnNumber setTitle:[NSString stringWithFormat:@"%d",iNum] forState:UIControlStateNormal];
+    NSString *sNum = [NSString stringWithFormat:@"%d",iNum];
+    [self.btnNumber setTitle:sNum forState:UIControlStateNormal];
+    
+    if (self.numberPressed) {
+        self.numberPressed(sNum);
+    }
 }
 
 - (IBAction)btnJia
@@ -78,7 +83,12 @@
     }
     
     iNum ++;
-    [self.btnNumber setTitle:[NSString stringWithFormat:@"%d",iNum] forState:UIControlStateNormal];
+    NSString *sNum = [NSString stringWithFormat:@"%d",iNum];
+    [self.btnNumber setTitle:sNum forState:UIControlStateNormal];
+    
+    if (self.numberPressed) {
+        self.numberPressed(sNum);
+    }
 }
 - (IBAction)btnNumberPressed:(UIButton *)sender
 {
@@ -87,26 +97,6 @@
                   cancelButtonTitle:@"关闭"
                   otherButtonTitles:@[@"10",@"20",@"30",@"40",@"50"]
                           onDismiss:^(int buttonIndex){
-//                              switch (buttonIndex) {
-//                                  case 0://10
-//                                      [self.btnNumber setTitle:@"10" forState:UIControlStateNormal];
-//                                      break;
-//                                  case 1://20
-//                                      [self.btnNumber setTitle:@"20" forState:UIControlStateNormal];
-//                                      break;
-//                                  case 2://30
-//                                      [self.btnNumber setTitle:@"30" forState:UIControlStateNormal];
-//                                      break;
-//                                  case 3://40
-//                                      [self.btnNumber setTitle:@"40" forState:UIControlStateNormal];
-//                                      break;
-//                                  case 4://50
-//                                      [self.btnNumber setTitle:@"50" forState:UIControlStateNormal];
-//                                      break;
-//                                  default:
-//                                      break;
-//                              }
-                              
                               NSString *value = [NSString stringWithFormat:@"%d",(buttonIndex+1)*10];
                               
                               [self.btnNumber setTitle:value forState:UIControlStateNormal];

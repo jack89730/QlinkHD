@@ -13,6 +13,9 @@
 		8A133F601A2E046500675266 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A133F5F1A2E046500675266 /* AboutViewController.m */; };
 		8A146BC21A34642000755E94 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC01A34642000755E94 /* Icon@2x.png */; };
 		8A146BC31A34642000755E94 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC11A34642000755E94 /* Icon.png */; };
+		8A1B1AE91A3B356D00D8FC94 /* Tock.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B1AE81A3B356D00D8FC94 /* Tock.wav */; };
+		8A1B1AEB1A3B362600D8FC94 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */; };
+		8A1B1AED1A3B36E800D8FC94 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEC1A3B36E800D8FC94 /* AudioToolbox.framework */; };
 		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
 		8A1D595D1A14F24F00AE66C9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D59591A14F24F00AE66C9 /* Login.storyboard */; };
 		8A1D595E1A14F24F00AE66C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D595A1A14F24F00AE66C9 /* Main.storyboard */; };
@@ -156,6 +159,9 @@
 		8A133F5F1A2E046500675266 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8A146BC01A34642000755E94 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8A146BC11A34642000755E94 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8A1B1AE81A3B356D00D8FC94 /* Tock.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tock.wav; sourceTree = "<group>"; };
+		8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8A1B1AEC1A3B36E800D8FC94 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
 		8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBoard.m; sourceTree = "<group>"; };
 		8A1D59591A14F24F00AE66C9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -367,6 +373,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1B1AED1A3B36E800D8FC94 /* AudioToolbox.framework in Frameworks */,
+				8A1B1AEB1A3B362600D8FC94 /* AVFoundation.framework in Frameworks */,
 				8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */,
 				8A2C31031A047A970017287B /* Foundation.framework in Frameworks */,
 				8AAB93A41A050CD900B803FC /* libsqlite3.0.dylib in Frameworks */,
@@ -506,6 +514,8 @@
 		8A2C31011A047A970017287B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A1B1AEC1A3B36E800D8FC94 /* AudioToolbox.framework */,
+				8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */,
 				8AAB93A21A050CD900B803FC /* libsqlite3.0.dylib */,
 				8AAB93A31A050CD900B803FC /* libsqlite3.dylib */,
 				8AAB93A01A050CCC00B803FC /* CFNetwork.framework */,
@@ -645,6 +655,7 @@
 		8A9B42BD1A05236D005CCC9C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8A1B1AE81A3B356D00D8FC94 /* Tock.wav */,
 				8A0422C11A18955B00D50A39 /* DeviceConfigIconPlist.plist */,
 				8A0422C21A18955B00D50A39 /* iConPlist.plist */,
 				8A1F29C31A32D8CF00E5BCA4 /* iConArPlist.plist */,
@@ -861,6 +872,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A146BC31A34642000755E94 /* Icon.png in Resources */,
+				8A1B1AE91A3B356D00D8FC94 /* Tock.wav in Resources */,
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A49A0971A24CF3200697596 /* PlView.xib in Resources */,
 				8A49A0841A24CF3200697596 /* BsTcView.xib in Resources */,

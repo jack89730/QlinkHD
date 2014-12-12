@@ -174,10 +174,31 @@
 - (IBAction)btnSaveSence:(id)sender
 {
     if ([senceConfigArr count] == 0) {
-        
         [UIAlertView alertViewWithTitle:@"温馨提示" message:@"您还没有构建场景"];
-
         return;
+    }
+    
+    //新增
+    if (![DataUtil checkNullOrEmpty:senceIdModify]) {
+        GlobalAttr *obj = [DataUtil shareInstanceToRoom];
+        BOOL isHas = [SQLiteUtil isHasSence:obj.HouseId andLayerId:obj.LayerId andRoomId:obj.RoomId andSenceId:senceIdModify];
+        if (!isHas) {//该场景已经被删除
+            [UIAlertView alertViewWithTitle:@"温馨提示" message:@"该场景已被删除或已不存在"];
+            
+            BOOL bResult = [SQLiteUtil removeShoppingCar];
+            [DataUtil setGlobalIsAddSence:NO];//设置当前为非添加模式
+            //页面跳转
+            NSArray * viewcontrollers = self.navigationController.viewControllers;
+            int idxInStack = 0;
+            for (int i=0; i<[viewcontrollers count]; i++) {
+                if ([[viewcontrollers objectAtIndex:i] isMemberOfClass:[MainViewController class]]) {
+                    idxInStack = i;
+                    break;
+                }
+            }
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:idxInStack]animated:NO];
+            return;
+        }
     }
     
     self.renameView = [RenameView viewFromDefaultXib];
@@ -216,6 +237,14 @@
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
          {
              NSString *sResult = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+             
+             if ([sResult containsString:@"error"]) {
+                 NSArray *errorArr = [sResult componentsSeparatedByString:@":"];
+                 if (errorArr.count > 1) {
+                     [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                     return;
+                 }
+             }
              
              NSString *ordercmd = [NSString stringWithFormat:@"%@|%@",orderIds,times];
              

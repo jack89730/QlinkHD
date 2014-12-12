@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfKey;
 @property (weak, nonatomic) IBOutlet UITextField *tfUserName;
 @property (weak, nonatomic) IBOutlet UITextField *tfUserPwd;
+@property (weak, nonatomic) IBOutlet UILabel *lblCompany;
 
 @end
 
@@ -62,6 +63,11 @@
         self.tfUserPwd.text = member.uPwd;
         self.btnRemeber.selected = member.isRemeber;
     }
+    
+    Control *control = [SQLiteUtil getControlObj];
+    if (control && control.Jsname) {
+        self.lblCompany.text = control.Jsname;
+    }
 }
 
 //TODO:初始化
@@ -101,6 +107,11 @@
     sender.selected = !sender.selected;
 }
 
+- (IBAction)btnRegisterPressed:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://qlink.cc/?action=apple"]]; 
+}
+
 - (IBAction)btnLoginPressed:(UIButton *)sender
 {
     //判断登录是否为空
@@ -135,6 +146,13 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSString *sConfig = [[NSString alloc] initWithData:responseObject encoding:[DataUtil getGB2312Code]];
+         if ([sConfig containsString:@"error"]) {
+             NSArray *errorArr = [sConfig componentsSeparatedByString:@":"];
+             if (errorArr.count > 1) {
+                 [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                 return;
+             }
+         }
          
          NSArray *configArr = [sConfig componentsSeparatedByString:@"|"];
          if ([configArr count] < 2) {
@@ -209,10 +227,18 @@
     __weak __typeof(self)weakSelf = self;
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         NSString *strResult = operation.responseString;
+         if ([strResult containsString:@"error"]) {
+             NSArray *errorArr = [strResult componentsSeparatedByString:@":"];
+             if (errorArr.count > 1) {
+                 [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                 return;
+             }
+         }
+         
          [weakSelf requestSetUpIp];
          
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//         [SVProgressHUD dismiss];
          [weakSelf loadActionNULL];
      }];
     
@@ -234,6 +260,14 @@
          NSData *newData = [strXML dataUsingEncoding:NSUTF8StringEncoding];
          NSDictionary *dict = [NSDictionary dictionaryWithXMLData:newData];
          
+         if ([strXML containsString:@"error"]) {
+             NSArray *errorArr = [strXML componentsSeparatedByString:@":"];
+             if (errorArr.count > 1) {
+                 [weakSelf loadActionNULL];
+                 return;
+             }
+         }
+         
          if (!dict) {
 //             [SVProgressHUD showErrorWithStatus:@"配置ip出错,请重试."];
              
@@ -253,6 +287,7 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];
 }
+
 
 #pragma mark -
 

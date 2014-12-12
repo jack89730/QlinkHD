@@ -310,6 +310,15 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
          {
+             NSString *strResult = operation.responseString;
+             if ([strResult containsString:@"error"]) {
+                 NSArray *errorArr = [strResult componentsSeparatedByString:@":"];
+                 if (errorArr.count > 1) {
+                     [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                     return;
+                 }
+             }
+             
              [self loadActionNULL];
              
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

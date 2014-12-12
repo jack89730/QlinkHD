@@ -303,6 +303,33 @@
     return senceArr;
 }
 
+//是否存在某个场景
++(BOOL)isHasSence:(NSString *)houseId
+              andLayerId:(NSString *)layerId
+               andRoomId:(NSString *)roomId
+              andSenceId:(NSString *)senceId
+{
+    FMDatabase *db = [self getDB];
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT COUNT(*) FROM SENCE WHERE HOUSEID='%@' AND LAYERID='%@' AND ROOMID='%@' and SenceId='%@'",houseId,layerId,roomId,senceId];
+    
+    BOOL isHas = NO;
+    if ([db open]) {
+        FMResultSet *rs = [db executeQuery:sql];
+        if ([rs next]) {
+            int totalCount = [rs intForColumnIndex:0];
+            if (totalCount > 0) {
+                isHas = YES;
+            }
+        }
+        [rs close];
+    }
+
+    [db close];
+
+    return isHas;
+}
+
 //获取具体场景命令集合，用于紧急模式下发送
 +(NSMutableArray *)getOrderBySenceId:(NSString *)senceId
 {
@@ -447,6 +474,7 @@
                 [deviceArr addObject:obj];
             }
         }
+        [rs close];
     }
     
     [db close];

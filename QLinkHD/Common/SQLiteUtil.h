@@ -138,4 +138,10 @@
 //删除本地音量控制设备
 +(BOOL)deleteDeviceHasArToLocal:(NSString *)deviceId;
 
+//是否存在某个场景
++(BOOL)isHasSence:(NSString *)houseId
+       andLayerId:(NSString *)layerId
+        andRoomId:(NSString *)roomId
+       andSenceId:(NSString *)senceId;
+
 @end

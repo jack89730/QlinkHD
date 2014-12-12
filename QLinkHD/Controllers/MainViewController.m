@@ -113,6 +113,34 @@
     [self.navigationController.navigationBar setHidden:NO];
 }
 
+-(void)initLoginZK
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+            {
+                Config *configObj = [Config getConfig];
+                if (configObj.isSetSign && configObj.isSetIp && configObj.isBuyCenterControl)
+                {
+                    [UIAlertView alertViewWithTitle:@"温馨提示"
+                                            message:@"执行中控操作,是否继续?"
+                                  cancelButtonTitle:@"取消"
+                                  otherButtonTitles:@[@"继续"]
+                                          onDismiss:^(int index){
+                                              self.zkOperType = ZkOperNormal;
+                                              [self load_typeSocket:SocketTypeWriteZk andOrderObj:nil];
+                    }onCancel:nil];
+                }
+                
+                break;
+            }
+            default:
+                break;
+        };
+    }];
+}
+
 #pragma mark - UICollectionViewDataSouce
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
