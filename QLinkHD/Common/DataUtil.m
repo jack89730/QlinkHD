@@ -14,6 +14,7 @@
 #include <ifaddrs.h>
 #import <dlfcn.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import "Reachability.h"
 
 @implementation DataUtil
 
@@ -251,6 +252,28 @@
         freeifaddrs(addrs);
     }
     return nil;
+}
+
++(BOOL) isWifiNewWork{
+    BOOL isWifi = NO;
+    Reachability *r = [Reachability reachabilityWithHostname:@"www.baidu.com"];
+    switch ([r currentReachabilityStatus]) {
+        case NotReachable:
+            isWifi = NO;
+            //            NSLog(@"没有网络");
+            break;
+        case ReachableViaWWAN:
+            isWifi = NO;
+            //            NSLog(@"正在使用3G网络");
+            break;
+        case ReachableViaWiFi:
+            isWifi = YES;
+            //            NSLog(@"正在使用wifi网络");
+            break;
+    }
+    
+    return isWifi;
+    
 }
 
 @end

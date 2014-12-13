@@ -13,7 +13,7 @@
 		8A133F601A2E046500675266 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A133F5F1A2E046500675266 /* AboutViewController.m */; };
 		8A146BC21A34642000755E94 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC01A34642000755E94 /* Icon@2x.png */; };
 		8A146BC31A34642000755E94 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC11A34642000755E94 /* Icon.png */; };
-		8A1B1AE91A3B356D00D8FC94 /* Tock.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B1AE81A3B356D00D8FC94 /* Tock.wav */; };
+		8A1A646D1A3BCC6900BB836D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1A646C1A3BCC6900BB836D /* Reachability.m */; };
 		8A1B1AEB1A3B362600D8FC94 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */; };
 		8A1B1AED1A3B36E800D8FC94 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEC1A3B36E800D8FC94 /* AudioToolbox.framework */; };
 		8A1C36CB1A0F68BB00E5A3B4 /* LeftBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C36CA1A0F68BB00E5A3B4 /* LeftBoard.m */; };
@@ -159,7 +159,8 @@
 		8A133F5F1A2E046500675266 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8A146BC01A34642000755E94 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8A146BC11A34642000755E94 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		8A1B1AE81A3B356D00D8FC94 /* Tock.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tock.wav; sourceTree = "<group>"; };
+		8A1A646B1A3BCC5F00BB836D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8A1A646C1A3BCC6900BB836D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8A1B1AEC1A3B36E800D8FC94 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8A1C36C91A0F68BB00E5A3B4 /* LeftBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftBoard.h; sourceTree = "<group>"; };
@@ -655,7 +656,6 @@
 		8A9B42BD1A05236D005CCC9C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8A1B1AE81A3B356D00D8FC94 /* Tock.wav */,
 				8A0422C11A18955B00D50A39 /* DeviceConfigIconPlist.plist */,
 				8A0422C21A18955B00D50A39 /* iConPlist.plist */,
 				8A1F29C31A32D8CF00E5BCA4 /* iConArPlist.plist */,
@@ -682,6 +682,8 @@
 		8AAB93481A04E02D00B803FC /* Package */ = {
 			isa = PBXGroup;
 			children = (
+				8A1A646B1A3BCC5F00BB836D /* Reachability.h */,
+				8A1A646C1A3BCC6900BB836D /* Reachability.m */,
 				8A1F29C51A3306B800E5BCA4 /* Cricle */,
 				8AB89B611A18C59900183AE5 /* MKAdditions */,
 				8AAB93491A04E05400B803FC /* AFNetworking */,
@@ -872,7 +874,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A146BC31A34642000755E94 /* Icon.png in Resources */,
-				8A1B1AE91A3B356D00D8FC94 /* Tock.wav in Resources */,
 				8A2C310D1A047A970017287B /* InfoPlist.strings in Resources */,
 				8A49A0971A24CF3200697596 /* PlView.xib in Resources */,
 				8A49A0841A24CF3200697596 /* BsTcView.xib in Resources */,
@@ -926,6 +927,7 @@
 			files = (
 				8A1F29CC1A3306C200E5BCA4 /* KDBarGraph.m in Sources */,
 				8A9B42D21A05236D005CCC9C /* NSString+NSStringHexToBytes.m in Sources */,
+				8A1A646D1A3BCC6900BB836D /* Reachability.m in Sources */,
 				8A9B42AA1A051772005CCC9C /* SetupIpViewController.m in Sources */,
 				8AAB937A1A04E05400B803FC /* AFHTTPRequestOperation.m in Sources */,
 				8A9ED4E51A1B8C17009136C6 /* DeviceConfigViewController.m in Sources */,

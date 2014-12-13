@@ -78,6 +78,8 @@ typedef enum {
 //获取udp端口
 +(NSString *)getUdpPort;
 
++(BOOL) isWifiNewWork;
+
 @end
 
 
