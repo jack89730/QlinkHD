@@ -119,7 +119,7 @@
 {
     if ([DataUtil isWifiNewWork]) {
         Config *configObj = [Config getConfig];
-        if (configObj.isSetSign && configObj.isSetIp && configObj.isBuyCenterControl)
+        if (!configObj.isWriteCenterControl && configObj.isSetSign && configObj.isSetIp && configObj.isBuyCenterControl)
         {
             [UIAlertView alertViewWithTitle:@"温馨提示"
                                     message:@"执行中控操作,是否继续?"
@@ -247,7 +247,11 @@
         {
             LightViewController *lightVC = [[LightViewController alloc] init];
             [self.navigationController pushViewController:lightVC animated:YES];
-        } else if ([obj.Type isEqualToString:add_oper]) {
+        } else if ([obj.Type isEqualToString:add_oper]) { // 新增
+            if ([DataUtil getGlobalIsAddSence]) {
+                [UIAlertView alertViewWithTitle:@"温馨提示" message:@"当前为添加场景模式,添加设备无效."];
+                return;
+            }
             DeviceConfigViewController *deviceConfigVC = [DeviceConfigViewController loadFromSB];
             [self.navigationController pushViewController:deviceConfigVC animated:YES];
         } else {

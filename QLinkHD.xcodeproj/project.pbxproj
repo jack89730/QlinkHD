@@ -27,8 +27,8 @@
 		8A1F29CE1A3306C200E5BCA4 /* KDGoalBarPercentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1F29CB1A3306C200E5BCA4 /* KDGoalBarPercentLayer.m */; };
 		8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */; };
 		8A206E901A39DFE00018A634 /* MySlider+touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206E8F1A39DFE00018A634 /* MySlider+touch.m */; };
-		8A206E941A39F05E0018A634 /* QLink.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A206E931A39F05E0018A634 /* QLink.sqlite */; };
 		8A2086631A320C52002EFD7D /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */; };
+		8A24CF4F1A3C665A00E2F41B /* QLink.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A24CF4E1A3C665A00E2F41B /* QLink.sqlite */; };
 		8A26D5E81A1E2E560013C9C0 /* SenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A26D5E71A1E2E560013C9C0 /* SenceCell.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
@@ -183,9 +183,9 @@
 		8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomButton.m; sourceTree = "<group>"; };
 		8A206E8E1A39DFE00018A634 /* MySlider+touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MySlider+touch.h"; sourceTree = "<group>"; };
 		8A206E8F1A39DFE00018A634 /* MySlider+touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MySlider+touch.m"; sourceTree = "<group>"; };
-		8A206E931A39F05E0018A634 /* QLink.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QLink.sqlite; sourceTree = "<group>"; };
 		8A2086611A320C52002EFD7D /* CustomCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionLayout.h; sourceTree = "<group>"; };
 		8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionLayout.m; sourceTree = "<group>"; };
+		8A24CF4E1A3C665A00E2F41B /* QLink.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QLink.sqlite; sourceTree = "<group>"; };
 		8A26D5E61A1E2E560013C9C0 /* SenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceCell.h; sourceTree = "<group>"; };
 		8A26D5E71A1E2E560013C9C0 /* SenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceCell.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -670,7 +670,7 @@
 				8A9B42C71A05236D005CCC9C /* NSData+NSDataBytesToHex.m */,
 				8A9B42C81A05236D005CCC9C /* NSString+NSStringHexToBytes.h */,
 				8A9B42C91A05236D005CCC9C /* NSString+NSStringHexToBytes.m */,
-				8A206E931A39F05E0018A634 /* QLink.sqlite */,
+				8A24CF4E1A3C665A00E2F41B /* QLink.sqlite */,
 				8A9B42CB1A05236D005CCC9C /* SQLiteUtil.h */,
 				8A9B42CC1A05236D005CCC9C /* SQLiteUtil.m */,
 				8A9ED4EC1A1B985C009136C6 /* ActionNullClass.h */,
@@ -890,7 +890,7 @@
 				8A49A09D1A24CF3200697596 /* SwView.xib in Resources */,
 				8A49A09F1A24CF3200697596 /* SwView1.xib in Resources */,
 				8A146BC21A34642000755E94 /* Icon@2x.png in Resources */,
-				8A206E941A39F05E0018A634 /* QLink.sqlite in Resources */,
+				8A24CF4F1A3C665A00E2F41B /* QLink.sqlite in Resources */,
 				8A49A08F1A24CF3200697596 /* LightBriView.xib in Resources */,
 				8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */,
 				8A49A08B1A24CF3200697596 /* LightBbView.xib in Resources */,

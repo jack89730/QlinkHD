@@ -837,7 +837,7 @@
 //添加命令到购物车表，用于构建场景
 +(BOOL)addOrderToShoppingCar:(NSString *)orderId andDeviceId:(NSString *)deviceId
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO SHOPPINGCAR (ORDERID,DEVICEID) VALUES ('%@','%@')",orderId,deviceId];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO SHOPPINGCAR (ORDERID,DEVICEID,TIMER) VALUES ('%@','%@','%@')",orderId,deviceId,@"20"];
     
     FMDatabase *db = [self getDB];
     
@@ -855,7 +855,7 @@
 {
     NSMutableArray *orderArr = [NSMutableArray array];
     
-    NSString *sql = @"SELECT S.ORDERID,S.DEVICEID,O.ORDERNAME,D.DEVICENAME,D.TYPE,I.NEWTYPE FROM SHOPPINGCAR S LEFT JOIN ORDERS O ON S.ORDERID=O.ORDERID LEFT JOIN DEVICE D ON S.DEVICEID=D.DEVICEID LEFT JOIN ICON I ON S.DEVICEID=I.DEVICEID";
+    NSString *sql = @"SELECT S.ORDERID,S.DEVICEID,O.ORDERNAME,D.DEVICENAME,D.TYPE,I.NEWTYPE,S.TIMER FROM SHOPPINGCAR S LEFT JOIN ORDERS O ON S.ORDERID=O.ORDERID LEFT JOIN DEVICE D ON S.DEVICEID=D.DEVICEID LEFT JOIN ICON I ON S.DEVICEID=I.DEVICEID";
     FMDatabase *db = [self getDB];
     
     if ([db open]) {
@@ -869,7 +869,7 @@
             obj.OrderName = [rs stringForColumn:@"OrderName"];
             obj.Type = [rs stringForColumn:@"Type"];
             obj.IconType = [rs stringForColumn:@"NewType"];
-            obj.Timer = @"5";
+            obj.Timer = [rs stringForColumn:@"Timer"];
             [orderArr addObject:obj];
         }
         
@@ -879,6 +879,22 @@
     [db close];
     
     return orderArr;
+}
+
+//更新场景的时间间隔
++(BOOL)updateShoppingCarTimer:(NSString *)orderId andDeviceId:(NSString *)deviceId andTimer:(NSString *)timer
+{
+    NSString *sql = [NSString stringWithFormat:@"UPDATE SHOPPINGCAR SET TIMER='%@' WHERE DEVICEID='%@' AND ORDERID='%@'",timer,deviceId,orderId];
+    
+    FMDatabase *db = [self getDB];
+    
+    [db open];
+    
+    BOOL bResult = [db executeUpdate:sql];
+    
+    [db close];
+    
+    return bResult;
 }
 
 //删除所有添加的场景命令

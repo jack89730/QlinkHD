@@ -119,7 +119,7 @@
         type = @"other";
     }
     
-    cell.lblNo.text = [NSString stringWithFormat:@"NO.%d",indexPath.row + 1];
+    cell.lblNo.text = [NSString stringWithFormat:@"NO.%ld",indexPath.row + 1];
     [cell setIcon:type andDeviceName:obj.SenceName andOrderName:obj.OrderName andTime:obj.Timer];
     define_weakself;
     [cell setDeleteCellPressed:^{
@@ -132,7 +132,7 @@
     
     [cell setNumberPressed:^(NSString *value){
         obj.Timer = value;
-
+        [SQLiteUtil updateShoppingCarTimer:obj.OrderId andDeviceId:obj.SenceId andTimer:value];
     }];
     
     return cell;
@@ -185,7 +185,7 @@
         if (!isHas) {//该场景已经被删除
             [UIAlertView alertViewWithTitle:@"温馨提示" message:@"该场景已被删除或已不存在"];
             
-            BOOL bResult = [SQLiteUtil removeShoppingCar];
+            [SQLiteUtil removeShoppingCar];
             [DataUtil setGlobalIsAddSence:NO];//设置当前为非添加模式
             //页面跳转
             NSArray * viewcontrollers = self.navigationController.viewControllers;
@@ -236,6 +236,8 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
          {
+             [DataUtil setGlobalIsAddSence:NO];
+             
              NSString *sResult = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
              
              if ([sResult containsString:@"error"]) {
@@ -257,8 +259,9 @@
                      obj.Macrocmd = [arr objectAtIndex:2];
                      obj.CmdList = ordercmd;
                      [SQLiteUtil insertSence:obj];
-                     
+                 
                      //刷新数据库
+                     [SQLiteUtil removeShoppingCar];
                      [DataUtil setUpdateInsertSenceInfo:@"" andSenceName:@""];
                      
                      [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshSenceTab" object:nil];
@@ -292,6 +295,7 @@
                      //更新数据库
                      [SQLiteUtil updateCmdListBySenceId:senceIdModify andSenceName:newName andCmdList:ordercmd];
                      
+                     [SQLiteUtil removeShoppingCar];
                      [DataUtil setUpdateInsertSenceInfo:@"" andSenceName:@""];
                      
                      [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshSenceTab" object:nil];

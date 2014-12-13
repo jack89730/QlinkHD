@@ -118,6 +118,9 @@
 //获取购物车里的命令
 +(NSMutableArray *)getShoppingCarOrder;
 
+//更新场景的时间间隔
++(BOOL)updateShoppingCarTimer:(NSString *)orderId andDeviceId:(NSString *)deviceId andTimer:(NSString *)timer;
+
 //删除所有添加的场景命令
 +(BOOL)removeShoppingCar;
 

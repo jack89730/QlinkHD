@@ -123,7 +123,7 @@
         NSDictionary *dict = [NSDictionary dictionaryWithXMLData:newData];
         NSDictionary *info = [dict objectForKey:@"info"];
         zkConfig_ = [[Control alloc] init];
-        zkConfig_.Ip = [info objectForKey:@"_ip"];
+        zkConfig_.Ip = @"110.83.121.191";//[info objectForKey:@"_ip"];
         zkConfig_.SendType = [info objectForKey:@"_tu"];
         zkConfig_.Port = [info objectForKey:@"_port"];
         
