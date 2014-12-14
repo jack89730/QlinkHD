@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Model.h"
+#import "UIAlertView+MKBlockAdditions.h"
 
 @interface LoginViewController ()
 {
@@ -109,7 +110,13 @@
 
 - (IBAction)btnRegisterPressed:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://qlink.cc/?action=apple"]]; 
+    [UIAlertView alertViewWithTitle:@"温馨提示"
+                            message:@"即将跳转浏览器打开QLINK网站\n须从站点注册"
+                  cancelButtonTitle:@"取消"
+                  otherButtonTitles:@[@"确定"]
+                          onDismiss:^(int index){
+                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://qlink.cc/?action=apple"]];
+    }onCancel:nil];
 }
 
 - (IBAction)btnLoginPressed:(UIButton *)sender

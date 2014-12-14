@@ -66,7 +66,7 @@
         default:
         {
 //            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-//            AudioServicesPlaySystemSound(1109);
+            AudioServicesPlaySystemSound(1109);
             
             NSString *so = [DataUtil getGlobalModel];
             if ([so isEqualToString:Model_ZKIp]) {
