@@ -111,7 +111,7 @@
 - (IBAction)btnRegisterPressed:(id)sender
 {
     [UIAlertView alertViewWithTitle:@"温馨提示"
-                            message:@"即将跳转浏览器打开QLINK网站\n须从站点注册"
+                            message:@"即将跳转浏览器打开QLINK网站\n须从站点注册(需要邀请码)"
                   cancelButtonTitle:@"取消"
                   otherButtonTitles:@[@"确定"]
                           onDismiss:^(int index){

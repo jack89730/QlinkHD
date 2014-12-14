@@ -13,6 +13,7 @@
 		8A133F601A2E046500675266 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A133F5F1A2E046500675266 /* AboutViewController.m */; };
 		8A146BC21A34642000755E94 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC01A34642000755E94 /* Icon@2x.png */; };
 		8A146BC31A34642000755E94 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC11A34642000755E94 /* Icon.png */; };
+		8A19570F1A3D5B4D0062A1E5 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A19570E1A3D5B4D0062A1E5 /* Icon-72.png */; };
 		8A1A646D1A3BCC6900BB836D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1A646C1A3BCC6900BB836D /* Reachability.m */; };
 		8A1B1AEB1A3B362600D8FC94 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */; };
 		8A1B1AED1A3B36E800D8FC94 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEC1A3B36E800D8FC94 /* AudioToolbox.framework */; };
@@ -159,6 +160,7 @@
 		8A133F5F1A2E046500675266 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8A146BC01A34642000755E94 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8A146BC11A34642000755E94 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8A19570E1A3D5B4D0062A1E5 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		8A1A646B1A3BCC5F00BB836D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8A1A646C1A3BCC6900BB836D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -553,6 +555,7 @@
 			children = (
 				8A146BC01A34642000755E94 /* Icon@2x.png */,
 				8A146BC11A34642000755E94 /* Icon.png */,
+				8A19570E1A3D5B4D0062A1E5 /* Icon-72.png */,
 				8A2C310A1A047A970017287B /* QLinkHD-Info.plist */,
 				8A2C310B1A047A970017287B /* InfoPlist.strings */,
 				8A2C310E1A047A970017287B /* main.m */,
@@ -899,6 +902,7 @@
 				8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */,
 				8A49A0A11A24CF3200697596 /* TrView.xib in Resources */,
 				8A49A0881A24CF3200697596 /* HsView.xib in Resources */,
+				8A19570F1A3D5B4D0062A1E5 /* Icon-72.png in Resources */,
 				8A3C92911A309F3B00D84A47 /* QuickOperDeviceChooseView.xib in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
 				8A0422C31A18955B00D50A39 /* DeviceConfigIconPlist.plist in Resources */,
@@ -1080,7 +1084,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
+				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1102,8 +1106,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xiamen HD Vision Electronics Co., Ltd. (55CQ84TYYM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xiamen HD Vision Electronics Co., Ltd. (55CQ84TYYM)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1114,7 +1118,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
+				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1125,14 +1129,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QLinkHD/QLinkHD-Prefix.pch";
 				INFOPLIST_FILE = "QLinkHD/QLinkHD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
+				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1141,14 +1145,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xiamen HD Vision Electronics Co., Ltd. (55CQ84TYYM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xiamen HD Vision Electronics Co., Ltd. (55CQ84TYYM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QLinkHD/QLinkHD-Prefix.pch";
 				INFOPLIST_FILE = "QLinkHD/QLinkHD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
+				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
