@@ -47,12 +47,24 @@
     return sUrl;
 }
 
-+(NSString *)handleIpRequest
+//+(NSString *)handleIpRequest
+//{
+//    NSString *wifiIp = [DataUtil localWiFiIPAddress];
+//    wifiIp = [NSString stringWithFormat:@"TCP:%@:1234",wifiIp];
+//    
+//    NSString *sUrl = [NSString stringWithFormat:@"%@&action=savekfchang&dx=3&ChangVar=%@",[self getBaseUrl],wifiIp];
+//    return sUrl;
+//}
+
++(NSString *)handleIpRequest:(Member *)loginUser
 {
     NSString *wifiIp = [DataUtil localWiFiIPAddress];
     wifiIp = [NSString stringWithFormat:@"TCP:%@:1234",wifiIp];
     
-    NSString *sUrl = [NSString stringWithFormat:@"%@&action=savekfchang&dx=3&ChangVar=%@",[self getBaseUrl],wifiIp];
+    //因为这时候，Member 全局变量还没被覆盖最新的，到Action=null请求时，才为最新的
+    NSString *baseUrl = [NSString stringWithFormat:@"http://qlink.cc/zq/lookmobile.asp?uname=%@&upsd=%@&passkey=%@",loginUser.uName,loginUser.uPwd,loginUser.uKey];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@&action=savekfchang&dx=3&ChangVar=%@",baseUrl,wifiIp];
     return sUrl;
 }
 
@@ -83,5 +95,53 @@
 {
     return [NSString stringWithFormat:@"%@&action=savekfchang&dx=4&Id=%@",[self getBaseUrl],deviceId];
 }
+
+//注册
++(NSString *)getRegisterUrl:(NSString *)uName
+                     andPwd:(NSString *)uPwd
+                   andICode:(NSString *)icode
+{
+    return [NSString stringWithFormat:@"http://qlink.cc/zq/reg.asp?usname=%@&psword=%@&icode=%@",uName,uPwd,icode];
+}
+
+//设置设备IP
++(NSString *)geSetDeviceIp:(NSString *)deviceId andChangeVar:(NSString *)var
+{
+    return [NSString stringWithFormat:@"%@&action=savekfchang&dx=5&Id=%@&changvar=%@",[self getBaseUrl],deviceId,var];
+}
+
+//修改协议URL
++(NSString *)getChangeDeviceProtocol:(NSString *)name andDeviceId:(NSString *)deviceId
+{
+    NSString *sUrl = [NSString stringWithFormat:@"%@&action=savethisdevice&deviceid=%@&dname=%@",[self getBaseUrl],deviceId,name];
+    sUrl = [sUrl stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    return sUrl;
+}
+
+//请输入产品序列号（MAC）
++(NSString *)setNumber:(NSString *)number
+{
+    return [NSString stringWithFormat:@"%@&action=snpudui&product_sn=%@",[self getBaseUrl],number];
+}
+
+//重写中控
++(NSString *)geResetZK
+{
+    return [NSString stringWithFormat:@"%@&action=resetupzk",[self getBaseUrl]];
+}
+
+//重设IP
++(NSString *)getResetIp:(NSString *)pwd
+{
+    return [NSString stringWithFormat:@"%@&action=reip&password=%@",[self getBaseUrl],pwd];
+}
+
+//设置Order命令
++(NSString *)geSetDeviceOrder:(NSString *)orderId andChangeVar:(NSString *)var andInputw:(NSString *)inputw
+{
+    return [NSString stringWithFormat:@"%@&action=savekfchang&dx=6&Id=%@&changvar=%@&Inputw=%@",[self getBaseUrl],orderId,var,inputw];
+}
+
+
 
 @end

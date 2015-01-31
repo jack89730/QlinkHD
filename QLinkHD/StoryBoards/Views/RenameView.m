@@ -31,9 +31,6 @@
 
 -(IBAction)btnCanclePressed
 {
-//    if (self.delegate) {
-//        [self.delegate handleCanclePressed:self];
-//    }
     if (self.canclePressed) {
         self.canclePressed();
     }
@@ -54,14 +51,6 @@
     if (self.confirmPressed) {
         self.confirmPressed(self.lTitle,self.tfContent.text);
     }
-    
-//    if (self.delegate) {
-//        if (_lTitle) {//照明重命名
-//            [self.delegate handleConfirmPressed:_pDeviceId andNewName:_tfContent.text andLabel:_lTitle];
-//        }else{
-//            [self.delegate handleConfirmPressed:_pDeviceId andNewName:_tfContent.text];
-//        }
-//    }
 }
 
 

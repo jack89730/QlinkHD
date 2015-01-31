@@ -23,7 +23,7 @@
 //中控信息sql
 +(NSString *)connectControlSql:(Control *)obj
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO CONTROL (\"Ip\", \"SendType\", \"Port\", \"Domain\", \"Url\", \"Updatever\",\"Jsname\",\"Jstel\",\"Jsuname\",\"Jsaddess\", \"Jslogo\", \"Jsqq\") VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")",obj.Ip, obj.SendType, obj.Port, obj.Domain, obj.Url, obj.Updatever,obj.Jsname,obj.Jstel,obj.Jsuname,obj.Jsaddess,obj.Jslogo,obj.Jsqq];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO CONTROL (\"Ip\", \"SendType\", \"Port\", \"Domain\", \"Url\", \"Updatever\",\"Jsname\",\"Jstel\",\"Jsuname\",\"Jsaddess\", \"Jslogo\",\"JslogoIpad\", \"Jsqq\",\"OpenPic\",\"OpenPicIpad\") VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\",\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\")",obj.Ip, obj.SendType, obj.Port, obj.Domain, obj.Url, obj.Updatever,obj.Jsname,obj.Jstel,obj.Jsuname,obj.Jsaddess,obj.Jslogo,obj.JslogoIpad,obj.Jsqq,obj.OpenPic,obj.OpenPicIpad];
     
     return sql;
 }
@@ -38,7 +38,7 @@
 //命令表sql拼接
 +(NSString *)connectOrderSql:(Order *)obj
 {
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO ORDERS (\"OrderId\", \"OrderName\", \"Type\", \"SubType\" , \"OrderCmd\", \"Address\", \"StudyCmd\",\"OrderNo\", \"HouseId\", \"LayerId\", \"RoomId\", \"DeviceId\") VALUES  (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\" , \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")",obj.OrderId, obj.OrderName,obj.Type, obj.SubType , obj.OrderCmd,obj.Address, obj.StudyCmd,obj.OrderNo, obj.HouseId, obj.LayerId, obj.RoomId, obj.DeviceId];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO ORDERS (\"OrderId\", \"OrderName\", \"Type\", \"SubType\" , \"OrderCmd\", \"Address\", \"StudyCmd\",\"OrderNo\", \"HouseId\", \"LayerId\", \"RoomId\", \"DeviceId\",\"Hora\") VALUES  (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\" , \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\")",obj.OrderId, obj.OrderName,obj.Type, obj.SubType , obj.OrderCmd,obj.Address, obj.StudyCmd,obj.OrderNo, obj.HouseId, obj.LayerId, obj.RoomId, obj.DeviceId,obj.Hora];
     return sql;
 }
 
@@ -188,6 +188,14 @@
     [db executeUpdate:@"DELETE FROM SENCE"];
     
     [db close];
+    
+    //删除文件
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSString *logoPath = [[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"logo.png"];
+    NSString *defaultPath = [[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"help.png"];
+    [fileManager removeItemAtPath:logoPath error:&error];
+    [fileManager removeItemAtPath:defaultPath error:&error];
 }
 
 //执行sql语句事物
@@ -691,7 +699,8 @@
                                 andHouseId:[rs stringForColumn:@"HouseId"]
                                 andLayerId:[rs stringForColumn:@"LayerId"]
                                  andRoomId:[rs stringForColumn:@"RoomId"]
-                               andDeviceId:[rs stringForColumn:@"DeviceId"]];
+                               andDeviceId:[rs stringForColumn:@"DeviceId"]
+                                   andHora:[rs stringForColumn:@"Hora"]];
             [orderArr addObject:obj];
         }
         
@@ -726,7 +735,8 @@
                                 andHouseId:[rs stringForColumn:@"HouseId"]
                                 andLayerId:[rs stringForColumn:@"LayerId"]
                                  andRoomId:[rs stringForColumn:@"RoomId"]
-                               andDeviceId:[rs stringForColumn:@"DeviceId"]];
+                               andDeviceId:[rs stringForColumn:@"DeviceId"]
+                                   andHora:[rs stringForColumn:@"Hora"]];
             [orderArr addObject:obj];
         }
         
@@ -761,7 +771,8 @@
                                 andHouseId:[rs stringForColumn:@"HouseId"]
                                 andLayerId:[rs stringForColumn:@"LayerId"]
                                  andRoomId:[rs stringForColumn:@"RoomId"]
-                               andDeviceId:[rs stringForColumn:@"DeviceId"]];
+                               andDeviceId:[rs stringForColumn:@"DeviceId"]
+                                   andHora:[rs stringForColumn:@"Hora"]];
             [orderArr addObject:obj];
         }
         
@@ -969,7 +980,10 @@
                       andJsuname:[rs stringForColumn:@"Jsuname"]
                      andJsaddess:[rs stringForColumn:@"Jsaddess"]
                        andJslogo:[rs stringForColumn:@"Jslogo"]
-                         andJsqq:[rs stringForColumn:@"Jsqq"]];
+                   andJslogoIpad:[rs stringForColumn:@"JslogoIpad"]
+                         andJsqq:[rs stringForColumn:@"Jsqq"]
+                      andOpenPic:[rs stringForColumn:@"OpenPic"]
+                   andOpenPicIpad:[rs stringForColumn:@"OpenPicIpad"]];
         }
     }
     
@@ -1001,6 +1015,26 @@
     }
     
     return isResult;
+}
+
+//更改设备Order命令
++(BOOL)updateDeviceOrder:(NSString *)orderId
+              andAddress:(NSString *)address
+             andOrderCmd:(NSString *)orderCmd
+                 andHora:(NSString *)hora
+{
+    GlobalAttr *obj = [DataUtil shareInstanceToRoom];
+    NSString *sql = [NSString stringWithFormat:@"UPDATE ORDERS SET Address='%@', orderCmd='%@',Hora='%@' where OrderId='%@' and HouseId='%@' and LayerId='%@' and Roomid='%@'",address,orderCmd,hora,orderId,obj.HouseId,obj.LayerId,obj.RoomId];
+    FMDatabase *db = [self getDB];
+    
+    [db open];
+    
+    BOOL bResult = [db executeUpdate:sql];
+    
+    [db close];
+    
+    return bResult;
+    
 }
 
 @end

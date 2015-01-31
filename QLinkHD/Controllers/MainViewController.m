@@ -22,11 +22,14 @@
 #import "SenceConfigViewController.h"
 #import "RemoteViewController.h"
 #import "LightViewController.h"
+#import "SetIpView.h"
+#import "DeviceInfoController.h"
 
 @interface MainViewController()<IconViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *deviceCollectionView;
 @property (nonatomic, retain) RenameView *renameView;
+@property (nonatomic, retain) SetIpView *setIpView;
 
 @end
 
@@ -162,7 +165,7 @@
         [UIAlertView alertViewWithTitle:@"请选择操作"
                                 message:nil
                       cancelButtonTitle:@"取消"
-                      otherButtonTitles:@[@"重命名",@"图标重置",@"删除"]
+                      otherButtonTitles:@[@"重命名",@"图标重置",@"删除",@"设置IP",@"设备信息",@"存储协议"]
                               onDismiss:^(int btnIdx){
                                   switch (btnIdx) {
                                       case 0://重命名
@@ -232,6 +235,115 @@
                                                                       message:@"删除失败.请稍后再试."
                                                             cancelButtonTitle:@"关闭"];
                                           }
+                                          
+                                          break;
+                                      }
+                                    case 3://设置IP
+                                      {
+                                          define_weakself;
+                                          self.setIpView = [SetIpView viewFromDefaultXib];
+                                          self.setIpView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                                          self.setIpView.backgroundColor = [UIColor clearColor];
+                                          self.setIpView.deviceId = obj.DeviceId;
+                                          [self.setIpView fillContent:obj.DeviceId];
+                                          [self.setIpView setCancleBlock:^{
+                                              [weakSelf.setIpView removeFromSuperview];
+                                          }];
+                                          [self.setIpView setComfirmBlock:^(NSString *ip) {
+                                          }];
+                                          
+                                          [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.setIpView];
+                                          
+                                          break;
+                                      }
+                                    case 4: //设备信息
+                                      {
+                                          NSArray *array = [SQLiteUtil getOrderListByDeviceId:obj.DeviceId];
+                                          if (array.count <= 0) {
+                                              return;
+                                          }
+                                          
+                                          BOOL isFindIp = NO;
+                                          for (Order *order in array) {
+                                              if (![DataUtil checkNullOrEmpty:order.Address]) {
+                                                  isFindIp = YES;
+                                                  break;
+                                              }
+                                          }
+                                          
+                                          if (!isFindIp) {
+                                              [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                      message:@"您还没有设置IP,现在设置?"
+                                                            cancelButtonTitle:@"取消"
+                                                            otherButtonTitles:@[@"确定"]
+                                                                    onDismiss:^(int buttonIndex) {
+                                                                        define_weakself;
+                                                                        self.setIpView = [SetIpView viewFromDefaultXib];
+                                                                        self.setIpView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                                                                        self.setIpView.backgroundColor = [UIColor clearColor];
+                                                                        self.setIpView.deviceId = obj.DeviceId;
+                                                                        [self.setIpView fillContent:obj.DeviceId];
+                                                                        [self.setIpView setCancleBlock:^{
+                                                                            [weakSelf.setIpView removeFromSuperview];
+                                                                        }];
+                                                                        [self.setIpView setComfirmBlock:^(NSString *ip) {
+                                                                        }];
+                                                                        
+                                                                        [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.setIpView];
+                                                                    }onCancel:^{
+                                                                        DeviceInfoController *vc = [DeviceInfoController loadFromSB];
+                                                                        vc.deviceName = obj.DeviceName;
+                                                                        vc.deviceId = obj.DeviceId;
+                                                                        [self.navigationController pushViewController:vc animated:YES];
+                                                                    }];
+                                          } else {
+                                              DeviceInfoController *vc = [DeviceInfoController loadFromSB];
+                                              vc.deviceName = obj.DeviceName;
+                                              vc.deviceId = obj.DeviceId;
+                                              [self.navigationController pushViewController:vc animated:YES];
+                                          }
+                                          break;
+                                      }
+                                    case 5://存储协议
+                                      {
+                                          self.renameView = [RenameView viewFromDefaultXib];
+                                          self.renameView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                                          self.renameView.backgroundColor = [UIColor clearColor];
+                                          self.renameView.lblTabName.text = @"请输入协议名称";
+                                          [self.renameView setCanclePressed:^{
+                                              [weakSelf.renameView removeFromSuperview];
+                                          }];
+                                          [self.renameView setConfirmPressed:^(UILabel *lTitle,NSString *newName){
+                                              NSString *sUrl = [NetworkUtil getChangeDeviceProtocol:newName andDeviceId:obj.DeviceId];
+                                              
+                                              NSURL *url = [NSURL URLWithString:sUrl];
+                                              NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+                                              NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                                              NSString *sResult = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+                                              NSRange range = [sResult rangeOfString:@"error"];
+                                              if (range.location != NSNotFound)
+                                              {
+                                                  NSArray *errorArr = [sResult componentsSeparatedByString:@":"];
+                                                  if (errorArr.count > 1) {
+                                                      [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                                                      return;
+                                                  }
+                                              }
+                                              if ([[sResult lowercaseString] isEqualToString:@"ok"]) {
+                                                  
+                                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                          message:@"设置成功"
+                                                                cancelButtonTitle:@"确定"];
+                                                  
+                                                  [weakSelf.renameView removeFromSuperview];
+                                                  
+                                              }else{
+                                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                                          message:@"设置失败,请稍后再试."
+                                                                cancelButtonTitle:@"关闭"];
+                                              }
+                                          }];
+                                          [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.renameView];
                                           
                                           break;
                                       }

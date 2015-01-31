@@ -70,7 +70,9 @@
         NSLog(@"读取本地");
         
         //解析存储成功，覆盖本地配置数据
-        [Config setConfigObj:_pConfigTemp];
+        if (_pConfigTemp) {
+            [Config setConfigObj:_pConfigTemp];
+        }
         [SVProgressHUD dismiss];
         
         [SQLiteUtil setDefaultLayerIdAndRoomId];

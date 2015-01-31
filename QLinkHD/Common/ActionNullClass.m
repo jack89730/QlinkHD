@@ -68,13 +68,23 @@
                                     andDomain:[info objectForKey:@"_domain"]
                                        andUrl:[info objectForKey:@"_url"]
                                  andUpdatever:[info objectForKey:@"_updatever"]
-                                andJsname:[info objectForKey:@"_jsname"]
+                                    andJsname:[info objectForKey:@"_jsname"]
                                      andJstel:[info objectForKey:@"_jstel"]
                                    andJsuname:[info objectForKey:@"_jsuname"]
                                   andJsaddess:[info objectForKey:@"_jsaddess"]
                                     andJslogo:[info objectForKey:@"_jslogo"]
-                                      andJsqq:[info objectForKey:@"_jsqq"]];
+                                andJslogoIpad:[info objectForKey:@"_jslogopad"]
+                                      andJsqq:[info objectForKey:@"_jsqq"]
+                                   andOpenPic:[info objectForKey:@"_openpic"]
+                                andOpenPicIpad:[info objectForKey:@"_openpicpad"]];
          [sqlArr addObject:[SQLiteUtil connectControlSql:controlObj]];
+         
+         //logo下载
+         UIImage * imageFromURL = [self getImageFromURL:[info objectForKey:@"_jslogopad"]];
+         [self saveImage:imageFromURL withFileName:@"logo" ofType:@"png" inDirectory:[DataUtil getDirectoriesInDomains]];
+         //引导页下载
+         imageFromURL = [self getImageFromURL:[info objectForKey:@"_openpicpad"]];
+         [self saveImage:imageFromURL withFileName:@"help" ofType:@"png" inDirectory:[DataUtil getDirectoriesInDomains]];
          
          NSArray *layerArr = [DataUtil changeDicToArray:[info objectForKey:@"layer"]];
          for (NSDictionary *layerDic in layerArr) {
@@ -129,7 +139,8 @@
                                                       andHouseId:[orderDic objectForKey:@"_houseid"]
                                                       andLayerId:[orderDic objectForKey:@"_layerId"]
                                                        andRoomId:[orderDic objectForKey:@"_roomId"]
-                                                     andDeviceId:[orderDic objectForKey:@"_deviceid"]];
+                                                     andDeviceId:[orderDic objectForKey:@"_deviceid"]
+                                                         andHora:[orderDic objectForKey:@"_hora"]];
                              [sqlArr addObject:[SQLiteUtil connectOrderSql:orderObj]];
                          }
                      }
@@ -173,6 +184,27 @@
     else {
         CFRelease(plist);
         return nil;
+    }
+}
+
+-(UIImage *) getImageFromURL:(NSString *)fileURL {
+    UIImage * result;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    
+    return result;
+}
+
+
+-(void) saveImage:(UIImage *)image withFileName:(NSString *)imageName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath {
+    if ([[extension lowercaseString] isEqualToString:@"png"]) {
+        [UIImagePNGRepresentation(image) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"png"]] options:NSAtomicWrite error:nil];
+    } else if ([[extension lowercaseString] isEqualToString:@"jpg"] || [[extension lowercaseString] isEqualToString:@"jpeg"]) {
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"jpg"]] options:NSAtomicWrite error:nil];
+    } else {
+        //ALog(@"Image Save Failed\nExtension: (%@) is not recognized, use (PNG/JPG)", extension);
+        NSLog(@"文件后缀不认识");
     }
 }
 

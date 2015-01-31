@@ -9,16 +9,15 @@
 #import "LoginViewController.h"
 #import "Model.h"
 #import "UIAlertView+MKBlockAdditions.h"
+#import "RegisterViewController.h"
 
 @interface LoginViewController ()
 {
     Member *_loginMember;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *ivLogo;
 @property (weak, nonatomic) IBOutlet UIButton *btnRemeber;
-@property (weak, nonatomic) IBOutlet UITextField *tfKey;
-@property (weak, nonatomic) IBOutlet UITextField *tfUserName;
-@property (weak, nonatomic) IBOutlet UITextField *tfUserPwd;
 @property (weak, nonatomic) IBOutlet UILabel *lblCompany;
 
 @end
@@ -67,7 +66,13 @@
     
     Control *control = [SQLiteUtil getControlObj];
     if (control && control.Jsname) {
-        self.lblCompany.text = control.Jsname;
+        if (control.Jsname) {
+            self.lblCompany.text = control.Jsname;
+        }
+        if (control.Jslogo) {
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:[[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"logo.png"]];
+            self.ivLogo.image = image;
+        }
     }
 }
 
@@ -110,13 +115,17 @@
 
 - (IBAction)btnRegisterPressed:(id)sender
 {
-    [UIAlertView alertViewWithTitle:@"温馨提示"
-                            message:@"即将跳转浏览器打开QLINK网站\n须从站点注册(需要邀请码)"
-                  cancelButtonTitle:@"取消"
-                  otherButtonTitles:@[@"确定"]
-                          onDismiss:^(int index){
-                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://qlink.cc/?action=apple"]];
-    }onCancel:nil];
+//    [UIAlertView alertViewWithTitle:@"温馨提示"
+//                            message:@"即将跳转浏览器打开QLINK网站\n须从站点注册(需要邀请码)"
+//                  cancelButtonTitle:@"取消"
+//                  otherButtonTitles:@[@"确定"]
+//                          onDismiss:^(int index){
+//                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://qlink.cc/?action=apple"]];
+//    }onCancel:nil];
+    
+    RegisterViewController *registerVC = [RegisterViewController loadFromSB];
+    registerVC.loginVC = self;
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 - (IBAction)btnLoginPressed:(UIButton *)sender
@@ -180,16 +189,8 @@
          } else {
              [weakSelf loadActionNULL];
          }
-//         if (!configTempObj.isSetIp) {//需要配置ip
-//             [weakSelf fetchIp];
-//         } else
-//         {
-//             [weakSelf loadActionNULL];
-//         }
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         
          weakSelf.pConfigTemp = [Config getConfig];
-         
          [weakSelf loadActionNULL];
      }];
     
@@ -217,11 +218,11 @@
 {
     [SVProgressHUD showWithStatus:@"正在配置ip..."];
     
-    NSString *sUrl = [NetworkUtil handleIpRequest];
+    NSString *sUrl = [NetworkUtil handleIpRequest:self.pLoginMember];
     NSURL *url = [NSURL URLWithString:sUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    __weak __typeof(self)weakSelf = self;
+    define_weakself;
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSString *strResult = operation.responseString;
@@ -249,7 +250,7 @@
     NSURL *url = [NSURL URLWithString:sUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    __weak __typeof(self)weakSelf = self;
+    define_weakself;
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSString *strXML = [[NSString alloc] initWithData:responseObject encoding:[DataUtil getGB2312Code]];
@@ -290,15 +291,18 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.tfKey resignFirstResponder];
-    [self.tfUserName resignFirstResponder];
-    [self.tfUserPwd resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

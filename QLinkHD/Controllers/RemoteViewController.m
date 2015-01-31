@@ -11,12 +11,17 @@
 #import "SenceConfigViewController.h"
 #import "UIAlertView+MKBlockAdditions.h"
 #import "UIView+xib.h"
+#import "SetIpView.h"
+#import "NSString+NSStringHexToBytes.h"
+#import "SetDeviceOrderView.h"
 
 #define JG 15
 
 @interface RemoteViewController ()
 
 @property(nonatomic,strong) StudyTimerView *studyView;
+@property(nonatomic,retain) SetIpView *setIpView;
+@property(nonatomic,retain) SetDeviceOrderView *setOrderView;
 
 @end
 
@@ -29,6 +34,13 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [DataUtil setGlobalModel:[DataUtil getTempGlobalModel]];
 }
 
 - (void)viewDidLoad
@@ -49,35 +61,22 @@
     
  
     NSMutableArray *arrItem = [NSMutableArray array];
-    BOOL isStudy = NO;
     if (![DataUtil getGlobalIsAddSence]) {
-        if ([SQLiteUtil isStudyModel:_deviceId]) {
-            UIImage * imgOn = [UIImage imageNamed:@"Bottom_set101"];
-            UIImage * imgOff = [UIImage imageNamed:@"Bottom_set102"];
-            UIBarButtonItem * btnStudy =  [UIBarButtonItem barItemWithImage1:imgOn
-                                                             highlightImage1:imgOff
-                                                                     target1:self
-                                                                 withAction1:@selector(actionStudy)];
-            [arrItem addObject:btnStudy];
-            
-            isStudy = YES;
-        }
+        UIImage * imgOn = [UIImage imageNamed:@"Bottom_set101"];
+        UIImage * imgOff = [UIImage imageNamed:@"Bottom_set102"];
+        UIBarButtonItem * btnStudy =  [UIBarButtonItem barItemWithImage1:imgOn
+                                                         highlightImage1:imgOff
+                                                                 target1:self
+                                                             withAction1:@selector(actionSet)];
+        [arrItem addObject:btnStudy];
     }
     
     UIImage * imgOn = [UIImage imageNamed:@"Common_返回键01"];
     UIImage * imgOff = [UIImage imageNamed:@"Common_返回键02"];
-    UIBarButtonItem * btnBack = nil;
-    if (isStudy) {
-        btnBack = [UIBarButtonItem barItemWithImage1:imgOn
-                                     highlightImage1:imgOff
-                                             target1:self
-                                         withAction1:@selector(actionBack)];
-    } else {
-        btnBack = [UIBarButtonItem barItemWithImage:imgOn
-                                     highlightImage:imgOff
-                                             target:self
-                                         withAction:@selector(actionBack)];
-    }
+    UIBarButtonItem * btnBack = [UIBarButtonItem barItemWithImage1:imgOn
+                                                   highlightImage1:imgOff
+                                                           target1:self
+                                                       withAction1:@selector(actionBack)];
     [arrItem addObject:btnBack];
  
     self.navigationItem.rightBarButtonItems = arrItem;
@@ -499,6 +498,19 @@
             }onCancel:nil];
         }
     } else {
+        if ([[DataUtil getGlobalModel] isEqualToString:Model_SetOrder]) {//设置命令模式
+            
+            [self setOrderViewOpen:sender.orderObj];
+            
+            return;
+        }
+        if ([DataUtil checkNullOrEmpty:sender.orderObj.OrderCmd]) {
+            
+            [UIAlertView alertViewWithTitle:@"温馨提示" message:@"按钮没有配置，请先配置" cancelButtonTitle:@"确定" otherButtonTitles:nil onDismiss:nil onCancel:^{
+                [self setOrderViewOpen:sender.orderObj];
+            }];
+            return;
+        }
         if ([[DataUtil getGlobalModel] isEqualToString:Model_Study]) {
             self.studyView = [StudyTimerView viewFromDefaultXib];
             self.studyView.frame = CGRectMake(0, 0, 1024, 768);
@@ -515,16 +527,158 @@
     }
 }
 
--(void)actionStudy
+-(void)setOrderViewOpen:(Order *)orderObj
 {
-    [UIAlertView alertViewWithTitle:@"操作"
-                            message:@"是否要启用学习模式?"
-                  cancelButtonTitle:@"关闭"
-                  otherButtonTitles:@[@"学习模式"]
-                          onDismiss:^(int buttonIndex){
-                              [DataUtil setGlobalModel:Model_Study];
-                              [SVProgressHUD showSuccessWithStatus:@"您已处于学习模式状态"];
-    }onCancel:nil];
+    define_weakself;
+    self.setOrderView = [SetDeviceOrderView viewFromDefaultXib];
+    self.setOrderView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.setOrderView.backgroundColor = [UIColor clearColor];
+    self.setOrderView.orderId = orderObj.OrderId;
+    
+    NSString *orderCmd = orderObj.OrderCmd;
+    if (![DataUtil checkNullOrEmpty:orderCmd])
+    {
+        NSString *strCurModel = [DataUtil getTempGlobalModel];
+        NSString *handleOrderCmd = [orderCmd substringFromIndex:4];
+        if ([strCurModel isEqualToString:Model_ZKDOMAIN] || [strCurModel isEqualToString:Model_ZKIp]) {//中控模式 不变
+            self.setOrderView.tfOrder.text = handleOrderCmd;
+            self.setOrderView.btnAsc.selected = NO;
+        } else { //紧急模式(修改Order取值显示出来的时候省略4个字节；之后如果返回命令冒号后为“1”表示为ASCII码，将省略4字节后的报文，转化为ASCII码，2个为一组；“0”表示原声为16进制，无需更改)
+            
+            if ([orderObj.Hora isEqualToString:@"1"]) { //转ASCII
+                NSData *data = [handleOrderCmd hexToBytes];
+                NSString *result = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];
+                self.setOrderView.tfOrder.text = result;
+                self.setOrderView.btnAsc.selected = YES;
+            } else {
+                self.setOrderView.tfOrder.text = handleOrderCmd;
+                self.setOrderView.btnAsc.selected = NO;
+            }
+        }
+    } else {
+        self.setOrderView.tfOrder.text = @"";
+        self.setOrderView.btnAsc.selected = NO;
+    }
+    
+    [self.setOrderView setConfirmBlock:^(NSString *orderCmd,NSString *address,NSString *hoar){
+        orderObj.OrderCmd = orderCmd;
+        orderObj.Address = address;
+        orderObj.Hora = hoar;
+    }];
+    [self.setOrderView setErrorBlock:^{
+        weakSelf.setIpView = [SetIpView viewFromDefaultXib];
+        weakSelf.setIpView.frame = CGRectMake(0, 0, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height);
+        weakSelf.setIpView.backgroundColor = [UIColor clearColor];
+        weakSelf.setIpView.deviceId = weakSelf.deviceId;
+        [weakSelf.setIpView fillContent:weakSelf.deviceId];
+        [weakSelf.setIpView setCancleBlock:^{
+            [weakSelf.setIpView removeFromSuperview];
+        }];
+        [weakSelf.setIpView setComfirmBlock:^(NSString *ip) {
+        }];
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.setIpView];
+    }];
+    [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.setOrderView];
+}
+
+-(void)actionSet
+{
+    if ([SQLiteUtil isStudyModel:_deviceId]) {
+        [UIAlertView alertViewWithTitle:@"操作"
+                                message:nil
+                      cancelButtonTitle:@"关闭"
+                      otherButtonTitles:@[@"学习模式",@"设置目标",@"配置模式"] onDismiss:^(int buttonIndex) {
+                          switch (buttonIndex) {
+                              case 0: //学习模式
+                              {
+                                  [DataUtil setGlobalModel:Model_Study];
+                                  [SVProgressHUD showSuccessWithStatus:@"您已处于学习模式状态"];
+                                  
+                                  break;
+                              }
+                              case 1://设置目标
+                              {
+                                  [DataUtil setGlobalModel:[DataUtil getTempGlobalModel]];
+                                  
+                                  define_weakself;
+                                  self.setIpView = [SetIpView viewFromDefaultXib];
+                                  self.setIpView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                                  self.setIpView.backgroundColor = [UIColor clearColor];
+                                  self.setIpView.deviceId = self.deviceId;
+                                  [self.setIpView fillContent:self.deviceId];
+                                  [self.setIpView setCancleBlock:^{
+                                      [weakSelf.setIpView removeFromSuperview];
+                                  }];
+                                  [self.setIpView setComfirmBlock:^(NSString *ip) {
+                                  }];
+                                  
+                                  [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.setIpView];
+                                  
+                                  break;
+                              }
+                              case 2://配置模式
+                              {
+                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                          message:@"您已处于设置目标模式\n点击操作即可设置."
+                                                cancelButtonTitle:@"确定"
+                                                otherButtonTitles:nil
+                                                        onDismiss:nil
+                                                         onCancel:nil];
+                                  
+                                  [DataUtil setGlobalModel:Model_SetOrder];
+                                  
+                                  break;
+                              }
+                              default:
+                                  break;
+                          }
+        }onCancel:nil];
+    } else {
+        [UIAlertView alertViewWithTitle:@"操作"
+                                message:nil
+                      cancelButtonTitle:@"关闭"
+                      otherButtonTitles:@[@"设置目标",@"配置模式"] onDismiss:^(int buttonIndex) {
+                          switch (buttonIndex) {
+                              case 0://设置目标
+                              {
+                                  [DataUtil setGlobalModel:[DataUtil getTempGlobalModel]];
+                                  
+                                  define_weakself;
+                                  self.setIpView = [SetIpView viewFromDefaultXib];
+                                  self.setIpView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                                  self.setIpView.backgroundColor = [UIColor clearColor];
+                                  self.setIpView.deviceId = self.deviceId;
+                                  [self.setIpView fillContent:self.deviceId];
+                                  [self.setIpView setCancleBlock:^{
+                                      [weakSelf.setIpView removeFromSuperview];
+                                  }];
+                                  [self.setIpView setComfirmBlock:^(NSString *ip) {
+                                  }];
+                                  
+                                  [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.setIpView];
+                                  
+                                  break;
+                              }
+                              case 1://配置模式
+                              {
+                                  [UIAlertView alertViewWithTitle:@"温馨提示"
+                                                          message:@"您已处于设置目标模式\n点击操作即可设置."
+                                                cancelButtonTitle:@"确定"
+                                                otherButtonTitles:nil
+                                                        onDismiss:nil
+                                                         onCancel:nil];
+                                  
+                                  [DataUtil setGlobalModel:Model_SetOrder];
+                                  
+                                  break;
+                              }
+                              default:
+                                  break;
+                          }
+ 
+                      }onCancel:nil];
+    }
 }
 
 -(void)actionBack

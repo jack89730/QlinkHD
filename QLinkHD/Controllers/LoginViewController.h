@@ -11,4 +11,8 @@
 
 @interface LoginViewController : SetupIpViewController<UITextFieldDelegate,SBLoader>
 
+@property (weak, nonatomic) IBOutlet UITextField *tfKey;
+@property (weak, nonatomic) IBOutlet UITextField *tfUserName;
+@property (weak, nonatomic) IBOutlet UITextField *tfUserPwd;
+
 @end

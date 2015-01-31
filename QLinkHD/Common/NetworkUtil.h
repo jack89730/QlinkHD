@@ -29,7 +29,8 @@
 //修改设备名称URL
 +(NSString *)getChangeDeviceName:(NSString *)newName andDeviceId:(NSString *)deviceId;
 
-+(NSString *)handleIpRequest;
+//+(NSString *)handleIpRequest;
++(NSString *)handleIpRequest:(Member *)loginUser;
 
 //编辑场景
 +(NSString *)getEditSence:(NSString *)senceId
@@ -42,5 +43,28 @@
 
 //删除设备
 +(NSString *)getDelDevice:(NSString *)deviceId;
+
+//注册
++(NSString *)getRegisterUrl:(NSString *)uName
+                     andPwd:(NSString *)uPwd
+                   andICode:(NSString *)icode;
+
+//设置设备IP
++(NSString *)geSetDeviceIp:(NSString *)deviceId andChangeVar:(NSString *)var;
+
+//修改协议URL
++(NSString *)getChangeDeviceProtocol:(NSString *)name andDeviceId:(NSString *)deviceId;
+
+//请输入产品序列号（MAC）
++(NSString *)setNumber:(NSString *)number;
+
+//重写中控
++(NSString *)geResetZK;
+
+//重设IP
++(NSString *)getResetIp:(NSString *)pwd;
+
+//设置Order命令
++(NSString *)geSetDeviceOrder:(NSString *)orderId andChangeVar:(NSString *)var andInputw:(NSString *)inputw;
 
 @end

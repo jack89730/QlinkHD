@@ -13,6 +13,20 @@
 		8A133F601A2E046500675266 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A133F5F1A2E046500675266 /* AboutViewController.m */; };
 		8A146BC21A34642000755E94 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC01A34642000755E94 /* Icon@2x.png */; };
 		8A146BC31A34642000755E94 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A146BC11A34642000755E94 /* Icon.png */; };
+		8A18FD5B1A7C673000C6C9DE /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD5A1A7C673000C6C9DE /* RegisterViewController.m */; };
+		8A18FD5D1A7C676D00C6C9DE /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD5C1A7C676D00C6C9DE /* Register.storyboard */; };
+		8A18FD611A7C770200C6C9DE /* QLink.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD601A7C770200C6C9DE /* QLink.sqlite */; };
+		8A18FD651A7C7F0600C6C9DE /* SetIpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD631A7C7F0600C6C9DE /* SetIpView.m */; };
+		8A18FD661A7C7F0600C6C9DE /* SetIpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD641A7C7F0600C6C9DE /* SetIpView.xib */; };
+		8A18FD6B1A7C88F000C6C9DE /* DeviceInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD6A1A7C88F000C6C9DE /* DeviceInfo.storyboard */; };
+		8A18FD6E1A7C8F7400C6C9DE /* DeviceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD6D1A7C8F7400C6C9DE /* DeviceInfoCell.m */; };
+		8A18FD711A7CAA0F00C6C9DE /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD701A7CAA0F00C6C9DE /* DeviceInfoController.m */; };
+		8A18FD781A7CC48900C6C9DE /* SeriesNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD761A7CC48900C6C9DE /* SeriesNumberView.m */; };
+		8A18FD791A7CC48900C6C9DE /* SeriesNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD771A7CC48900C6C9DE /* SeriesNumberView.xib */; };
+		8A18FD7D1A7CC82F00C6C9DE /* ReSetIpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD7B1A7CC82F00C6C9DE /* ReSetIpView.m */; };
+		8A18FD7E1A7CC82F00C6C9DE /* ReSetIpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD7C1A7CC82F00C6C9DE /* ReSetIpView.xib */; };
+		8A18FD821A7CCF7500C6C9DE /* SetDeviceOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18FD801A7CCF7500C6C9DE /* SetDeviceOrderView.m */; };
+		8A18FD831A7CCF7500C6C9DE /* SetDeviceOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FD811A7CCF7500C6C9DE /* SetDeviceOrderView.xib */; };
 		8A19570F1A3D5B4D0062A1E5 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A19570E1A3D5B4D0062A1E5 /* Icon-72.png */; };
 		8A1A646D1A3BCC6900BB836D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1A646C1A3BCC6900BB836D /* Reachability.m */; };
 		8A1B1AEB1A3B362600D8FC94 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B1AEA1A3B362600D8FC94 /* AVFoundation.framework */; };
@@ -29,7 +43,6 @@
 		8A206D4D1A16E5FC001A8CB5 /* RoomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206D4C1A16E5FC001A8CB5 /* RoomButton.m */; };
 		8A206E901A39DFE00018A634 /* MySlider+touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A206E8F1A39DFE00018A634 /* MySlider+touch.m */; };
 		8A2086631A320C52002EFD7D /* CustomCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */; };
-		8A24CF4F1A3C665A00E2F41B /* QLink.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A24CF4E1A3C665A00E2F41B /* QLink.sqlite */; };
 		8A26D5E81A1E2E560013C9C0 /* SenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A26D5E71A1E2E560013C9C0 /* SenceCell.m */; };
 		8A2C31031A047A970017287B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31021A047A970017287B /* Foundation.framework */; };
 		8A2C31051A047A970017287B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2C31041A047A970017287B /* CoreGraphics.framework */; };
@@ -160,6 +173,27 @@
 		8A133F5F1A2E046500675266 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8A146BC01A34642000755E94 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8A146BC11A34642000755E94 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8A18FD591A7C673000C6C9DE /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		8A18FD5A1A7C673000C6C9DE /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		8A18FD5C1A7C676D00C6C9DE /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		8A18FD601A7C770200C6C9DE /* QLink.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QLink.sqlite; sourceTree = "<group>"; };
+		8A18FD621A7C7F0600C6C9DE /* SetIpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetIpView.h; sourceTree = "<group>"; };
+		8A18FD631A7C7F0600C6C9DE /* SetIpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIpView.m; sourceTree = "<group>"; };
+		8A18FD641A7C7F0600C6C9DE /* SetIpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetIpView.xib; sourceTree = "<group>"; };
+		8A18FD6A1A7C88F000C6C9DE /* DeviceInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeviceInfo.storyboard; sourceTree = "<group>"; };
+		8A18FD6C1A7C8F7400C6C9DE /* DeviceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoCell.h; sourceTree = "<group>"; };
+		8A18FD6D1A7C8F7400C6C9DE /* DeviceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoCell.m; sourceTree = "<group>"; };
+		8A18FD6F1A7CAA0F00C6C9DE /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
+		8A18FD701A7CAA0F00C6C9DE /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
+		8A18FD751A7CC48900C6C9DE /* SeriesNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesNumberView.h; sourceTree = "<group>"; };
+		8A18FD761A7CC48900C6C9DE /* SeriesNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesNumberView.m; sourceTree = "<group>"; };
+		8A18FD771A7CC48900C6C9DE /* SeriesNumberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesNumberView.xib; sourceTree = "<group>"; };
+		8A18FD7A1A7CC82F00C6C9DE /* ReSetIpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReSetIpView.h; sourceTree = "<group>"; };
+		8A18FD7B1A7CC82F00C6C9DE /* ReSetIpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReSetIpView.m; sourceTree = "<group>"; };
+		8A18FD7C1A7CC82F00C6C9DE /* ReSetIpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReSetIpView.xib; sourceTree = "<group>"; };
+		8A18FD7F1A7CCF7500C6C9DE /* SetDeviceOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetDeviceOrderView.h; sourceTree = "<group>"; };
+		8A18FD801A7CCF7500C6C9DE /* SetDeviceOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetDeviceOrderView.m; sourceTree = "<group>"; };
+		8A18FD811A7CCF7500C6C9DE /* SetDeviceOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetDeviceOrderView.xib; sourceTree = "<group>"; };
 		8A19570E1A3D5B4D0062A1E5 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		8A1A646B1A3BCC5F00BB836D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8A1A646C1A3BCC6900BB836D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -187,7 +221,6 @@
 		8A206E8F1A39DFE00018A634 /* MySlider+touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MySlider+touch.m"; sourceTree = "<group>"; };
 		8A2086611A320C52002EFD7D /* CustomCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionLayout.h; sourceTree = "<group>"; };
 		8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionLayout.m; sourceTree = "<group>"; };
-		8A24CF4E1A3C665A00E2F41B /* QLink.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QLink.sqlite; sourceTree = "<group>"; };
 		8A26D5E61A1E2E560013C9C0 /* SenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenceCell.h; sourceTree = "<group>"; };
 		8A26D5E71A1E2E560013C9C0 /* SenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenceCell.m; sourceTree = "<group>"; };
 		8A2C30FF1A047A970017287B /* QLinkHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLinkHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,6 +447,8 @@
 				8A1D595A1A14F24F00AE66C9 /* Main.storyboard */,
 				8AA7FCB01A18DB150017C703 /* Icon.storyboard */,
 				8AB6FBE61A275F27003EA0C6 /* SenceConfig.storyboard */,
+				8A18FD5C1A7C676D00C6C9DE /* Register.storyboard */,
+				8A18FD6A1A7C88F000C6C9DE /* DeviceInfo.storyboard */,
 			);
 			name = StoryBoards;
 			path = QLinkHD/StoryBoards;
@@ -470,6 +505,18 @@
 				8A9B3CC71A1A347400FABB46 /* RenameView.h */,
 				8A9B3CC81A1A347400FABB46 /* RenameView.m */,
 				8A9B3CC91A1A347400FABB46 /* RenameView.xib */,
+				8A18FD621A7C7F0600C6C9DE /* SetIpView.h */,
+				8A18FD631A7C7F0600C6C9DE /* SetIpView.m */,
+				8A18FD641A7C7F0600C6C9DE /* SetIpView.xib */,
+				8A18FD751A7CC48900C6C9DE /* SeriesNumberView.h */,
+				8A18FD761A7CC48900C6C9DE /* SeriesNumberView.m */,
+				8A18FD771A7CC48900C6C9DE /* SeriesNumberView.xib */,
+				8A18FD7A1A7CC82F00C6C9DE /* ReSetIpView.h */,
+				8A18FD7B1A7CC82F00C6C9DE /* ReSetIpView.m */,
+				8A18FD7C1A7CC82F00C6C9DE /* ReSetIpView.xib */,
+				8A18FD7F1A7CCF7500C6C9DE /* SetDeviceOrderView.h */,
+				8A18FD801A7CCF7500C6C9DE /* SetDeviceOrderView.m */,
+				8A18FD811A7CCF7500C6C9DE /* SetDeviceOrderView.xib */,
 				8A1D595F1A14F2D300AE66C9 /* IconCollectionCell.h */,
 				8A1D59601A14F2D300AE66C9 /* IconCollectionCell.m */,
 				8A3C928D1A309F2400D84A47 /* QuickOperDeviceChooseView.h */,
@@ -479,6 +526,8 @@
 				8A2086621A320C52002EFD7D /* CustomCollectionLayout.m */,
 				8A1F29BE1A32C8AE00E5BCA4 /* CricleButton.h */,
 				8A1F29BF1A32C8AE00E5BCA4 /* CricleButton.m */,
+				8A18FD6C1A7C8F7400C6C9DE /* DeviceInfoCell.h */,
+				8A18FD6D1A7C8F7400C6C9DE /* DeviceInfoCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -607,6 +656,10 @@
 				8A121FFA1A2CABAB00B37EA5 /* LightViewController.m */,
 				8A133F5E1A2E046500675266 /* AboutViewController.h */,
 				8A133F5F1A2E046500675266 /* AboutViewController.m */,
+				8A18FD591A7C673000C6C9DE /* RegisterViewController.h */,
+				8A18FD5A1A7C673000C6C9DE /* RegisterViewController.m */,
+				8A18FD6F1A7CAA0F00C6C9DE /* DeviceInfoController.h */,
+				8A18FD701A7CAA0F00C6C9DE /* DeviceInfoController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -673,7 +726,7 @@
 				8A9B42C71A05236D005CCC9C /* NSData+NSDataBytesToHex.m */,
 				8A9B42C81A05236D005CCC9C /* NSString+NSStringHexToBytes.h */,
 				8A9B42C91A05236D005CCC9C /* NSString+NSStringHexToBytes.m */,
-				8A24CF4E1A3C665A00E2F41B /* QLink.sqlite */,
+				8A18FD601A7C770200C6C9DE /* QLink.sqlite */,
 				8A9B42CB1A05236D005CCC9C /* SQLiteUtil.h */,
 				8A9B42CC1A05236D005CCC9C /* SQLiteUtil.m */,
 				8A9ED4EC1A1B985C009136C6 /* ActionNullClass.h */,
@@ -893,18 +946,24 @@
 				8A49A09D1A24CF3200697596 /* SwView.xib in Resources */,
 				8A49A09F1A24CF3200697596 /* SwView1.xib in Resources */,
 				8A146BC21A34642000755E94 /* Icon@2x.png in Resources */,
-				8A24CF4F1A3C665A00E2F41B /* QLink.sqlite in Resources */,
 				8A49A08F1A24CF3200697596 /* LightBriView.xib in Resources */,
+				8A18FD831A7CCF7500C6C9DE /* SetDeviceOrderView.xib in Resources */,
+				8A18FD791A7CC48900C6C9DE /* SeriesNumberView.xib in Resources */,
 				8A0422C41A18955B00D50A39 /* iConPlist.plist in Resources */,
 				8A49A08B1A24CF3200697596 /* LightBbView.xib in Resources */,
+				8A18FD6B1A7C88F000C6C9DE /* DeviceInfo.storyboard in Resources */,
 				8A1F29C41A32D8CF00E5BCA4 /* iConArPlist.plist in Resources */,
+				8A18FD7E1A7CC82F00C6C9DE /* ReSetIpView.xib in Resources */,
 				8A49A0991A24CF3200697596 /* SdView.xib in Resources */,
+				8A18FD5D1A7C676D00C6C9DE /* Register.storyboard in Resources */,
 				8A706BCB1A1112150000C3FF /* LeftView.xib in Resources */,
 				8A49A0A11A24CF3200697596 /* TrView.xib in Resources */,
 				8A49A0881A24CF3200697596 /* HsView.xib in Resources */,
 				8A19570F1A3D5B4D0062A1E5 /* Icon-72.png in Resources */,
+				8A18FD611A7C770200C6C9DE /* QLink.sqlite in Resources */,
 				8A3C92911A309F3B00D84A47 /* QuickOperDeviceChooseView.xib in Resources */,
 				8A2C31151A047A970017287B /* Images.xcassets in Resources */,
+				8A18FD661A7C7F0600C6C9DE /* SetIpView.xib in Resources */,
 				8A0422C31A18955B00D50A39 /* DeviceConfigIconPlist.plist in Resources */,
 				8AAB938C1A04E05400B803FC /* SVProgressHUD.bundle in Resources */,
 				8A50E7AA1A0A792000E2AE99 /* BottomView.xib in Resources */,
@@ -937,6 +996,7 @@
 				8A9ED4E51A1B8C17009136C6 /* DeviceConfigViewController.m in Sources */,
 				8A2C31131A047A970017287B /* AppDelegate.m in Sources */,
 				8A49A0981A24CF3200697596 /* SdView.m in Sources */,
+				8A18FD781A7CC48900C6C9DE /* SeriesNumberView.m in Sources */,
 				8AAB93831A04E05400B803FC /* FMDatabase.m in Sources */,
 				8AAB93881A04E05400B803FC /* SimplePing.m in Sources */,
 				8A49A09C1A24CF3200697596 /* SwView.m in Sources */,
@@ -948,9 +1008,11 @@
 				8AAB937D1A04E05400B803FC /* AFNetworkReachabilityManager.m in Sources */,
 				8A49A09A1A24CF3200697596 /* StudyTimerView.m in Sources */,
 				8A26D5E81A1E2E560013C9C0 /* SenceCell.m in Sources */,
+				8A18FD651A7C7F0600C6C9DE /* SetIpView.m in Sources */,
 				8AAB93841A04E05400B803FC /* FMDatabaseAdditions.m in Sources */,
 				8AAB93811A04E05400B803FC /* AFURLResponseSerialization.m in Sources */,
 				8A50E79A1A0A6B3400E2AE99 /* BottomBoard.m in Sources */,
+				8A18FD821A7CCF7500C6C9DE /* SetDeviceOrderView.m in Sources */,
 				8AAB938E1A04E05400B803FC /* XMLDictionary.m in Sources */,
 				8A1F29C01A32C8AE00E5BCA4 /* CricleButton.m in Sources */,
 				8A9B42CF1A05236D005CCC9C /* Model.m in Sources */,
@@ -980,10 +1042,14 @@
 				8AB89B6B1A18C59900183AE5 /* UIAlertView+MKBlockAdditions.m in Sources */,
 				8A50E7A61A0A731600E2AE99 /* UIView+xib.m in Sources */,
 				8A3B548B1A2B1FED00840614 /* RemoteViewController.m in Sources */,
+				8A18FD6E1A7C8F7400C6C9DE /* DeviceInfoCell.m in Sources */,
 				8A49A0831A24CF3200697596 /* BsTcView.m in Sources */,
+				8A18FD7D1A7CC82F00C6C9DE /* ReSetIpView.m in Sources */,
 				8AB89B691A18C59900183AE5 /* NSObject+MKBlockAdditions.m in Sources */,
 				8A9B42D11A05236D005CCC9C /* NSData+NSDataBytesToHex.m in Sources */,
 				8A9B42D41A05236D005CCC9C /* SQLiteUtil.m in Sources */,
+				8A18FD711A7CAA0F00C6C9DE /* DeviceInfoController.m in Sources */,
+				8A18FD5B1A7C673000C6C9DE /* RegisterViewController.m in Sources */,
 				8AAB937E1A04E05400B803FC /* AFSecurityPolicy.m in Sources */,
 				8A1F29CE1A3306C200E5BCA4 /* KDGoalBarPercentLayer.m in Sources */,
 				8A49A08C1A24CF3200697596 /* LightBcView.m in Sources */,
@@ -1065,8 +1131,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1084,7 +1150,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
+				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1118,7 +1184,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
+				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1129,14 +1195,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: chen zhimin (4E3R2ZFY9A)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QLinkHD/QLinkHD-Prefix.pch";
 				INFOPLIST_FILE = "QLinkHD/QLinkHD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
+				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1150,9 +1216,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QLinkHD/QLinkHD-Prefix.pch";
 				INFOPLIST_FILE = "QLinkHD/QLinkHD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8569ce6a-54fe-4b4f-af59-a65440c7fb5b";
+				PROVISIONING_PROFILE = "34a84414-6b23-4704-9907-dbbac7f9e4c7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

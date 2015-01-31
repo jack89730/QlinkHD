@@ -34,7 +34,10 @@
 @property(nonatomic,strong) NSString *Jsuname;
 @property(nonatomic,strong) NSString *Jsaddess;
 @property(nonatomic,strong) NSString *Jslogo;
+@property(nonatomic,strong) NSString *JslogoIpad;
 @property(nonatomic,strong) NSString *Jsqq;
+@property(nonatomic,strong) NSString *OpenPic;
+@property(nonatomic,strong) NSString *OpenPicIpad;
 
 +(Control *)setIp:(NSString *)ip
       andSendType:(NSString *)sendType
@@ -47,7 +50,10 @@
        andJsuname:(NSString *)jsuname
       andJsaddess:(NSString *)jsaddess
         andJslogo:(NSString *)jslogo
-          andJsqq:(NSString *)jsqq;
+    andJslogoIpad:(NSString *)jslogoIpad
+          andJsqq:(NSString *)jsqq
+       andOpenPic:(NSString *)openPic
+       andOpenPicIpad:(NSString *)openPicIpad;
 
 @end
 
@@ -90,6 +96,7 @@
 @property(nonatomic,strong) NSString *RoomId;
 @property(nonatomic,strong) NSString *DeviceId;
 @property(nonatomic,strong) NSString *OrderNo;
+@property(nonatomic,strong) NSString *Hora;
 
 //紧急模式下配置参数
 @property(nonatomic,strong) NSString *senceId;
@@ -105,7 +112,8 @@
           andHouseId:(NSString *)houseId
           andLayerId:(NSString *)layerId
            andRoomId:(NSString *)roomId
-         andDeviceId:(NSString *)deviceId;
+         andDeviceId:(NSString *)deviceId
+             andHora:(NSString *)hora;
 
 @end
 

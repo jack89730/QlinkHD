@@ -20,17 +20,20 @@
 @implementation Control
 
 +(Control *)setIp:(NSString *)ip
-        andSendType:(NSString *)sendType
-            andPort:(NSString *)port
-          andDomain:(NSString *)domain
-             andUrl:(NSString *)url
-       andUpdatever:(NSString *)updatever
+      andSendType:(NSString *)sendType
+          andPort:(NSString *)port
+        andDomain:(NSString *)domain
+           andUrl:(NSString *)url
+     andUpdatever:(NSString *)updatever
         andJsname:(NSString *)jsname
          andJstel:(NSString *)jstel
        andJsuname:(NSString *)jsuname
       andJsaddess:(NSString *)jsaddess
         andJslogo:(NSString *)jslogo
+    andJslogoIpad:(NSString *)jslogoIpad
           andJsqq:(NSString *)jsqq
+       andOpenPic:(NSString *)openPic
+       andOpenPicIpad:(NSString *)openPicIpad;
 {
     Control *obj = [[Control alloc] init];
     obj.Ip = ip;
@@ -44,7 +47,10 @@
     obj.Jsuname = jsuname;
     obj.Jsaddess = jsaddess;
     obj.Jslogo = jslogo;
+    obj.JslogoIpad = jslogoIpad;
     obj.Jsqq = jsqq;
+    obj.OpenPic = openPic;
+    obj.OpenPicIpad = openPicIpad;
     return obj;
 }
                                                                                                                                                         
@@ -80,17 +86,18 @@
 @implementation Order
 
 +(Order *)setOrderId:(NSString *)orderId
-     andOrderName:(NSString *)orderName
-          andType:(NSString *)type
-       andSubType:(NSString *)subType
-      andOrderCmd:(NSString *)orderCmd
-       andAddress:(NSString *)address
-      andStudyCmd:(NSString *)studyCmd
-       andOrderNo:(NSString *)orderNo
-       andHouseId:(NSString *)houseId
-       andLayerId:(NSString *)layerId
-        andRoomId:(NSString *)roomId
-      andDeviceId:(NSString *)deviceId
+        andOrderName:(NSString *)orderName
+             andType:(NSString *)type
+          andSubType:(NSString *)subType
+         andOrderCmd:(NSString *)orderCmd
+          andAddress:(NSString *)address
+         andStudyCmd:(NSString *)studyCmd
+          andOrderNo:(NSString *)orderNo
+          andHouseId:(NSString *)houseId
+          andLayerId:(NSString *)layerId
+           andRoomId:(NSString *)roomId
+         andDeviceId:(NSString *)deviceId
+             andHora:(NSString *)hora
 {
     Order *obj = [[Order alloc] init];
     obj.OrderId = orderId;
@@ -105,6 +112,7 @@
     obj.LayerId = layerId;
     obj.RoomId = roomId;
     obj.DeviceId = deviceId;
+    obj.Hora = hora;
     
     return obj;
 }

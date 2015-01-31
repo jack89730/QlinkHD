@@ -16,6 +16,7 @@
 #import "QuickOperDeviceChooseView.h"
 #import "UIView+xib.h"
 #import "KDGoalBar.h"
+#import "ReSetIpView.h"
 
 @interface BottomRightView()
 {
@@ -26,6 +27,7 @@
 
 @property(nonatomic,strong) QuickOperDeviceChooseView *popView;
 @property (weak, nonatomic) IBOutlet KDGoalBar *circleGoalBar;
+@property(nonatomic,retain) ReSetIpView *resetIpView;
 
 @end
 
@@ -108,7 +110,7 @@
 
     Config *configObj = [Config getConfig];
     if (configObj.isBuyCenterControl) {
-        NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"正常模式",@"紧急模式",@"写入中控",@"初始化",@"关于", nil];
+        NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"正常模式",@"紧急模式",@"写入中控",@"重写中控",@"重设IP",@"关于", nil];
         
         NSString *model = [DataUtil getGlobalModel];
         if ([model isEqualToString:Model_ZKDOMAIN] || [model isEqualToString:Model_ZKIp]) {//正常模式
@@ -138,11 +140,52 @@
                                   [weakSelf writeZk];
                                   break;
                               }
-                              case 3://初始化
+                              case 3://重写中控
                               {
+                                  [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+                                  
+                                  NSString *sUrl = [NetworkUtil geResetZK];
+                                  NSURL *url = [NSURL URLWithString:sUrl];
+                                  NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+                                  
+                                  AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+                                  [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
+                                   {
+                                       NSString *sConfig = [[NSString alloc] initWithData:responseObject encoding:[DataUtil getGB2312Code]];
+                                       NSRange range = [sConfig rangeOfString:@"error"];
+                                       if (range.location != NSNotFound)
+                                       {
+                                           NSArray *errorArr = [sConfig componentsSeparatedByString:@":"];
+                                           if (errorArr.count > 1) {
+                                               [SVProgressHUD showErrorWithStatus:errorArr[1]];
+                                               return;
+                                           }
+                                       }
+                                       
+                                       [SVProgressHUD dismiss];
+                                       
+                                       [UIAlertView alertViewWithTitle:@"温馨提示" message:@"设置成功,重启应用后生效."];
+                                       
+                                   }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       [UIAlertView alertViewWithTitle:@"温馨提示" message:@"设置失败,请稍后再试."];
+                                       [SVProgressHUD dismiss];
+                                   }];
+                                  
+                                  NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+                                  [queue addOperation:operation];
+                                  
                                   break;
                               }
-                              case 4://关于
+                              case 4://重设IP
+                              {
+                                  define_weakself;
+                                  self.resetIpView = [ReSetIpView viewFromDefaultXib];
+                                  self.resetIpView.frame = CGRectMake(0, 0, 1024, 768);
+                                  self.resetIpView.backgroundColor = [UIColor clearColor];
+                                  [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.resetIpView];
+                                  break;
+                              }
+                              case 5://关于
                               {
                                   [weakSelf about];
                                   break;
@@ -155,8 +198,25 @@
         [UIAlertView alertViewWithTitle:@"操作"
                                 message:nil
                       cancelButtonTitle:@"关闭"
-                      otherButtonTitles:@[@"关于"] onDismiss:^(int buttonIdx) {
-                          [weakSelf about];
+                      otherButtonTitles:@[@"重设IP",@"关于"] onDismiss:^(int buttonIdx) {
+                          switch (buttonIdx) {
+                              case 0://重设IP
+                              {
+                                  define_weakself;
+                                  self.resetIpView = [ReSetIpView viewFromDefaultXib];
+                                  self.resetIpView.frame = CGRectMake(0, 0, 1024, 768);
+                                  self.resetIpView.backgroundColor = [UIColor clearColor];
+                                  [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.resetIpView];
+                                  break;
+                              }
+                              case 1:
+                              {
+                                  [weakSelf about];
+                                  break;
+                              }
+                              default:
+                                  break;
+                          }
                       }onCancel:nil];
     }
     

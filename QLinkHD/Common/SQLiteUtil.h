@@ -31,8 +31,6 @@
 +(void)setDefaultLayerIdAndRoomId;
 //TODO:获取所有楼层(忽略多个房子)
 +(NSMutableArray *)getLayerList;
-//TODO:获取楼层下所有的房间
-+(NSMutableArray *)getRoomListByLayerId:(NSString *)layerId;
 
 //清除数据
 +(void)clearData;
@@ -146,5 +144,11 @@
        andLayerId:(NSString *)layerId
         andRoomId:(NSString *)roomId
        andSenceId:(NSString *)senceId;
+
+//更改设备Order命令
++(BOOL)updateDeviceOrder:(NSString *)orderId
+              andAddress:(NSString *)address
+             andOrderCmd:(NSString *)orderCmd
+                 andHora:(NSString *)hora;
 
 @end

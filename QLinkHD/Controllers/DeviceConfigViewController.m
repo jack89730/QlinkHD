@@ -12,10 +12,13 @@
 #import "DataUtil.h"
 #import "ActionNullClass.h"
 #import "MainViewController.h"
+#import "SeriesNumberView.h"
+#import "UIView+xib.h"
 
 @interface DeviceConfigViewController () <ActionNullClassDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *cvDeviceConfig;
+@property(nonatomic,retain) SeriesNumberView *numberView;
 
 @end
 
@@ -225,6 +228,18 @@
 }
 
 #pragma mark -
+- (IBAction)actionSetSerial:(id)sender
+{
+    define_weakself;
+    self.numberView = [SeriesNumberView viewFromDefaultXib];
+    self.numberView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.numberView.backgroundColor = [UIColor clearColor];
+    [self.numberView setComfirmBlock:^(NSString *ip) {
+        [weakSelf initRequest:[NetworkUtil getAction:ACTIONSETUP]];
+    }];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.numberView];
+}
 
 -(void)actionBack
 {
@@ -235,15 +250,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
