@@ -193,6 +193,14 @@
            andUKey:(NSString *)uKey
       andIsRemeber:(BOOL)isRemeber;
 
+//设置登录临时对象信息
++(void)setTempLoginUdMember:(NSString *)uName
+                    andUPwd:(NSString *)uPwd
+                    andUKey:(NSString *)uKey
+               andIsRemeber:(BOOL)isRemeber;
+//获取Ud对象用户信息
++(Member *)getTempLoginMember;
+
 @end
 
 /********************************TODO:Config(配置信息)****************************************************/

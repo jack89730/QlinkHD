@@ -18,7 +18,7 @@
                     andUKey:(NSString *)uKey;
 
 //获取 Action URL
-+(NSString *)getAction:(NSString *)action;
++(NSString *)getAction:(NSString *)action andMember:(Member *)loginUser;
 
 //获取设置ip地址
 +(NSString *)getSetUpIp:(NSString *)uName andPwd:(NSString *)uPwd andKey:(NSString *)uKey;

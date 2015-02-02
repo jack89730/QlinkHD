@@ -99,7 +99,7 @@
     
     [SVProgressHUD showWithStatus:@"请稍后" maskType:SVProgressHUDMaskTypeClear];
     
-    NSURL *url = [NSURL URLWithString:[[NetworkUtil getAction:ACTIONSETUPZK] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[[NetworkUtil getAction:ACTIONSETUPZK andMember:[Member getMember]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -563,7 +563,7 @@
                 //发送完成，关闭连接
                 if ([cmdOperArr_ count] == 0) {
                     if (!isSendZKFailAndSendLast_) {
-                        NSString *sUrl = [NetworkUtil getAction:ACTIONSETUPZKOK];
+                        NSString *sUrl = [NetworkUtil getAction:ACTIONSETUPZKOK andMember:[Member getMember]];
                         NSURL *url = [NSURL URLWithString:sUrl];
                         NSURLRequest *request = [NSURLRequest requestWithURL:url];
                         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];

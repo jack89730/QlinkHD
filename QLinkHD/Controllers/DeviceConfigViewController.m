@@ -49,7 +49,9 @@
     
     [self initIconData];
     
-    [self initRequest:[NetworkUtil getAction:ACTIONSETUP]];
+    Member *member = [Member getMember];
+    
+    [self initRequest:[NetworkUtil getAction:ACTIONSETUP andMember:member]];
 }
 
 -(void)initIconData
@@ -235,7 +237,8 @@
     self.numberView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.numberView.backgroundColor = [UIColor clearColor];
     [self.numberView setComfirmBlock:^(NSString *ip) {
-        [weakSelf initRequest:[NetworkUtil getAction:ACTIONSETUP]];
+        Member *member = [Member getMember];
+        [weakSelf initRequest:[NetworkUtil getAction:ACTIONSETUP andMember:member]];
     }];
     
     [[UIApplication sharedApplication].keyWindow addSubview:weakSelf.numberView];

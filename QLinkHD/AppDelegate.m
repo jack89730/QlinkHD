@@ -58,8 +58,14 @@
 -(void)checkDefaultCustom
 {
     Control *control = [SQLiteUtil getControlObj];
-    if (control && control.OpenPic) {
-        UIImage *image = [[UIImage alloc] initWithContentsOfFile:[[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"help.png"]];
+    if (control && control.OpenPicIpad) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *path = [[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"help.png"];
+        if (![fileManager fileExistsAtPath:path]) {
+            return;
+        }
+        
+        UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
         UIImageView *ivDefault = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         ivDefault.image = image;
         [self.window addSubview:ivDefault];

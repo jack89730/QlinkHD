@@ -12,9 +12,6 @@
 #import "RegisterViewController.h"
 
 @interface LoginViewController ()
-{
-    Member *_loginMember;
-}
 
 @property (weak, nonatomic) IBOutlet UIImageView *ivLogo;
 @property (weak, nonatomic) IBOutlet UIButton *btnRemeber;
@@ -69,8 +66,13 @@
         if (control.Jsname) {
             self.lblCompany.text = control.Jsname;
         }
-        if (control.Jslogo) {
-            UIImage *image = [[UIImage alloc] initWithContentsOfFile:[[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"logo.png"]];
+        if (control.JslogoIpad) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSString *path = [[DataUtil getDirectoriesInDomains] stringByAppendingPathComponent:@"logo.png"];
+            if (![fileManager fileExistsAtPath:path]) {
+                return;
+            }
+            UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
             self.ivLogo.image = image;
         }
     }
@@ -130,8 +132,12 @@
 
 - (IBAction)btnLoginPressed:(UIButton *)sender
 {
+    NSString *key = self.tfKey.text;
+    NSString *name = self.tfUserName.text;
+    NSString *pwd = self.tfUserPwd.text;
+    
     //判断登录是否为空
-    if ([DataUtil checkNullOrEmpty:self.tfKey.text] || [DataUtil checkNullOrEmpty:self.tfUserName.text] || [DataUtil checkNullOrEmpty:self.tfUserPwd.text]) {
+    if ([DataUtil checkNullOrEmpty:key] || [DataUtil checkNullOrEmpty:name] || [DataUtil checkNullOrEmpty:pwd]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示"
                                                         message:@"请输入完整的信息"
                                                        delegate:nil
@@ -143,17 +149,14 @@
         return;
     }
     
-    //当前登录信息
-    _loginMember = [Member new];
-    _loginMember.uKey = self.tfKey.text;
-    _loginMember.uName = self.tfUserName.text;
-    _loginMember.uPwd = self.tfUserPwd.text;
-    _loginMember.isRemeber = self.btnRemeber.selected;
-    self.pLoginMember = _loginMember;
+    [Member setTempLoginUdMember:name
+                         andUPwd:pwd
+                         andUKey:key
+                    andIsRemeber:self.btnRemeber.selected];
     
     [SVProgressHUD showWithStatus:@"正在验证..."];
     
-    NSString *sUrl = [NetworkUtil getActionLogin:self.tfUserName.text andUPwd:self.tfUserPwd.text andUKey:self.tfKey.text];
+    NSString *sUrl = [NetworkUtil getActionLogin:name andUPwd:pwd andUKey:key];
     NSURL *url = [NSURL URLWithString:sUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -190,8 +193,17 @@
              [weakSelf loadActionNULL];
          }
      }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         weakSelf.pConfigTemp = [Config getConfig];
-         [weakSelf loadActionNULL];
+         Member *curMember = [Member getMember];
+         if (curMember &&
+             [curMember.uKey isEqualToString:key] &&
+             [curMember.uName isEqualToString:name] &&
+             [curMember.uPwd isEqualToString:pwd])
+         {
+             weakSelf.pConfigTemp = [Config getConfig];
+             [weakSelf loadActionNULL];
+         } else {
+             [SVProgressHUD showErrorWithStatus:@"请确认网络链接\n或输入有效账号"];
+         }
      }];
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -218,7 +230,7 @@
 {
     [SVProgressHUD showWithStatus:@"正在配置ip..."];
     
-    NSString *sUrl = [NetworkUtil handleIpRequest:self.pLoginMember];
+    NSString *sUrl = [NetworkUtil handleIpRequest:[Member getTempLoginMember]];
     NSURL *url = [NSURL URLWithString:sUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -246,7 +258,9 @@
 
 -(void)requestSetUpIp
 {
-    NSString *sUrl = [NetworkUtil getSetUpIp:_loginMember.uName andPwd:_loginMember.uPwd andKey:_loginMember.uKey];
+    Member *member = [Member getTempLoginMember];
+    
+    NSString *sUrl = [NetworkUtil getSetUpIp:member.uName andPwd:member.uPwd andKey:member.uKey];
     NSURL *url = [NSURL URLWithString:sUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
